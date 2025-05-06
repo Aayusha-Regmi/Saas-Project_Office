@@ -1,4 +1,4 @@
-# React + Vite + Tailwind CSS Project
+
 
 This project was bootstrapped with [Vite](https://vitejs.dev/) and integrates [React](https://reactjs.org/) with [Tailwind CSS](https://tailwindcss.com/) for rapid UI development.
 
