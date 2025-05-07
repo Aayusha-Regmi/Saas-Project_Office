@@ -8,13 +8,14 @@ const PricingSection = () => {
       title: 'Basic',
       price: '$359/Monthly',
       features: [
-        'IRS Tax Problems',
-        'Business Tax Consulting',
-        'Tax Preparation and Planning',
-        'Tax Payroll Services',
-        'Bookkeeping and Virtual CFO',
-        'Accounting Virtual Controller'
+        { name: 'IRS Tax Problems', available: true },
+        { name: 'Business Tax Consulting', available: true },
+        { name: 'Tax Preparation and Planning', available: true },
+        { name: 'Tax Payroll Services', available: true },
+        { name: 'Bookkeeping and Virtual CFO', available: false },
+        { name: 'Accounting Virtual Controller', available: false }
       ],
+      
       isPopular: false
     },
     {
@@ -22,13 +23,14 @@ const PricingSection = () => {
       title: 'Standard',
       price: '$559/Monthly',
       features: [
-        'IRS Tax Problems',
-        'Business Tax Consulting',
-        'Tax Preparation and Planning',
-        'Tax Payroll Services',
-        'Bookkeeping and Virtual CFO',
-        'Accounting Virtual Controller'
+        { name: 'IRS Tax Problems', available: true },
+        { name: 'Business Tax Consulting', available: true },
+        { name: 'Tax Preparation and Planning', available: true },
+        { name: 'Tax Payroll Services', available: true },
+        { name: 'Bookkeeping and Virtual CFO', available: true },
+        { name: 'Accounting Virtual Controller', available: false }
       ],
+     
       isPopular: true
     },
     {
@@ -36,13 +38,14 @@ const PricingSection = () => {
       title: 'Premium',
       price: '$959/Monthly',
       features: [
-        'IRS Tax Problems',
-        'Business Tax Consulting',
-        'Tax Preparation and Planning',
-        'Tax Payroll Services',
-        'Bookkeeping and Virtual CFO',
-        'Accounting Virtual Controller'
+        { name: 'IRS Tax Problems', available: true },
+        { name: 'Business Tax Consulting', available: true },
+        { name: 'Tax Preparation and Planning', available: true },
+        { name: 'Tax Payroll Services', available: true },
+        { name: 'Bookkeeping and Virtual CFO', available: true },
+        { name: 'Accounting Virtual Controller', available: true }
       ],
+    
       isPopular: false
     }
   ];
@@ -98,13 +101,23 @@ const PricingSection = () => {
 
         {/* Feature List */}
         <ul className="space-y-3">
-          {plan.features.map((feature, index) => (
-            <li key={index} className="flex items-start">
-            <img src="/images/img_vector_16x16.svg" alt="Check" className="w-4 h-4 mt-1 mr-3" />
-            <span className="text-base font-semibold text-blue-800">{feature}</span>
-          </li>
-          ))}
-        </ul>
+  {plan.features.map((feature, index) => (
+    <li key={index} className="flex items-start">
+      <img
+        src={
+          feature.available
+            ? '/images/img_vector_16x16.svg' // ✅ check icon
+            : '/images/img_vector_1.svg'     // ❌ cross icon
+        }
+        alt={feature.available ? 'Available' : 'Unavailable'}
+        className="w-4 h-4 mt-1 mr-3"
+      />
+      
+        {feature.name}
+    
+    </li>
+  ))}
+</ul>
       </div>
     </div>
   ))}
