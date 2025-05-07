@@ -1,19 +1,19 @@
 import React from 'react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
-import HomeHeroSection from './HeroSection';
-import ServicesSection from './ServicesSection';
-import AboutSection from './AboutSection';
-import PricingSection from './PricingSection';
-import PricingCTASection from './PricingCTASection';
-import FeaturesSection from './FeaturesSection';
-import HowItWorksSection from './HowItWorksSection';
-import CaseStudySection from './CaseStudySection';
-import ConsultationSection from './ConsultationSection';
-import ExpertiseSection from './ExpertiseSection';
-import ContactSection from './ContactSection';
-import ExpertsSection from './ExpertsSection';
-import TestimonialsSection from './TestimonialsSection';
+import HomeHeroSection from './pageComponents/HeroSection';
+import ServicesSection from './pageComponents/ServicesSection';
+import AboutSection from './pageComponents/AboutSection';
+import PricingSection from './pageComponents/PricingSection';
+import PricingCTASection from './pageComponents/PricingCTASection';
+import FeaturesSection from './pageComponents/FeaturesSection';
+import HowItWorksSection from './pageComponents/HowItWorksSection';
+import CaseStudySection from './pageComponents/CaseStudySection';
+import ConsultationSection from './pageComponents/ConsultationSection';
+import ExpertiseSection from './pageComponents/ExpertiseSection';
+import ContactSection from './pageComponents/ContactSection';
+import ExpertsSection from './pageComponents/ExpertsSection';
+import TestimonialsSection from './pageComponents/TestimonialsSection';
 
 const HomePage = () => {
   return (

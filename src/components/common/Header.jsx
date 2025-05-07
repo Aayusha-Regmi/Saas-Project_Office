@@ -23,7 +23,7 @@ const Header = () => {
             Home
           </Link>
           <div className="relative group">
-            <Link to="#" className="text-lg font-bold text-blue-800 hover:text-blue-600 flex items-center">
+            <Link to="/industries" className="text-lg font-bold text-blue-800 hover:text-blue-600 flex items-center">
               Industries
               <img src="/images/img_expanddown.svg" alt="Expand" className="ml-1 w-6 h-6" />
             </Link>

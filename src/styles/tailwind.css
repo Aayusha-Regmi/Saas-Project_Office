@@ -9,19 +9,25 @@
     --primary-foreground: #ffffff;
     --primary-light: #22a8ff;
     --primary-dark: #0a1e43;
-
+    --primary-blue: #071e45;
+    --primary-light-blue: #22a8ff;
+    --primary-dark-blue: #0a1e43;
+    --primary-medium-blue: #0d79de;
+    --primary-bright-blue: #32b5fd;
+    --primary-ocean-blue: #1ca9e1;
+    --primary-deep-blue: #0e5d97;
     /* Secondary Colors */
     --secondary-background: #ffffff;
     --secondary-foreground: #071e45;
     --secondary-light: #eaf8ff;
     --secondary-dark: #797979;
-
+    --accent-red: #d61f26;
     /* Accent Colors */
     --accent-color: #e6797d;
     --accent-foreground: #ffffff;
     --accent-light: #d61f26;
     --accent-dark: #d61f26;
-
+    --accent-red: #d61f26;
     /* Border Colors */
     --border-primary: #32b5fd;
     --border-secondary: #ffffff;
@@ -63,6 +69,37 @@
   .bg-accent-light {
     background-color: var(--accent-light);
   }
+  .bg-primary-light-blue {
+    background-color: var(--primary-light-blue);
+  }
+  
+  .bg-primary-dark-blue {
+    background-color: var(--primary-dark-blue);
+  }
+  
+  .bg-primary-medium-blue {
+    background-color: var(--primary-medium-blue);
+  }
+  
+  .bg-primary-bright-blue {
+    background-color: var(--primary-bright-blue);
+  }
+  
+  .bg-primary-ocean-blue {
+    background-color: var(--primary-ocean-blue);
+  }
+  
+  .bg-primary-deep-blue {
+    background-color: var(--primary-deep-blue);
+  }
+  
+  .bg-secondary-white {
+    background-color: var(--secondary-white);
+  }
+  
+  .bg-accent-red {
+    background-color: var(--accent-red);
+  }
 
   .bg-accent-dark {
     background-color: var(--accent-dark);
@@ -72,11 +109,25 @@
   .text-primary-white {
     color: var(--primary-foreground);
   }
-
+  .text-secondary-gray {
+    color: var(--secondary-gray);
+  }
   .text-secondary-blue {
     color: var(--secondary-foreground);
   }
-
+  .text-primary-blue {
+    color: var(--primary-blue);
+  }
+  
+  .text-primary-light-blue {
+    color: var(--primary-light-blue);
+  }
+  .text-secondary-white {
+    color: var(--secondary-white);
+  }
+  .text-primary-medium-blue {
+    color: var(--primary-medium-blue);
+  }
   .text-accent-white {
     color: var(--accent-foreground);
   }
@@ -96,5 +147,30 @@
 
   .border-dark {
     border-color: var(--border-dark);
+  }
+}
+@layer components {
+  .industry-card {
+    @apply flex flex-col mb-16;
+  }
+  
+  .industry-title {
+    @apply text-4xl font-semibold leading-[55px] text-primary-blue mb-6;
+  }
+  
+  .industry-description {
+    @apply text-lg font-normal leading-7 text-secondary-gray mb-8;
+  }
+  
+  .read-more-btn {
+    @apply border border-border-dark rounded-md py-2.5 px-6 w-[180px] text-center;
+  }
+  
+  .read-more-btn-default {
+    @apply bg-white text-primary-medium-blue hover:bg-primary-light-blue hover:text-white transition-colors;
+  }
+  
+  .read-more-btn-active {
+    @apply bg-primary-light-blue text-white;
   }
 }
