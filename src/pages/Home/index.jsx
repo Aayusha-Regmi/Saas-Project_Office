@@ -22,8 +22,9 @@ const HomePage = () => {
       
       <main className="flex-grow">
         <HomeHeroSection />
-        <ServicesSection />
         <AboutSection />
+        <ServicesSection />
+        
         <PricingSection />
         <PricingCTASection />
         <FeaturesSection />
