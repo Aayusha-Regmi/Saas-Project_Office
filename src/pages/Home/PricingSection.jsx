@@ -62,41 +62,55 @@ const PricingSection = () => {
         <h2 className="text-4xl font-bold text-blue-800 text-center mb-16">
           Let's Check Our Pricing<br />Plan For You
         </h2>
-
+        {/** */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {pricingPlans.map((plan) => (
-            <div 
-              key={plan.id} 
-              className={`bg-white rounded-sm shadow-md ${plan.isPopular ? 'border-2 border-blue-500' : ''}`}
-            >
-              <div className="p-6">
-                <h3 className="text-4xl font-bold text-blue-800 text-center mb-6">{plan.price}</h3>
-                
-                {plan.isPopular && (
-                  <div className="absolute top-0 right-0 bg-blue-500 text-white py-1 px-6 rounded-tr-sm rounded-bl-sm">
-                    <p className="text-lg font-semibold">{plan.title}</p>
-                  </div>
-                )}
-                
-                <Button 
-                  variant="primary" className="w-full flex items-center justify-center mb-6"
-                >
-                  Purchase Now
-                  <img src="/images/img_materialsymbolsarrowinsert.svg" alt="" className="ml-2 w-6 h-6" />
-                </Button>
-                
-                <ul className="space-y-3">
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <img src="/images/img_vector_16x16.svg" alt="Check" className="w-4 h-4 mt-1 mr-3" />
-                      <span className="text-base font-semibold text-blue-800">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+  {pricingPlans.map((plan) => (
+    <div
+      key={plan.id}
+      className={`bg-white rounded-sm shadow-md p-6 relative ${
+        plan.isPopular ? 'border-2 border-blue-500' : ''
+      }`}
+    >
+      {/* Plan Title Ribbon (always visible, top-right) */}
+      <div className="absolute top-0 right-0 bg-blue-500 text-white py-1 px-4 rounded-bl-md z-10 shadow-md">
+        <p className="text-sm font-semibold">{plan.title}</p>
+      </div>
+
+      {/* Price */}
+      <div className="pt-6">
+        <h3 className="text-4xl font-bold text-blue-800 text-center mb-1">
+          {plan.price}
+          <span className="text-base font-medium text-black">/Monthly</span>
+        </h3>
+
+        {/* Purchase Button */}
+        <Button
+          variant="primary"
+          className="w-full flex items-center justify-center my-6"
+        >
+          Purchase Now
+          <img
+            src="/images/img_materialsymbolsarrowinsert.svg"
+            alt=""
+            className="ml-2 w-6 h-6"
+          />
+        </Button>
+
+        {/* Feature List */}
+        <ul className="space-y-3">
+          {plan.features.map((feature, index) => (
+            <li key={index} className="flex items-start">
+            <img src="/images/img_vector_16x16.svg" alt="Check" className="w-4 h-4 mt-1 mr-3" />
+            <span className="text-base font-semibold text-blue-800">{feature}</span>
+          </li>
           ))}
-        </div>
+        </ul>
+      </div>
+    </div>
+  ))}
+</div>
+
+
       </div>
     </section>
   );
