@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary-blue: #071e45;
+    --primary-light-blue: #22a8ff;
+    --primary-dark-blue: #0a1e43;
+    --accent-blue: #32b5fd;
+    
+    /* Secondary Colors */
+    --secondary-white: #ffffff;
+    --secondary-light-gray: #f7f7f7;
+    --secondary-gray: #6b6c72;
+    --secondary-dark-gray: #393a3d;
+    
+    /* Accent Colors */
+    --accent-green: #0a8543;
+    --accent-dark-green: #0d333f;
+    
+    /* Border Colors */
+    --border-light: #e0e0e0;
+    --border-gray: #cccccc;
+  }
+}
+
+@layer utilities {
+  .bg-primary-blue {
+    background-color: var(--primary-blue);
+  }
+  
+  .bg-primary-light-blue {
+    background-color: var(--primary-light-blue);
+  }
+  
+  .bg-primary-dark-blue {
+    background-color: var(--primary-dark-blue);
+  }
+  
+  .bg-accent-blue {
+    background-color: var(--accent-blue);
+  }
+  
+  .bg-accent-green {
+    background-color: var(--accent-green);
+  }
+  
+  .bg-accent-dark-green {
+    background-color: var(--accent-dark-green);
+  }
+  
+  .text-primary-blue {
+    color: var(--primary-blue);
+  }
+  
+  .text-primary-light-blue {
+    color: var(--primary-light-blue);
+  }
+  
+  .text-secondary-gray {
+    color: var(--secondary-gray);
+  }
+  
+  .text-secondary-dark-gray {
+    color: var(--secondary-dark-gray);
+  }
+}
