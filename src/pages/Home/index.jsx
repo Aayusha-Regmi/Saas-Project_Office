@@ -8,6 +8,7 @@ import PricingSection from './pageComponents/PricingSection';
 import PricingCTASection from './pageComponents/PricingCTASection';
 import FeaturesSection from './pageComponents/FeaturesSection';
 import HowItWorksSection from './pageComponents/HowItWorksSection';
+import StatsSection from '../About/AboutComponents/StatsSection';
 import CaseStudySection from './pageComponents/CaseStudySection';
 import ConsultationSection from './pageComponents/ConsultationSection';
 import ExpertiseSection from './pageComponents/ExpertiseSection';
@@ -22,6 +23,7 @@ const HomePage = () => {
       
       <main className="flex-grow">
         <HomeHeroSection />
+        <StatsSection />
         <AboutSection />
         <ServicesSection />
         

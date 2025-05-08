@@ -18,7 +18,10 @@
     --primary-deep-blue: #0e5d97;
     /* Secondary Colors */
     --secondary-background: #ffffff;
+    --secondary-white: #ffffff;
     --secondary-foreground: #071e45;
+    --secondary-light-gray: #f7f7f7;
+    --secondary-gray: #333333;
     --secondary-light: #eaf8ff;
     --secondary-dark: #797979;
     --accent-red: #d61f26;
@@ -26,12 +29,15 @@
     --accent-color: #e6797d;
     --accent-foreground: #ffffff;
     --accent-light: #d61f26;
+    --accent-orange: #ff793f;
     --accent-dark: #d61f26;
+    --accent-light-blue: #eaf8ff;
     --accent-red: #d61f26;
     /* Border Colors */
     --border-primary: #32b5fd;
     --border-secondary: #ffffff;
     --border-light: #e0e0e0;
+    --border-medium: #cccccc;
     --border-dark: #071e45;
   }
 }
@@ -76,6 +82,9 @@
   .bg-primary-dark-blue {
     background-color: var(--primary-dark-blue);
   }
+  .bg-accent-light-blue {
+    background-color: var(--accent-light-blue);
+  }
   
   .bg-primary-medium-blue {
     background-color: var(--primary-medium-blue);
@@ -100,7 +109,10 @@
   .bg-accent-red {
     background-color: var(--accent-red);
   }
-
+  .bg-accent-orange {
+    background-color: var(--accent-orange);
+  }
+  
   .bg-accent-dark {
     background-color: var(--accent-dark);
   }
@@ -130,6 +142,15 @@
   }
   .text-accent-white {
     color: var(--accent-foreground);
+  }
+  .text-primary-bright-blue {
+    color: var(--primary-bright-blue);
+  }
+  .text-primary-dark-blue {
+    color: var(--primary-dark-blue);
+  }
+  .text-accent-orange {
+    color: var(--accent-orange);
   }
 
   /* Border Color Utilities */

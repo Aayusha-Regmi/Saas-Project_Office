@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../components/ui/Button';
+import AboutButton from '../../../components/ui/AboutButton';
 
 const AboutSection = () => {
   return (
@@ -40,10 +40,10 @@ const AboutSection = () => {
               <img src="/images/img_image_30.png" alt="Financial services" className="w-15 h-15" />
             </div>
             
-            <Button className="flex items-center bg-[#32b5fd] text-white px-6 py-4 rounded-md">
+            <AboutButton className="flex items-center bg-[#32b5fd] text-white px-6 py-4 rounded-md">
               Discover More
               <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-2" />
-            </Button>
+            </AboutButton>
           </div>
         </div>
       </div>

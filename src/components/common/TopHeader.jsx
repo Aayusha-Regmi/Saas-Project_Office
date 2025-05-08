@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const IndustryHeader = () => {
+const TopHeader = () => {
   const [language, setLanguage] = useState('English');
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
 
@@ -77,4 +77,4 @@ const IndustryHeader = () => {
   );
 };
 
-export default IndustryHeader;
+export default TopHeader;

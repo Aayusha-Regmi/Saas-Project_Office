@@ -2,14 +2,14 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Import page components
-import AboutUsPage from './pages/AboutUs';
+import PAbout from './pages/AboutUs/PAbout';
 
 const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<AboutUsPage />} />
-        <Route path="/about-us" element={<AboutUsPage />} />
+        <Route path="/" element={<PAbout />} />
+        <Route path="/about" element={<PAbout />} />
       </Routes>
     </Router>
   );

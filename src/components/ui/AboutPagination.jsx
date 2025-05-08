@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Pagination = ({
+const AboutPagination = ({
   currentPage,
   totalPages,
   onPageChange,
@@ -89,11 +89,11 @@ const Pagination = ({
   );
 };
 
-Pagination.propTypes = {
+AboutPagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
   className: PropTypes.string,
 };
 
-export default Pagination;
+export default AboutPagination;

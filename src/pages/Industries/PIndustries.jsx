@@ -1,5 +1,5 @@
 import React from 'react';
-import IndustryHeader from '../../components/common/IndustryHeader';
+import TopHeader from '../../components/common/TopHeader';
 import Footer from '../../components/common/Footer';
 import Header from '../../components/common/Header';
 import HeroSection from '../../components/common/IndustryHeroSection';
@@ -10,7 +10,7 @@ const Industries = () => {
   return (
     <div className="min-h-screen flex flex-col">
       
-      <IndustryHeader />
+      <TopHeader />
       <Header />
       
       <main className="flex-grow">

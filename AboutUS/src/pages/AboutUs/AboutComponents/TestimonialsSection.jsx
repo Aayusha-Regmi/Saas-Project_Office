@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Card from '../../components/common/Card';
-import RatingBar from '../../components/ui/RatingBar';
-import Button from '../../components/ui/Button';
+import Card from '../../../components/common/AboutCard';
+import RatingBar from '../../../components/ui/AboutRatingBar';
+import Button from '../../../components/ui/AboutButton';
 
 const TestimonialsSection = () => {
   const [activeSlide, setActiveSlide] = useState(0);

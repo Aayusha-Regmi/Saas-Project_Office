@@ -29,28 +29,28 @@ const Header = () => {
             </Link>
           </div>
           <div className="relative group">
-            <Link to="#" className="text-lg font-bold text-blue-800 hover:text-blue-600 flex items-center">
+            <Link to="/services" className="text-lg font-bold text-blue-800 hover:text-blue-600 flex items-center">
               Services
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-6 h-6" />
             </Link>
           </div>
-          <Link to="#" className="text-lg font-bold text-blue-800 hover:text-blue-600">
+          <Link to="/teams" className="text-lg font-bold text-blue-800 hover:text-blue-600">
             Teams
           </Link>
           <div className="relative group">
-            <Link to="#" className="text-lg font-bold text-blue-800 hover:text-blue-600 flex items-center">
+            <Link to="/calculations" className="text-lg font-bold text-blue-800 hover:text-blue-600 flex items-center">
               Calculations
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-6 h-6" />
             </Link>
           </div>
           <div className="relative group">
-            <Link to="#" className="text-lg font-bold text-blue-800 hover:text-blue-600 flex items-center">
+            <Link to="/insights" className="text-lg font-bold text-blue-800 hover:text-blue-600 flex items-center">
               Insights
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-6 h-6" />
             </Link>
           </div>
           <div className="relative group">
-            <Link to="#" className="text-lg font-bold text-blue-800 hover:text-blue-600 flex items-center">
+            <Link to="/about" className="text-lg font-bold text-blue-800 hover:text-blue-600 flex items-center">
               About
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-6 h-6" />
             </Link>
@@ -96,22 +96,22 @@ const Header = () => {
             <Link to="/" className="text-lg font-bold text-blue-500 hover:text-blue-600">
               Home
             </Link>
-            <Link to="#" className="text-lg font-bold text-blue-800 hover:text-blue-600">
+            <Link to="/industries" className="text-lg font-bold text-blue-800 hover:text-blue-600">
               Industries
             </Link>
-            <Link to="#" className="text-lg font-bold text-blue-800 hover:text-blue-600">
+            <Link to="/services" className="text-lg font-bold text-blue-800 hover:text-blue-600">
               Services
             </Link>
-            <Link to="#" className="text-lg font-bold text-blue-800 hover:text-blue-600">
+            <Link to="/teams" className="text-lg font-bold text-blue-800 hover:text-blue-600">
               Teams
             </Link>
-            <Link to="#" className="text-lg font-bold text-blue-800 hover:text-blue-600">
+            <Link to="/calculations" className="text-lg font-bold text-blue-800 hover:text-blue-600">
               Calculations
             </Link>
-            <Link to="#" className="text-lg font-bold text-blue-800 hover:text-blue-600">
+            <Link to=" /insights" className="text-lg font-bold text-blue-800 hover:text-blue-600">
               Insights
             </Link>
-            <Link to="#" className="text-lg font-bold text-blue-800 hover:text-blue-600">
+            <Link to="/about" className="text-lg font-bold text-blue-800 hover:text-blue-600">
               About
             </Link>
             <div className="flex items-center pt-2">

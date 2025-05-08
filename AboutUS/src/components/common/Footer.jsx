@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../ui/Button';
-import InputField from '../ui/InputField';
+import Button from '../ui/AboutButton';
+import InputField from '../ui/AboutInputField';
 
 const Footer = () => {
   const [email, setEmail] = React.useState('');

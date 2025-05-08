@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const RatingBar = ({ rating, maxRating = 5, size = 'medium', color = '#ff793f', className = '' }) => {
+const AboutRatingBar = ({ rating, maxRating = 5, size = 'medium', color = '#ff793f', className = '' }) => {
   const renderStars = () => {
     const stars = [];
     
@@ -39,7 +39,7 @@ const RatingBar = ({ rating, maxRating = 5, size = 'medium', color = '#ff793f', 
   );
 };
 
-RatingBar.propTypes = {
+AboutRatingBar.propTypes = {
   rating: PropTypes.number.isRequired,
   maxRating: PropTypes.number,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
@@ -47,4 +47,4 @@ RatingBar.propTypes = {
   className: PropTypes.string,
 };
 
-export default RatingBar;
+export default AboutRatingBar;

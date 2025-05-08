@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ children, onClick, variant = 'primary', size = 'medium', disabled = false, type = 'button', className = '', ...props }) => {
+const AboutButton = ({ children, onClick, variant = 'primary', size = 'medium', disabled = false, type = 'button', className = '', ...props }) => {
   const baseClasses = 'font-medium rounded transition-colors duration-200 focus:outline-none';
   
   const variants = {
@@ -31,7 +31,7 @@ const Button = ({ children, onClick, variant = 'primary', size = 'medium', disab
   );
 };
 
-Button.propTypes = {
+AboutButton.propTypes = {
   children: PropTypes.node,
   onClick: PropTypes.func,
   variant: PropTypes.oneOf(['primary', 'secondary', 'outline']),
@@ -41,4 +41,4 @@ Button.propTypes = {
   className: PropTypes.string,
 };
 
-export default Button;
+export default AboutButton;

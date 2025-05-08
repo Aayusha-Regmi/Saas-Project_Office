@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputField = ({
+const AboutInputField = ({
   type = 'text',
   placeholder,
   value,
@@ -43,7 +43,7 @@ const InputField = ({
   );
 };
 
-InputField.propTypes = {
+AboutInputField.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -57,4 +57,4 @@ InputField.propTypes = {
   className: PropTypes.string,
 };
 
-export default InputField;
+export default AboutInputField;

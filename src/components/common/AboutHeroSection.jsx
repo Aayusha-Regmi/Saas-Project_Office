@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Breadcrumbs from '../ui/Breadcrumbs';
 
-const HeroSection = ({ title, breadcrumbItems }) => {
+const AboutHeroSection = ({ title, breadcrumbItems }) => {
   return (
     <section 
       className="relative py-16 bg-cover bg-center text-white" style={{ backgroundImage: 'url("/images/img_image.png")' }}
@@ -16,7 +16,7 @@ const HeroSection = ({ title, breadcrumbItems }) => {
   );
 };
 
-HeroSection.propTypes = {
+AboutHeroSection.propTypes = {
   title: PropTypes.string.isRequired,
   breadcrumbItems: PropTypes.arrayOf(
     PropTypes.shape({
@@ -26,4 +26,4 @@ HeroSection.propTypes = {
   ).isRequired,
 };
 
-export default HeroSection;
+export default AboutHeroSection;

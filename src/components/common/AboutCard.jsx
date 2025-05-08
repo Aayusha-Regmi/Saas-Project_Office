@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ({ 
+const AboutCard = ({ 
   children, 
   className = '', 
   rounded = 'md', 
@@ -51,7 +51,7 @@ const Card = ({
   );
 };
 
-Card.propTypes = {
+AboutCard.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   rounded: PropTypes.oneOf(['none', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', 'full']),
@@ -61,4 +61,4 @@ Card.propTypes = {
   borderColor: PropTypes.string,
 };
 
-export default Card;
+export default AboutCard;
