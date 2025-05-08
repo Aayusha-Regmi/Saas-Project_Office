@@ -8,7 +8,6 @@ This project was bootstrapped with [Vite](https://vitejs.dev/) and integrates [R
 - 🎨 **Utility-First CSS**: Tailwind CSS for rapid styling without leaving your HTML
 - ⚛️ **React 18**: Built with the latest React features
 - 📱 **Responsive**: Mobile-first design approach using Tailwind's responsive utilities
-- 🔍 **TypeScript Support**: Optional strong typing for robust development
 - 📦 **Optimized Production Build**: Small bundle size with automatic optimizations
 
 ## Prerequisites
@@ -139,7 +138,7 @@ This project can be deployed to any static hosting service:
 - [Netlify](https://www.netlify.com/)
 - [GitHub Pages](https://pages.github.com/)
 - [Cloudflare Pages](https://pages.cloudflare.com/)
-- [Render](https://render.com/)
+
 
 ## Contributing
 
