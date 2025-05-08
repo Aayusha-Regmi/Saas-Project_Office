@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary-background: #0a1e43;
+    --primary-foreground: #ffffff;
+    --primary-light: #22a8ff;
+    --primary-dark: #071e45;
+
+    /* Secondary Colors */
+    --secondary-background: #ffffff;
+    --secondary-foreground: #071e45;
+    --secondary-light: #eaf8ff;
+    --secondary-dark: #797979;
+
+    /* Accent Colors */
+    --accent-color: #22a8ff;
+    --accent-foreground: #ffffff;
+    --accent-light: #32b5fd;
+    --accent-dark: #0a1e43;
+
+    /* Border Colors */
+    --border-primary: #dbdada;
+    --border-secondary: #071e45;
+    --border-light: #eaf8ff;
+    --border-dark: #0a1e43;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-lg font-bold text-blue-800 hover:text-blue-600 transition-colors duration-200;
+  }
+  
+  .nav-link-active {
+    @apply text-lg font-bold text-blue-600;
+  }
+  
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-blue-800 mb-6;
+  }
+  
+  .case-detail-label {
+    @apply text-lg font-bold text-blue-800 mb-2;
+  }
+  
+  .case-detail-value {
+    @apply text-base font-light text-blue-800 mb-6;
+  }
+  
+  .content-paragraph {
+    @apply text-lg md:text-xl font-semibold text-gray-400 mb-6;
+  }
+}
+
+@layer utilities {
+  .bg-primary-blue {
+    background-color: var(--primary-background);
+  }
+
+  .bg-primary-light {
+    background-color: var(--primary-light);
+  }
+
+  .bg-secondary-light {
+    background-color: var(--secondary-light);
+  }
+
+  .text-primary-white {
+    color: var(--primary-foreground);
+  }
+
+  .text-secondary-dark {
+    color: var(--secondary-foreground);
+  }
+  
+  .text-accent-blue {
+    color: var(--accent-color);
+  }
+}
