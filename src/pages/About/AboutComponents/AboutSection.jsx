@@ -1,49 +1,63 @@
 import React from 'react';
-import AboutButton from '../../../components/ui/AboutButton';
+import Button from '../../../components/ui/Button';
 
 const AboutSection = () => {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          {/* Left side - Image */}
-          <div className="w-full md:w-1/2 relative">
-            <div className="rounded-full overflow-hidden">
-              <img 
-                src="/images/img_image_541x538.png" alt="Tax professionals in a meeting" className="w-full h-auto"
-              />
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex items-center bg-gray-600 rounded-xl">
+            <div className="bg-blue-500 w-[38px] h-[38px] rounded-xl flex items-center justify-center">
+              <span className="text-white font-semibold">%</span>
             </div>
-            
-            {/* Experience badge */}
-            <div className="absolute bottom-0 left-0 bg-[#22a8ff] text-white p-4 rounded-lg w-40 h-40 flex flex-col items-center justify-center text-center">
-              <span className="text-4xl font-bold">30</span>
-              <span className="text-lg font-medium">Years of</span>
-              <span className="text-lg font-medium">Experience</span>
+            <span className="text-base font-semibold text-blue-500 px-4">About Us</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="md:col-span-1 relative">
+            <img src="/images/img_image.png" alt="About Us" className="w-full h-auto rounded-full" />
+            <div className="absolute bottom-[7rem] left-[1rem] bg-blue-500 p-2 rounded-lg">
+              <p className="text-sm font-bold text-white text-center">
+               <span className='text-2xl'>30</span><br />Years of<br />Experience
+              </p>
             </div>
           </div>
-          
-          {/* Right side - Content */}
-          <div className="w-full md:w-1/2">
-            <div className="flex items-center mb-6">
-              <div className="bg-[#22a8ff] w-14 h-14 rounded-full flex items-center justify-center mr-4">
-                <span className="text-3xl font-semibold text-white">%</span>
+
+          <div className="md:col-span-1">
+            <h2 className="text-4xl font-bold text-blue-800 mb-8">
+              Maximize Your Tax And<br />Savings With Us
+            </h2>
+            
+            <p className="text-xl font-semibold text-gray-400 mb-8">
+              Finance Minister Barshaman Pun has tabled a budget of<br />
+              Rs. 18.60 trillion for the fiscal year 2081/82 at the parliament.
+            </p>
+            
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="flex items-center">
+                <img src="/images/img_image_29.png" alt="Feature" className="w-[38px] h-[38px] mr-3" />
+                <div>
+                  <h3 className="text-sm font-bold">Professional Team</h3>
+                  <p className="text-xs text-gray-400">It has survived words which not only five centuries.</p>
+                </div>
               </div>
-              <h2 className="text-3xl font-semibold text-[#32b5fd]">About Us</h2>
+              
+              <div className="flex items-center">
+                <img src="/images/img_image_30.png" alt="Feature" className="w-[38px] h-[38px] mr-3" />
+                <div>
+                  <h3 className="text-sm font-bold">Clients Satisfaction</h3>
+                  <p className="text-xs text-gray-400">Take a look at our round up of the best shows.</p>
+                </div>
+              </div>
             </div>
             
-            <h3 className="text-4xl font-bold text-[#071e45] mb-8">
-              Maximize your tax and savings with us
-            </h3>
-            
-            <div className="flex items-center space-x-6 mb-8">
-              <img src="/images/img_image_29.png" alt="Tax services" className="w-15 h-15" />
-              <img src="/images/img_image_30.png" alt="Financial services" className="w-15 h-15" />
-            </div>
-            
-            <AboutButton className="flex items-center bg-[#32b5fd] text-white px-6 py-4 rounded-md">
+            <Button 
+              variant="primary" className="flex items-center"
+            >
               Discover More
-              <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-2" />
-            </AboutButton>
+              <img src="/images/img_materialsymbolsarrowinsert.svg" alt="" className="ml-2 w-6 h-6" />
+            </Button>
           </div>
         </div>
       </div>

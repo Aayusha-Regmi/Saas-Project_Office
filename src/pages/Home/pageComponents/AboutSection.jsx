@@ -15,11 +15,11 @@ const AboutSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="md:col-span-1 relative">
+        <div className="md:col-span-1 relative">
             <img src="/images/img_image.png" alt="About Us" className="w-full h-auto rounded-full" />
-            <div className="absolute top-6 left-6 bg-blue-500 p-2 rounded-lg">
+            <div className="absolute bottom-[7rem] left-[1rem] bg-blue-500 p-2 rounded-lg">
               <p className="text-sm font-bold text-white text-center">
-                30<br />Years of<br />Experience
+               <span className='text-2xl'>30</span><br />Years of<br />Experience
               </p>
             </div>
           </div>

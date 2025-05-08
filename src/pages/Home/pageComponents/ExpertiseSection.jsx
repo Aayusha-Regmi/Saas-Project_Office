@@ -58,14 +58,7 @@ const ExpertiseSection = () => {
           </div>
 
           <div className="md:col-span-1">
-            <h2 className="text-4xl font-bold text-blue-800 mb-8">
-              Maximize Your Tax And<br />Savings With Us
-            </h2>
-            
-            <p className="text-xl font-semibold text-gray-400 mb-8">
-              Finance Minister Barshaman Pun has tabled a budget of<br />
-              Rs. 18.60 trillion for the fiscal year 2081/82 at the parliament.
-            </p>
+           
             
             <div className="space-y-8">
               {benefits.map((benefit) => (
