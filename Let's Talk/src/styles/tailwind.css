@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary-blue: #0a1e43;
+    --primary-lightBlue: #32b5fd;
+    --primary-darkBlue: #071e45;
+    --primary-mediumBlue: #040948;
+    --primary-navy: #040c5a;
+
+    /* Secondary Colors */
+    --secondary-lightBlue: #eaf8ff;
+    --secondary-gray: #797979;
+    --secondary-white: #ffffff;
+
+    /* Accent Colors */
+    --accent-orange: #ec7029;
+    --accent-lightOrange: #d78d62;
+    --accent-brightBlue: #009dff;
+
+    /* Border Colors */
+    --border-light: #e0e0e0;
+    --border-dark: #666666;
+  }
+}
+
+@layer components {
+  .contact-card {
+    @apply bg-secondary-lightBlue rounded-[20px] rounded-tr-[50px] rounded-br-[50px] rounded-bl-[50px] p-6 flex flex-col items-center;
+  }
+  
+  .contact-form-input {
+    @apply bg-white rounded-[29px] px-16 py-4 w-full text-primary-mediumBlue text-lg focus:outline-none focus:ring-2 focus:ring-primary-lightBlue;
+  }
+  
+  .contact-form-textarea {
+    @apply bg-white rounded-[20px] px-16 py-4 w-full text-primary-mediumBlue text-lg focus:outline-none focus:ring-2 focus:ring-primary-lightBlue;
+  }
+}
+
+@layer utilities {
+  .bg-primary-blue {
+    background-color: var(--primary-blue);
+  }
+  
+  .bg-primary-lightBlue {
+    background-color: var(--primary-lightBlue);
+  }
+  
+  .bg-primary-darkBlue {
+    background-color: var(--primary-darkBlue);
+  }
+  
+  .bg-primary-mediumBlue {
+    background-color: var(--primary-mediumBlue);
+  }
+  
+  .bg-primary-navy {
+    background-color: var(--primary-navy);
+  }
+  
+  .bg-secondary-lightBlue {
+    background-color: var(--secondary-lightBlue);
+  }
+  
+  .bg-secondary-gray {
+    background-color: var(--secondary-gray);
+  }
+  
+  .bg-secondary-white {
+    background-color: var(--secondary-white);
+  }
+  
+  .text-primary-blue {
+    color: var(--primary-blue);
+  }
+  
+  .text-primary-lightBlue {
+    color: var(--primary-lightBlue);
+  }
+  
+  .text-primary-darkBlue {
+    color: var(--primary-darkBlue);
+  }
+  
+  .text-primary-mediumBlue {
+    color: var(--primary-mediumBlue);
+  }
+  
+  .text-secondary-gray {
+    color: var(--secondary-gray);
+  }
+  
+  .text-secondary-white {
+    color: var(--secondary-white);
+  }
+}
