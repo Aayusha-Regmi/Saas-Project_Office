@@ -1,7 +1,7 @@
 import React from 'react';
+import Breadcrumbs from '../ui/Breadcrumbs';
 
-
-const HeroSection = ({ title, breadcrumb }) => {
+const IndustryHeroSection = ({ title, breadcrumbItem }) => {
   return (
     <div className="relative w-full h-[311px]">
       <img 
@@ -11,10 +11,11 @@ const HeroSection = ({ title, breadcrumb }) => {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
         <h1 className="text-2xl font-extrabold mb-1">{title}</h1>
-        <p className="text-lg font-extrabold">{breadcrumb}</p>
+        <Breadcrumbs items={breadcrumbItem} />
+        {/*<p className="text-lg font-extrabold">{breadcrumb}</p>*/}
       </div>
     </div>
   );
 };
 
-export default HeroSection;
+export default IndustryHeroSection;

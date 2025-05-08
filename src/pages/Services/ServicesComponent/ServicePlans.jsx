@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from '../../components/common/Card';
+import ServicesCard from '../../../components/common/ServicesCard';
 
-const ServiceCards = () => {
+const ServicePlans = () => {
   const services = [
     {
       id: 1,
@@ -64,7 +64,7 @@ const ServiceCards = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {services.map(service => (
-        <Card
+        <ServicesCard
           key={service.id}
           title={service.title}
           description={service.description}
@@ -78,4 +78,4 @@ const ServiceCards = () => {
   );
 };
 
-export default ServiceCards;
+export default ServicePlans;

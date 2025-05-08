@@ -2,14 +2,14 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Import page components
-import ServicesPage from './pages/Services';
+import Services from './pages/Services/Services';
 
 const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/" element={<ServicesPage />} /> {/* Default route */}
+        <Route path="/services" element={<Services/>} />
+        <Route path="/" element={<Services />} /> {/* Default route */}
       </Routes>
     </Router>
   );

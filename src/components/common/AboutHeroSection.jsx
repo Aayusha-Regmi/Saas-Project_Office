@@ -16,14 +16,6 @@ const AboutHeroSection = ({ title, breadcrumbItems }) => {
   );
 };
 
-AboutHeroSection.propTypes = {
-  title: PropTypes.string.isRequired,
-  breadcrumbItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
+
 
 export default AboutHeroSection;

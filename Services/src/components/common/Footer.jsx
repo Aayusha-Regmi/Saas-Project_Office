@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../ui/Button';
-import InputField from '../ui/InputField';
+import ServicesButton from '../ui/ServicesButton';
+import ServicesInputField from '../ui/ServicesInputField';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -37,19 +37,19 @@ const Footer = () => {
             <div className="mb-4">
               <h4 className="text-xl font-semibold mb-2">Email</h4>
               <div className="flex">
-                <InputField
+                <ServicesInputField
                   type="email" placeholder="Your email"
                   value={email}
                   onChange={handleEmailChange}
                   className="rounded-l-md rounded-r-none border-r-0"
                 />
-                <Button 
+                <ServicesButton 
                   onClick={handleSubscribe}
                   className="rounded-l-none rounded-r-md h-[47px]"
                 >
                   Subscribe
                   <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-2" />
-                </Button>
+                </ServicesButton>
               </div>
             </div>
           </div>

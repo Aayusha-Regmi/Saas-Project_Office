@@ -9,10 +9,11 @@ import TeamSection from './AboutComponents/TeamSection';
 import PartnersSection from './AboutComponents/PartnersSection';
 import TopHeader from '../../components/common/TopHeader';
 
+
 const AboutUsPage = () => {
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
-    { label: 'About Us', path: '/about' },
+    { label: 'About Us', path: '/about' ,className:'text-red-500'},
   ];
 
   return (

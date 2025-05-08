@@ -2,11 +2,15 @@ import React from 'react';
 import TopHeader from '../../components/common/TopHeader';
 import Footer from '../../components/common/Footer';
 import Header from '../../components/common/Header';
-import HeroSection from '../../components/common/IndustryHeroSection';
+import IndustryHeroSection from '../../components/common/IndustryHeroSection';
 import IndustrySection from './industryComponent/IndustrySection';
 import ContactCTA from './industryComponent/ContactCTA';
 
-const Industries = () => {
+const PIndustries = () => {
+  const breadcrumbItem = [
+    { label: 'Home', path: '/' },
+    { label: 'Industries', path: '/industries', className:'text-red-500' },
+  ];
   return (
     <div className="min-h-screen flex flex-col">
       
@@ -14,9 +18,9 @@ const Industries = () => {
       <Header />
       
       <main className="flex-grow">
-        <HeroSection 
+        <IndustryHeroSection 
           title="Industries" 
-          breadcrumb="Home>>Industries" 
+          breadcrumbItem={breadcrumbItem} 
         />
         
         <IndustrySection />
@@ -29,4 +33,4 @@ const Industries = () => {
   );
 };
 
-export default Industries;
+export default PIndustries;

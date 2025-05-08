@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ children, onClick, variant = 'primary', size = 'medium', className = '', type = 'button', ...props }) => {
+const ServicesButton = ({ children, onClick, variant = 'primary', size = 'medium', className = '', type = 'button', ...props }) => {
   const baseClasses = 'font-semibold rounded transition-colors duration-200 focus:outline-none flex items-center justify-center';
   
   const variants = {
@@ -30,7 +30,7 @@ const Button = ({ children, onClick, variant = 'primary', size = 'medium', class
   );
 };
 
-Button.propTypes = {
+ServicesButton.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
   variant: PropTypes.oneOf(['primary', 'secondary', 'outline']),
@@ -39,4 +39,4 @@ Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
 };
 
-export default Button;
+export default ServicesButton;

@@ -47,12 +47,12 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-4">Company</h3>
             <div className="w-5 h-0.5 bg-white mb-4"></div>
             <ul className="space-y-4 text-2xl font-semibold">
-              <li><Link to="#" className="hover:text-blue-500">About Us</Link></li>
-              <li><Link to="#" className="hover:text-blue-500">Update News</Link></li>
-              <li><Link to="#" className="hover:text-blue-500">Contact Us</Link></li>
-              <li><Link to="#" className="hover:text-blue-500">Testimonials</Link></li>
-              <li><Link to="#" className="hover:text-blue-500">Terms Of Service</Link></li>
-              <li><Link to="#" className="hover:text-blue-500">Privacy Policy</Link></li>
+              <li><Link to="/about" className="hover:text-blue-500">About Us</Link></li>
+              <li><Link to="/update-news" className="hover:text-blue-500">Update News</Link></li>
+              <li><Link to="/contact" className="hover:text-blue-500">Contact Us</Link></li>
+              <li><Link to="/about/testimonials" className="hover:text-blue-500">Testimonials</Link></li>
+              <li><Link to="/terms-of-service" className="hover:text-blue-500">Terms Of Service</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-blue-500">Privacy Policy</Link></li>
             </ul>
           </div>
 
@@ -60,12 +60,12 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-4">Services</h3>
             <div className="w-5 h-0.5 bg-white mb-4"></div>
             <ul className="space-y-4 text-2xl font-semibold">
-              <li><Link to="#" className="hover:text-blue-500">Tax Planning</Link></li>
-              <li><Link to="#" className="hover:text-blue-500">Personal Tax</Link></li>
-              <li><Link to="#" className="hover:text-blue-500">Insurance Tax</Link></li>
-              <li><Link to="#" className="hover:text-blue-500">Tax Audit Support</Link></li>
-              <li><Link to="#" className="hover:text-blue-500">Corporate Tax</Link></li>
-              <li><Link to="#" className="hover:text-blue-500">Tax Advisory</Link></li>
+              <li><Link to="/tax-planning" className="hover:text-blue-500">Tax Planning</Link></li>
+              <li><Link to="/personal-tax" className="hover:text-blue-500">Personal Tax</Link></li>
+              <li><Link to="/insurance-tax" className="hover:text-blue-500">Insurance Tax</Link></li>
+              <li><Link to="/tax-audit-support" className="hover:text-blue-500">Tax Audit Support</Link></li>
+              <li><Link to="/corporate-tax" className="hover:text-blue-500">Corporate Tax</Link></li>
+              <li><Link to="/tax-advisory" className="hover:text-blue-500">Tax Advisory</Link></li>
             </ul>
           </div>
 

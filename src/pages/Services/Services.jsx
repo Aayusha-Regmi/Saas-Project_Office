@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
-import HeroSection from '../../components/common/HeroSection';
-import ServiceCards from './ServiceCards';
+import ServicesHeroSection from '../../components/common/ServicesHeroSection';
+import ServicesCards from './ServicesComponent/ServicePlans';
 
 const ServicesPage = () => {
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
-    { label: 'Services', path: '/services' }
+    { label: 'Services', path: '/services',className:'text-red-500' }
   ];
 
   return (
@@ -15,7 +15,7 @@ const ServicesPage = () => {
       <Header />
       
       <main className="flex-grow">
-        <HeroSection 
+        <ServicesHeroSection 
           title="Services" 
           breadcrumbItems={breadcrumbItems}
           backgroundImage="/images/img_image.png"
@@ -40,7 +40,7 @@ const ServicesPage = () => {
             </div>
             
             {/* Service Cards */}
-            <ServiceCards />
+            <ServicesCards />
           </div>
         </section>
       </main>

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../ui/Button';
+import Button from '../ui/ServicesButton';
 import { Link } from 'react-router-dom';
 
-const Card = ({ 
+const ServicesCard = ({ 
   title, 
   description, 
   icon, 
@@ -41,7 +41,7 @@ const Card = ({
   );
 };
 
-Card.propTypes = {
+ServicesCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
@@ -51,4 +51,4 @@ Card.propTypes = {
   iconBgColor: PropTypes.string
 };
 
-export default Card;
+export default ServicesCard;
