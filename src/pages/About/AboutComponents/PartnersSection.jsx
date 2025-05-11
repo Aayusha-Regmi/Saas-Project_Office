@@ -27,6 +27,10 @@ const PartnersSection = () => {
       color2: "#ff6600"
     }
   ];
+  //HANDLE JSON NULL Validation
+  if (!partners || partners.length === 0) {
+    return null;
+  }
 
   // Repeat partners to create a seamless loop
   const loopedPartners = [...partners, ...partners];

@@ -7,6 +7,7 @@ import IndustriesPage from './pages/Industries/PIndustries';
 import AboutPage from './pages/About/PAbout';
 import ServicesPage from './pages/Services/Services';
 import TestimonialsSection from './pages/About/AboutComponents/TestimonialsSection';
+import LetsTalk from "./pages/Contact/LetsTalk";
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/about/testimonials" element={<TestimonialsSection />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/contact" element={<LetsTalk />} />
       </Routes>
     </Router>
   );

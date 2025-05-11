@@ -23,7 +23,7 @@ module.exports = {
         },
         border: {
           light: "#e0e0e0",
-          dark: "#666666",
+          darkGray: "#666666",
         },
       },
       fontFamily: {

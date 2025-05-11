@@ -2,7 +2,7 @@ import React from 'react';
 import TopHeader from '../../components/common/TopHeader';
 import Footer from '../../components/common/Footer';
 import Header from '../../components/common/Header';
-import IndustryHeroSection from '../../components/common/IndustryHeroSection';
+import SecondaryHeroSection from '../../components/common/SecondaryHeroSection';
 import IndustrySection from './industryComponent/IndustrySection';
 import ContactCTA from './industryComponent/ContactCTA';
 
@@ -18,7 +18,7 @@ const PIndustries = () => {
       <Header />
       
       <main className="flex-grow">
-        <IndustryHeroSection 
+        <SecondaryHeroSection 
           title="Industries" 
           breadcrumbItem={breadcrumbItem} 
         />

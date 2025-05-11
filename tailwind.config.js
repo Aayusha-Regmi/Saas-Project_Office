@@ -1,6 +1,12 @@
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,html,mdx}"],
   darkMode: "class",
+  variants: {
+    extend: {
+      backgroundColor: ['hover'],
+      textColor: ['hover']
+    }
+  },
   theme: {
     extend: {
       colors: {
@@ -9,23 +15,40 @@ module.exports = {
           foreground: "var(--primary-foreground)",
           light: "var(--primary-light)",
           dark: "var(--primary-dark)",
+          blue: "#0a1e43",
+          'light-blue': "#32b5fd",
+          'dark-blue': "#071e45",
+          'medium-blue': "#040948",
+          navy: "#040c5a",
+          lightBlue: "#32b5fd",
+          darkBlue: "#071e45",
+          mediumBlue: "#040948",
         },
         secondary: {
           background: "var(--secondary-background)",
           foreground: "var(--secondary-foreground)",
           light: "var(--secondary-light)",
           dark: "var(--secondary-dark)",
+          'light-blue': "#eaf8ff",
+          lightBlue: "#eaf8ff",
+          gray: "#797979",
+          white: "#ffffff",
         },
         accent: {
           DEFAULT: "var(--accent-color)",
           foreground: "var(--accent-foreground)",
           light: "var(--accent-light)",
           dark: "var(--accent-dark)",
+          red: "var(--accent-red)",
+          orange: "#ec7029",
+          lightOrange: "#d78d62",
+          brightBlue: "#009dff",
         },
         border: {
           primary: "var(--border-primary)",
           secondary: "var(--border-secondary)",
           light: "var(--border-light)",
+          
           dark: "var(--border-dark)",
         },
         blue: {
@@ -70,6 +93,9 @@ module.exports = {
         '2xl': '20px',
         '3xl': '29px',
         'full': '9999px',
+      },
+      backgroundImage: {
+        'gradient-blue': 'linear-gradient(138deg, #ec7029ff 0%, #d78d62ff 50%, #009dffff 100%)',
       },
     },
   },

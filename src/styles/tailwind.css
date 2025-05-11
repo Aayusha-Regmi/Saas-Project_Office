@@ -10,11 +10,15 @@
     --primary-light: #22a8ff;
     --primary-dark: #0a1e43;
     --primary-blue: #071e45;
+    --primary-lightBlue: #32b5fd;
+    --primary-darkBlue: #071e45;
+    --primary-mediumBlue: #040948;
     --primary-light-blue: #22a8ff;
     --primary-dark-blue: #0a1e43;
     --primary-medium-blue: #0d79de;
     --primary-bright-blue: #32b5fd;
     --primary-ocean-blue: #1ca9e1;
+    --primary-navy: #040c5a;
     --primary-deep-blue: #0e5d97;
     /* Secondary Colors */
     --secondary-background: #ffffff;
@@ -22,6 +26,7 @@
     --secondary-foreground: #071e45;
     --secondary-light-gray: #f7f7f7;
     --secondary-gray: #333333;
+    --secondary-lightBlue: #eaf8ff;
     --secondary-light: #eaf8ff;
     --secondary-dark: #797979;
     --accent-red: #d61f26;
@@ -31,7 +36,8 @@
     --accent-light: #d61f26;
     --accent-orange: #ff793f;
     --accent-dark: #d61f26;
-    --accent-light-blue: #eaf8ff;
+    --accent-lightOrange: #d78d62;
+    --accent-brightBlue: #009dff;
     --accent-red: #d61f26;
     /* Border Colors */
     --border-primary: #32b5fd;
@@ -39,6 +45,7 @@
     --border-light: #e0e0e0;
     --border-medium: #cccccc;
     --border-dark: #071e45;
+    --border-darkGray: #666666;
   }
 }
 
@@ -51,9 +58,15 @@
   .bg-primary-light {
     background-color: var(--primary-light);
   }
-
+  .bg-primary-darkBlue {
+    background-color: var(--primary-darkBlue);
+  }
+  
   .bg-primary-dark {
     background-color: var(--primary-dark);
+  }
+  .bg-primary-navy {
+    background-color: var(--primary-navy);
   }
 
   .bg-secondary-white {
@@ -74,14 +87,12 @@
 
   .bg-accent-light {
     background-color: var(--accent-light);
-  }
-  .bg-primary-light-blue {
-    background-color: var(--primary-light-blue);
-  }
+  }  
   
   .bg-primary-dark-blue {
     background-color: var(--primary-dark-blue);
   }
+
   .bg-accent-light-blue {
     background-color: var(--accent-light-blue);
   }
@@ -89,15 +100,22 @@
   .bg-primary-medium-blue {
     background-color: var(--primary-medium-blue);
   }
-  
+  .bg-primary-mediumBlue {
+    background-color: var(--primary-mediumBlue);
+  }
   .bg-primary-bright-blue {
     background-color: var(--primary-bright-blue);
+  }
+  .bg-secondary-lightBlue {
+    background-color: var(--secondary-lightBlue);
   }
   
   .bg-primary-ocean-blue {
     background-color: var(--primary-ocean-blue);
   }
-  
+  .bg-secondary-gray {
+    background-color: var(--secondary-gray);
+  }
   .bg-primary-deep-blue {
     background-color: var(--primary-deep-blue);
   }
@@ -143,6 +161,18 @@
   .text-accent-white {
     color: var(--accent-foreground);
   }
+  .text-primary-lightBlue {
+    color: var(--primary-lightBlue);
+  }
+  
+  .text-primary-darkBlue {
+    color: var(--primary-darkBlue);
+  }
+  
+  .text-primary-mediumBlue {
+    color: var(--primary-mediumBlue);
+  }
+  
   .text-primary-bright-blue {
     color: var(--primary-bright-blue);
   }
@@ -188,10 +218,21 @@
   }
   
   .read-more-btn-default {
-    @apply bg-white text-primary-medium-blue hover:bg-primary-light-blue hover:text-white transition-colors;
+    @apply bg-white text-primary-medium-blue hover:bg-primary-bright-blue hover:text-white transition-colors;
   }
   
   .read-more-btn-active {
-    @apply bg-primary-light-blue text-white;
+    @apply bg-primary-bright-blue text-white;
+  }
+  .contact-card {
+    @apply bg-secondary-lightBlue rounded-[20px] rounded-tr-[50px] rounded-br-[50px] rounded-bl-[50px] p-6 flex flex-col items-center;
+  }
+  
+  .contact-form-input {
+    @apply bg-white rounded-[29px] px-16 py-4 w-full text-primary-mediumBlue text-lg focus:outline-none focus:ring-2 focus:ring-primary-lightBlue;
+  }
+  
+  .contact-form-textarea {
+    @apply bg-white rounded-[20px] px-16 py-4 w-full text-primary-mediumBlue text-lg focus:outline-none focus:ring-2 focus:ring-primary-lightBlue;
   }
 }

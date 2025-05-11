@@ -2,14 +2,14 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Import page components
-import ContactPage from './pages/Contact';
+import LetsTalk from './pages/Contact/LetsTalk.jsx';
 
 const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ContactPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/" element={<LetsTalk />} />
+        <Route path="/lets-talk" element={<LetsTalk />} />
       </Routes>
     </Router>
   );

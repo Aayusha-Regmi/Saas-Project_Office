@@ -1,8 +1,9 @@
 import React from 'react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
-import ServicesHeroSection from '../../components/common/ServicesHeroSection';
+import SecondaryHeroSection from '../../components/common/SecondaryHeroSection';
 import ServicesCards from './ServicesComponent/ServicePlans';
+import TopHeader from '@/components/common/TopHeader';
 
 const ServicesPage = () => {
   const breadcrumbItems = [
@@ -12,12 +13,13 @@ const ServicesPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <TopHeader/>
       <Header />
       
       <main className="flex-grow">
-        <ServicesHeroSection 
+        <SecondaryHeroSection 
           title="Services" 
-          breadcrumbItems={breadcrumbItems}
+          breadcrumbItem={breadcrumbItems}
           backgroundImage="/images/img_image.png"
         />
         

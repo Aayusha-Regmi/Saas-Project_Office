@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
-import HeroSection from '../../components/common/AboutHeroSection';
+import SecondaryHeroSection from '../../components/common/SecondaryHeroSection';
 import AboutSection from './AboutComponents/AboutSection';
 import StatsSection from './AboutComponents/StatsSection';
 import TestimonialsSection from './AboutComponents/TestimonialsSection';
@@ -11,7 +11,7 @@ import TopHeader from '../../components/common/TopHeader';
 
 
 const AboutUsPage = () => {
-  const breadcrumbItems = [
+  const breadcrumbItem = [
     { label: 'Home', path: '/' },
     { label: 'About Us', path: '/about' ,className:'text-red-500'},
   ];
@@ -23,9 +23,9 @@ const AboutUsPage = () => {
       <Header />
       
       <main className="flex-grow">
-        <HeroSection 
+        <SecondaryHeroSection 
           title="About Us" 
-          breadcrumbItems={breadcrumbItems} 
+          breadcrumbItem={breadcrumbItem} 
         />
         
         <AboutSection />
