@@ -55,6 +55,7 @@ const Header = () => {
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-6 h-6" />
             </Link>
           </div>
+          
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">

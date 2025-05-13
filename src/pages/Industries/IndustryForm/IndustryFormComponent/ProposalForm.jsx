@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Card from '../../components/common/Card';
-import InputField from '../../components/ui/InputField';
-import Dropdown from '../../components/ui/Dropdown';
-import FileUpload from '../../components/ui/FileUpload';
+import IndustryFormCard from '@/components/common/IndustryFormCard';
+import IndustryFormInputField from '@/components/ui/IndustryFormInputField';
+import Dropdown from '@/components/ui/Dropdown';
+import FileUpload from '@/components/ui/FileUpload';
 
 const ProposalForm = () => {
   const [formData, setFormData] = useState({
@@ -84,10 +84,10 @@ const ProposalForm = () => {
   ];
 
   return (
-    <Card className="mx-auto max-w-[1128px] shadow-[0_5px_5px_rgba(0,0,0,0.25)]">
+    <IndustryFormCard className="mx-auto max-w-[1128px] shadow-[0_5px_5px_rgba(0,0,0,0.25)]">
       <form onSubmit={handleSubmit} className="p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
-          <InputField
+          <IndustryFormInputField
             label="Full Name"
             name="fullName"
             value={formData.fullName}
@@ -103,14 +103,14 @@ const ProposalForm = () => {
             required
           />
           
-          <InputField
+          <IndustryFormInputField
             label="Position / Job Title"
             name="position"
             value={formData.position}
             onChange={handleInputChange}
           />
           
-          <InputField
+          <IndustryFormInputField
             label="Email"
             name="email"
             type="email"
@@ -119,7 +119,7 @@ const ProposalForm = () => {
             required
           />
           
-          <InputField
+          <IndustryFormInputField
             label="Contact Number"
             name="contactNumber"
             value={formData.contactNumber}
@@ -127,7 +127,7 @@ const ProposalForm = () => {
             required
           />
           
-          <InputField
+          <IndustryFormInputField
             label="Post Code"
             name="postCode"
             value={formData.postCode}
@@ -176,7 +176,7 @@ const ProposalForm = () => {
           </button>
         </div>
       </form>
-    </Card>
+    </IndustryFormCard>
   );
 };
 

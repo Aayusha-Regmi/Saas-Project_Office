@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputField = ({
+const IndustryFormInputField = ({
   label,
   name,
   type = 'text',
@@ -32,7 +32,7 @@ const InputField = ({
   );
 };
 
-InputField.propTypes = {
+IndustryFormInputField.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
@@ -43,4 +43,4 @@ InputField.propTypes = {
   className: PropTypes.string,
 };
 
-export default InputField;
+export default IndustryFormInputField;
