@@ -24,6 +24,7 @@
     --secondary-background: #ffffff;
     --secondary-white: #ffffff;
     --secondary-foreground: #071e45;
+    --secondary-blue: #04108a;
     --secondary-light-gray: #f7f7f7;
     --secondary-gray: #333333;
     --secondary-lightBlue: #eaf8ff;
@@ -35,6 +36,7 @@
     --accent-foreground: #ffffff;
     --accent-light: #d61f26;
     --accent-orange: #ff793f;
+    --accent-blue: #0e5d97;
     --accent-dark: #d61f26;
     --accent-lightOrange: #d78d62;
     --accent-brightBlue: #009dff;
@@ -44,8 +46,17 @@
     --border-secondary: #ffffff;
     --border-light: #e0e0e0;
     --border-medium: #cccccc;
+    --border-light-blue: #bcd9ff;
+    --border-red-light: #f2010126;
     --border-dark: #071e45;
     --border-darkGray: #666666;
+
+    /*Text Colors*/
+    --text-white: #ffffff;
+    --text-black: #000000;
+    --text-dark: #071e45;
+    --text-gray: #a6a6a6;
+    --text-light-gray: #a8a8a8;
   }
 }
 
@@ -234,5 +245,16 @@
   
   .contact-form-textarea {
     @apply bg-white rounded-[20px] px-16 py-4 w-full text-primary-mediumBlue text-lg focus:outline-none focus:ring-2 focus:ring-primary-lightBlue;
+  }
+  .form-input {
+    @apply w-full h-[65px] border border-[#bcd9ff] rounded-[10px] px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#22a8ff];
+  }
+  
+  .form-label {
+    @apply text-[20px] font-normal leading-[26px] mb-2 block;
+  }
+  
+  .form-select {
+    @apply w-full h-[65px] border border-[#bcd9ff] rounded-[10px] px-4 py-2 flex items-center justify-between cursor-pointer;
   }
 }

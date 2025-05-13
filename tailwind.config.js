@@ -30,6 +30,7 @@ module.exports = {
           light: "var(--secondary-light)",
           dark: "var(--secondary-dark)",
           'light-blue': "#eaf8ff",
+          blue: "var(--secondary-blue)",
           lightBlue: "#eaf8ff",
           gray: "#797979",
           white: "#ffffff",
@@ -40,15 +41,24 @@ module.exports = {
           light: "var(--accent-light)",
           dark: "var(--accent-dark)",
           red: "var(--accent-red)",
+          blue: "var(--accent-blue)",
           orange: "#ec7029",
           lightOrange: "#d78d62",
           brightBlue: "#009dff",
+        },
+        text: {
+          white: "var(--text-white)",
+          black: "var(--text-black)",
+          dark: "var(--text-dark)",
+          gray: "var(--text-gray)",
+          "light-gray": "var(--text-light-gray)",
         },
         border: {
           primary: "var(--border-primary)",
           secondary: "var(--border-secondary)",
           light: "var(--border-light)",
-          
+          "light-blue": "var(--border-light-blue)",
+          "red-light": "var(--border-red-light)",
           dark: "var(--border-dark)",
         },
         blue: {
@@ -73,6 +83,8 @@ module.exports = {
       },
       fontFamily: {
         'open-sans': ['Open Sans', 'sans-serif'],
+        'kumbh-sans': ['Kumbh Sans', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif']
       },
       fontSize: {
         'xs': '11px',

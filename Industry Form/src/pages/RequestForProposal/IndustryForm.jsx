@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from '../../components/common/Header';
+import PrimaryHeader from '../../components/common/PrimaryHeader';
 import Footer from '../../components/common/Footer';
 import HeroSection from '../../components/common/HeroSection';
-import ProposalForm from './ProposalForm';
+import ProposalForm from './IndustryFormComponents/ProposalForm';
 import Button from '../../components/ui/Button';
 import { Link } from 'react-router-dom';
 
-const RequestForProposal = () => {
+const IndustryForm = () => {
   const breadcrumbItems = [
     { label: 'Home', href: '/' },
     { label: 'Industries', href: '/industries' }
@@ -14,7 +14,7 @@ const RequestForProposal = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <PrimaryHeader />
       
       <main className="flex-grow">
         <HeroSection 
@@ -62,4 +62,4 @@ const RequestForProposal = () => {
   );
 };
 
-export default RequestForProposal;
+export default IndustryForm;

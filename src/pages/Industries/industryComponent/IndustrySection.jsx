@@ -9,7 +9,7 @@ const IndustrySection = () => {
       description: "Our Team has the in depth knowledge of Banking Processes, Regulatory Requirements, Core Banking Practices and Risk Management Practices of Banking Industry. We have been involved with the Audit and consulting of Banking & Financial Service Sector since our inception.",
       imageSrc: "/images/img_image_14.png",
       imageAlt: "Banking & Financial Service",
-      buttonVariant: "active",
+      buttonVariant: "default",
       link: "/industries/banking"
     },
     {

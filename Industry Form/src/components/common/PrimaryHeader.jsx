@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const PrimaryHeader = () => {
   const [language, setLanguage] = useState('English');
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
 
@@ -113,16 +113,11 @@ const Header = () => {
             <span className="text-[18px] font-semibold mr-2">Let's Talk</span>
             <img src="/images/img_vector_13x13.svg" alt="Arrow" className="w-[13px] h-[13px]" />
           </Link>
-          
-          <button className="flex flex-col space-y-[11px] ml-4">
-            <div className="w-[36px] h-[2px] bg-black"></div>
-            <div className="w-[26px] h-[2px] bg-black"></div>
-            <div className="w-[18px] h-[2px] bg-black"></div>
-          </button>
+        
         </nav>
       </div>
     </header>
   );
 };
 
-export default Header;
+export default PrimaryHeader;

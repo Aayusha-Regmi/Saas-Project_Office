@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ({ 
+const IndustryFormCard = ({ 
   children, 
   className = '', 
   shadow = true, 
@@ -24,7 +24,7 @@ const Card = ({
   );
 };
 
-Card.propTypes = {
+IndustryFormCard.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   shadow: PropTypes.bool,
@@ -32,4 +32,4 @@ Card.propTypes = {
   padding: PropTypes.bool,
 };
 
-export default Card;
+export default IndustryFormCard;

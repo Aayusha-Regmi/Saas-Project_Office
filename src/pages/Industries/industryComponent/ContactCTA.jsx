@@ -1,13 +1,18 @@
 import React from 'react';
 import Button from '../../../components/ui/IndustryButton';
+import { useNavigate } from 'react-router-dom';
 
 const ContactCTA = () => {
+  const navigate = useNavigate();
   const handleContactClick = () => {
-    alert('Contact form will open');
+    navigate('/contact');
   };
 
   const handleProposalClick = () => {
-    alert('Proposal request form will open');
+    navigate('/industries/industry-form');
+    setTimeout(() => {
+      window.scrollTo({ top: 0 }); 
+    }, 0);
   };
 
   return (

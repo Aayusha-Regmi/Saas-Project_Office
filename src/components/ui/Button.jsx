@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import clsx from 'clsx';
 const Button = ({ 
   children, 
   onClick, 
@@ -11,7 +11,7 @@ const Button = ({
   className = '',
   ...props 
 }) => {
-  const baseClasses = 'font-medium rounded-sm transition-colors duration-200 focus:outline-none';
+  const baseClasses =  'font-semibold rounded transition-colors duration-200 focus:outline-none';
   
   const variants = {
     primary: 'bg-blue-500 text-white hover:bg-blue-600 disabled:bg-gray-400',
@@ -20,9 +20,9 @@ const Button = ({
   };
   
   const sizes = {
-    small: 'px-3 py-1 text-sm',
-    medium: 'px-4 py-2 text-lg',
-    large: 'px-6 py-3 text-xl',
+    small: 'px-4 py-2 text-sm',
+    medium: 'px-6 py-3 text-base',
+    large: 'px-8 py-4 text-lg',
   };
   
   const buttonClasses = `${baseClasses} ${variants[variant]} ${sizes[size]} ${disabled ? 'cursor-not-allowed' : ''} ${className}`;

@@ -8,6 +8,7 @@ import AboutPage from './pages/About/PAbout';
 import ServicesPage from './pages/Services/Services';
 import TestimonialsSection from './pages/About/AboutComponents/TestimonialsSection';
 import LetsTalk from "./pages/Contact/LetsTalk";
+import IndustryForm from './pages/Industries/IndustryForm/IndustryForm';
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/industries" element={<IndustriesPage />} />
+        <Route path="/industries/industry-form" element={<IndustryForm />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/about/testimonials" element={<TestimonialsSection />} />
         <Route path="/services" element={<ServicesPage />} />
