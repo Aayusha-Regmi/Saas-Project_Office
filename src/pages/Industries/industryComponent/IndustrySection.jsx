@@ -11,6 +11,7 @@ const IndustrySection = () => {
       imageAlt: "Banking & Financial Service",
       buttonVariant: "default",
       link: "/industries/banking"
+      /*Checking git results */
     },
     {
       id: 2,
