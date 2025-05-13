@@ -105,6 +105,11 @@ module.exports = {
         '2xl': '20px',
         '3xl': '29px',
         'full': '9999px',
+        card: "20px",
+        button: "7px",
+      },
+      boxShadow: {
+        card: "0px 2px 5px rgba(0, 0, 0, 0.1)",
       },
       backgroundImage: {
         'gradient-blue': 'linear-gradient(138deg, #ec7029ff 0%, #d78d62ff 50%, #009dffff 100%)',

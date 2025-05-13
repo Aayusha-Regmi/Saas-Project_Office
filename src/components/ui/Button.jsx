@@ -9,6 +9,7 @@ const Button = ({
   disabled = false, 
   type = 'button',
   className = '',
+  icon = null,
   ...props 
 }) => {
   const baseClasses =  'font-semibold rounded transition-colors duration-200 focus:outline-none';
@@ -25,7 +26,17 @@ const Button = ({
     large: 'px-8 py-4 text-lg',
   };
   
-  const buttonClasses = `${baseClasses} ${variants[variant]} ${sizes[size]} ${disabled ? 'cursor-not-allowed' : ''} ${className}`;
+  const buttonClasses = clsx(
+    baseClasses,
+    variants[variant],
+    sizes[size],
+    {
+      'cursor-not-allowed': disabled,
+      'rounded-sm': variant === 'outline',
+      'rounded-[7px]': variant !== 'outline',
+    },
+    className
+  );
   
   return (
     <button 
@@ -36,6 +47,7 @@ const Button = ({
       {...props}
     >
       {children}
+      {icon && <span className="ml-2">{icon}</span>}
     </button>
   );
 };
@@ -48,6 +60,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
   className: PropTypes.string,
+  icon: PropTypes.node,
 };
 
 export default Button;

@@ -141,6 +141,9 @@
   .bg-accent-orange {
     background-color: var(--accent-orange);
   }
+  .bg-accent-light {
+    background-color: var(--accent-light);
+  }
   
   .bg-accent-dark {
     background-color: var(--accent-dark);
@@ -178,6 +181,9 @@
   
   .text-primary-darkBlue {
     color: var(--primary-darkBlue);
+  }
+  .text-primary-navy {
+    color: var(--primary-navy);
   }
   
   .text-primary-mediumBlue {
@@ -256,5 +262,20 @@
   
   .form-select {
     @apply w-full h-[65px] border border-[#bcd9ff] rounded-[10px] px-4 py-2 flex items-center justify-between cursor-pointer;
+  }
+  .btn {
+    @apply px-4 py-2 rounded-md font-semibold transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-[#32b5fd] text-white hover:bg-[#22a8ff];
+  }
+  
+  .card {
+    @apply bg-white rounded-[20px] p-6 shadow-card;
+  }
+  
+  .section-title {
+    @apply text-3xl font-semibold text-[#071e45] mb-6;
   }
 }

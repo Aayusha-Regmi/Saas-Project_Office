@@ -9,6 +9,7 @@ import ServicesPage from './pages/Services/Services';
 import TestimonialsSection from './pages/About/AboutComponents/TestimonialsSection';
 import LetsTalk from "./pages/Contact/LetsTalk";
 import IndustryForm from './pages/Industries/IndustryForm/IndustryForm';
+import Insights from './pages/Insights/Insights';
 
 const AppRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AppRoutes = () => {
         <Route path="/about/testimonials" element={<TestimonialsSection />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/contact" element={<LetsTalk />} />
+        <Route path="/insights" element={<Insights />} />
       </Routes>
     </Router>
   );

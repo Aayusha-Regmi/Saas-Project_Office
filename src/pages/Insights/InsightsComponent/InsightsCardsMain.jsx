@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from '../../components/common/Card';
+import InsightsCard from '../../../components/common/InsightsCard';
 
-const InsightsCards = () => {
+const InsightsCardsMain = () => {
   const insightCards = [
     {
       id: 1,
@@ -36,7 +36,7 @@ const InsightsCards = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {insightCards.map(card => (
-        <Card
+        <InsightsCard
           key={card.id}
           title={card.title}
           description={card.description}
@@ -49,4 +49,4 @@ const InsightsCards = () => {
   );
 };
 
-export default InsightsCards;
+export default InsightsCardsMain;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 
-const Card = ({ 
+const InsightsCard = ({ 
   title, 
   description, 
   ribbonImage, 
@@ -28,7 +28,7 @@ const Card = ({
       <Link to={buttonLink}>
         <Button 
           variant="primary" 
-          className="h-[47px]"
+          className="h-[47px] "
         >
           {buttonText}
           <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-1" />
@@ -38,7 +38,7 @@ const Card = ({
   );
 };
 
-Card.propTypes = {
+InsightsCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   ribbonImage: PropTypes.string,
@@ -47,4 +47,4 @@ Card.propTypes = {
   className: PropTypes.string
 };
 
-export default Card;
+export default InsightsCard;

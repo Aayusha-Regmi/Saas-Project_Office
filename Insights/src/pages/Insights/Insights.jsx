@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import HeroSection from '../../components/common/HeroSection';
-import InsightsCards from './InsightsCards';
+import InsightsCards from './InsightsComponent/InsightsCards';
 
 const InsightsPage = () => {
   const breadcrumbItems = [
