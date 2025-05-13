@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary-blue: #22a8ff;
+    --primary-dark-blue: #0a1e43;
+    --primary-light-blue: #32b5fd;
+    --primary-foreground: #ffffff;
+
+    /* Secondary Colors */
+    --secondary-background: #eaf8ff;
+    --secondary-foreground: #071e45;
+    --secondary-light: #f7f7f7;
+    --secondary-dark: #222222;
+
+    /* Accent Colors */
+    --accent-color: #ff5733;
+    --accent-foreground: #ffffff;
+    --accent-light: #ff8268;
+    --accent-dark: #cc4722;
+
+    /* Border Colors */
+    --border-primary: #cccccc;
+    --border-secondary: #999999;
+    --border-light: #e0e0e0;
+    --border-dark: #666666;
+  }
+}
+
+@layer utilities {
+  /* Background Color Utilities */
+  .bg-primary-blue {
+    background-color: var(--primary-blue);
+  }
+
+  .bg-primary-dark-blue {
+    background-color: var(--primary-dark-blue);
+  }
+
+  .bg-primary-light-blue {
+    background-color: var(--primary-light-blue);
+  }
+
+  .bg-secondary-light-blue {
+    background-color: var(--secondary-background);
+  }
+
+  .bg-secondary-light {
+    background-color: var(--secondary-light);
+  }
+
+  .bg-secondary-dark {
+    background-color: var(--secondary-dark);
+  }
+
+  .bg-accent {
+    background-color: var(--accent-color);
+  }
+
+  .bg-accent-light {
+    background-color: var(--accent-light);
+  }
+
+  .bg-accent-dark {
+    background-color: var(--accent-dark);
+  }
+
+  /* Text Color Utilities */
+  .text-primary-blue {
+    color: var(--primary-blue);
+  }
+
+  .text-primary-dark-blue {
+    color: var(--primary-dark-blue);
+  }
+
+  .text-primary-light-blue {
+    color: var(--primary-light-blue);
+  }
+
+  .text-secondary-dark-blue {
+    color: var(--secondary-foreground);
+  }
+
+  .text-primary-white {
+    color: var(--primary-foreground);
+  }
+
+  /* Border Color Utilities */
+  .border-primary {
+    border-color: var(--border-primary);
+  }
+
+  .border-secondary {
+    border-color: var(--border-secondary);
+  }
+
+  .border-light {
+    border-color: var(--border-light);
+  }
+
+  .border-dark {
+    border-color: var(--border-dark);
+  }
+}
