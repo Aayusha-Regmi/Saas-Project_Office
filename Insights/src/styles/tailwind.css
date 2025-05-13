@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary-blue: #22a8ff;
+    --primary-dark-blue: #0a1e43;
+    --primary-light-blue: #32b5fd;
+    --primary-navy: #071e45;
+
+    /* Secondary Colors */
+    --secondary-gray: #797979;
+    --secondary-white: #ffffff;
+
+    /* Accent Colors */
+    --accent-color: #22a8ff;
+    --accent-light: #eaf8ff;
+
+    /* Border Colors */
+    --border-light: #e0e0e0;
+    --border-dark: #cccccc;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-semibold transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-[#32b5fd] text-white hover:bg-[#22a8ff];
+  }
+  
+  .card {
+    @apply bg-white rounded-[20px] p-6 shadow-card;
+  }
+  
+  .section-title {
+    @apply text-3xl font-semibold text-[#071e45] mb-6;
+  }
+}
+
+@layer utilities {
+  .text-primary-blue {
+    color: var(--primary-blue);
+  }
+  
+  .text-primary-navy {
+    color: var(--primary-navy);
+  }
+  
+  .text-secondary-gray {
+    color: var(--secondary-gray);
+  }
+  
+  .bg-primary-blue {
+    background-color: var(--primary-blue);
+  }
+  
+  .bg-primary-dark-blue {
+    background-color: var(--primary-dark-blue);
+  }
+  
+  .bg-primary-light-blue {
+    background-color: var(--primary-light-blue);
+  }
+  
+  .bg-accent-light {
+    background-color: var(--accent-light);
+  }
+}
