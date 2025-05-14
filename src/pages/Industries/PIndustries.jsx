@@ -1,7 +1,7 @@
 import React from 'react';
 import TopHeader from '../../components/common/TopHeader';
 import Footer from '../../components/common/Footer';
-import Header from '../../components/common/Header';
+import PrimaryHeader from '../../components/common/PrimaryHeader';
 import SecondaryHeroSection from '../../components/common/SecondaryHeroSection';
 import IndustrySection from './industryComponent/IndustrySection';
 import ContactCTA from './industryComponent/ContactCTA';
@@ -15,7 +15,7 @@ const PIndustries = () => {
     <div className="min-h-screen flex flex-col">
       
       <TopHeader />
-      <Header />
+      <PrimaryHeader />
       
       <main className="flex-grow">
         <SecondaryHeroSection 

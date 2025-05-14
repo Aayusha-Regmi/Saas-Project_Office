@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import SecondaryHeroSection from '../../components/common/SecondaryHeroSection';
 import ServicesCards from './ServicesComponent/ServicePlans';
 import TopHeader from '@/components/common/TopHeader';
+import PrimaryHeader from '@/components/common/PrimaryHeader';
 
 const ServicesPage = () => {
   const breadcrumbItems = [
@@ -14,7 +14,7 @@ const ServicesPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <TopHeader/>
-      <Header />
+      <PrimaryHeader />
       
       <main className="flex-grow">
         <SecondaryHeroSection 
@@ -25,15 +25,14 @@ const ServicesPage = () => {
         
         <section className="bg-[#EAF8FF] py-12 md:py-20">
           <div className="container mx-auto px-4">
-            {/* Services Title Section */}
-            <div className="flex justify-center mb-8">
-              <div className="bg-white rounded-[30px] flex items-center px-8 py-4 relative">
-                <div className="bg-[#22A8FF] w-[57px] h-[57px] rounded-full flex items-center justify-center">
-                  <span className="text-white text-3xl font-semibold">%</span>
-                </div>
-                <h2 className="text-[#32B5FD] text-3xl font-semibold ml-6">Our Services</h2>
-              </div>
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex items-center bg-gray-600 rounded-xl">
+            <div className="bg-blue-500 w-[38px] h-[38px] rounded-xl flex items-center justify-center">
+              <span className="text-white font-semibold">%</span>
             </div>
+            <span className="text-base font-semibold text-blue-500 px-4">Our Services</span>
+          </div>
+        </div>
             
             {/* Main Heading */}
             <div className="text-center mb-12">
