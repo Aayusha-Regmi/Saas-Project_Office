@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import SecondaryHeroSection from '@/components/common/SecondaryHeroSection';
 import ContactInfoCards from './LetsTalkComponent.jsx/ContactInfoCards';
 import ContactForm from './LetsTalkComponent.jsx/ContactForm';
 import MapSection from './LetsTalkComponent.jsx/MapSection';
 import TopHeader from '@/components/common/TopHeader';
+import PrimaryHeader from '@/components/common/PrimaryHeader';
 
 const LetsTalk = () => {
   const breadcrumbItem = [
@@ -16,7 +16,7 @@ const LetsTalk = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <TopHeader />
-      <Header />
+      <PrimaryHeader />
       <main className="flex-grow">
         <SecondaryHeroSection 
           title="Contact Us" 

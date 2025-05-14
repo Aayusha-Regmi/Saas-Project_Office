@@ -103,6 +103,13 @@
   .bg-primary-dark-blue {
     background-color: var(--primary-dark-blue);
   }
+  .bg-primary-dark-blue {
+    background-color: var(--primary-dark-blue);
+  }
+
+  .bg-primary-light-blue {
+    background-color: var(--primary-light-blue);
+  }
 
   .bg-accent-light-blue {
     background-color: var(--accent-light-blue);
@@ -162,7 +169,9 @@
   .text-primary-blue {
     color: var(--primary-blue);
   }
-  
+  .text-secondary-dark-blue {
+    color: var(--secondary-foreground);
+  }
   .text-primary-light-blue {
     color: var(--primary-light-blue);
   }

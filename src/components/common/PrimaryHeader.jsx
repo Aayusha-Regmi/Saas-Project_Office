@@ -1,67 +1,118 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Button from '../ui/Button';
 
 const PrimaryHeader = () => {
-  const [language, setLanguage] = useState('English');
-  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
-
-  const toggleLanguageDropdown = () => {
-    setShowLanguageDropdown(!showLanguageDropdown);
-  };
-
-  const selectLanguage = (lang) => {
-    setLanguage(lang);
-    setShowLanguageDropdown(false);
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+};
 
   return (
-    <header>
-    
+    <header className="w-full">
+      
       
       {/* Main navigation */}
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/">
-          <img src="/images/img_saas_logo_101_1.png" alt="SAA Logo" className="w-[180px] h-[180px]" />
-        </Link>
-        
-        <nav className="flex items-center space-x-6">
-          <Link to="/" className="text-[18px] font-bold text-[#071e45] flex items-center">
-            Home
-            <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
+      <div className="bg-white py-4">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <Link to="/" className="block">
+            <img src="/images/img_saas_logo_101_1.png" alt="SAAS Logo" className="h-16 w-auto" />
           </Link>
-          <Link to="/industries" className="text-[18px] font-bold text-[#22a8ff] flex items-center">
-            Industries
-            <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="w-6 h-6 ml-1" />
-          </Link>
-          <Link to="/services" className="text-[18px] font-bold text-[#071e45] flex items-center">
-            Services
-            <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
-          </Link>
-          <Link to="/teams" className="text-[18px] font-bold text-[#071e45]">
-            Teams
-          </Link>
-          <Link to="/calculations" className="text-[18px] font-bold text-[#071e45] flex items-center">
-            Calculations
-            <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
-          </Link>
-          <Link to="/insights" className="text-[18px] font-bold text-[#071e45] flex items-center">
-            Insights
-            <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
-          </Link>
-          <Link to="/about" className="text-[18px] font-bold text-[#071e45]">
-            About
-          </Link>
-          <button className="ml-4">
-            <img src="/images/img_search.svg" alt="Search" className="w-6 h-6" />
-          </button>
           
-          <Link to="/contact" className="bg-[#32b5fd] text-white py-[6px] px-4 rounded-[7px] flex items-center ml-4">
-            <span className="text-[18px] font-semibold mr-2">Let's Talk</span>
-            <img src="/images/img_vector_13x13.svg" alt="Arrow" className="w-[13px] h-[13px]" />
-          </Link>
-        
-        </nav>
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link to="/" className="font-bold text-[#071e45] flex items-center">
+              Home
+              <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
+            </Link>
+            <Link to="/industries" className="font-bold text-[#071e45] flex items-center">
+              Industries
+              <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
+            </Link>
+            <Link to="/services" className="font-bold text-[#071e45] flex items-center">
+              Services
+              <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
+            </Link>
+            <Link to="/teams" className="font-bold text-[#22a8ff]">
+              Teams
+            </Link>
+            <Link to="/calculations" className="font-bold text-[#071e45] flex items-center">
+              Calculations
+              <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
+            </Link>
+            <Link to="/insights" className="font-bold text-[#071e45] flex items-center">
+              Insights
+              <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
+            </Link>
+            <Link to="/about" className="font-bold text-[#071e45]">
+              About
+            </Link>
+            <button className="ml-4">
+              <img src="/images/img_search.svg" alt="Search" className="w-6 h-6" />
+            </button>
+          </nav>
+          
+          <div className="flex items-center space-x-4">
+            <Button 
+              variant="primary" 
+              className="hidden md:flex"
+            >
+              Let's Talk
+              <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-2" />
+            </Button>
+            
+            <button 
+              className="md:hidden flex flex-col space-y-1"
+              onClick={toggleMenu}
+            >
+              <span className="w-6 h-0.5 bg-black"></span>
+              <span className="w-5 h-0.5 bg-black"></span>
+              <span className="w-4 h-0.5 bg-black"></span>
+            </button>
+          </div>
+        </div>
       </div>
+      
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white shadow-lg py-4">
+          <div className="container mx-auto px-4">
+            <nav className="flex flex-col space-y-4">
+              <Link to="/" className="font-bold text-[#071e45] flex items-center justify-between">
+                Home
+                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6" />
+              </Link>
+              <Link to="/industries" className="font-bold text-[#071e45] flex items-center justify-between">
+                Industries
+                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6" />
+              </Link>
+              <Link to="/services" className="font-bold text-[#071e45] flex items-center justify-between">
+                Services
+                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6" />
+              </Link>
+              <Link to="/teams" className="font-bold text-[#22a8ff]">
+                Teams
+              </Link>
+              <Link to="/calculations" className="font-bold text-[#071e45] flex items-center justify-between">
+                Calculations
+                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6" />
+              </Link>
+              <Link to="/insights" className="font-bold text-[#071e45] flex items-center justify-between">
+                Insights
+                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6" />
+              </Link>
+              <Link to="/about" className="font-bold text-[#071e45]">
+                About
+              </Link>
+              <div className="pt-2">
+                <Button variant="primary" className="w-full">
+                  Let's Talk
+                  <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-2" />
+                </Button>
+              </div>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

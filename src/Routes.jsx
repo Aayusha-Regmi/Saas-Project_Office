@@ -10,6 +10,7 @@ import TestimonialsSection from './pages/About/AboutComponents/TestimonialsSecti
 import LetsTalk from "./pages/Contact/LetsTalk";
 import IndustryForm from './pages/Industries/IndustryForm/IndustryForm';
 import Insights from './pages/Insights/Insights';
+import Teams from './pages/Team/Teams';
 
 const AppRoutes = () => {
   return (
@@ -23,6 +24,7 @@ const AppRoutes = () => {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/contact" element={<LetsTalk />} />
         <Route path="/insights" element={<Insights />} />
+        <Route path="/teams" element={<Teams />} />
       </Routes>
     </Router>
   );

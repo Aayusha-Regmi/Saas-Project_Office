@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../../components/common/Card';
+import TeamsCard from '../../../components/common/TeamsCard';
 
 const TeamSection = () => {
   const teamMembers = [
@@ -80,20 +80,21 @@ const TeamSection = () => {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <div className="flex justify-center mb-12">
-          <div className="bg-[#eaf8ff] rounded-full flex items-center px-8 py-4">
-            <div className="bg-[#22a8ff] w-15 h-15 rounded-full flex items-center justify-center mr-5">
-              <span className="text-3xl font-semibold text-white">%</span>
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex items-center bg-gray-600 rounded-xl">
+            <div className="bg-blue-500 w-[38px] h-[38px] rounded-xl flex items-center justify-center">
+              <span className="text-white font-semibold">%</span>
             </div>
-            <h2 className="text-3xl font-semibold text-[#32b5fd]">Our Team</h2>
+            <span className="text-base font-semibold text-blue-500 px-4">Our Team</span>
           </div>
         </div>
+
         
         <h2 className="text-4xl font-semibold text-[#071e45] text-center mb-16">Meet With Our <span className="text-[#22a8ff]">Experts</span></h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map(member => (
-            <Card
+            <TeamsCard
               key={member.id}
               image={member.image}
               name={member.name}

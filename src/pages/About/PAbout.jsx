@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import SecondaryHeroSection from '../../components/common/SecondaryHeroSection';
 import AboutSection from './AboutComponents/AboutSection';
@@ -8,6 +7,7 @@ import TestimonialsSection from './AboutComponents/TestimonialsSection';
 import TeamSection from './AboutComponents/TeamSection';
 import PartnersSection from './AboutComponents/PartnersSection';
 import TopHeader from '../../components/common/TopHeader';
+import PrimaryHeader from '../../components/common/PrimaryHeader';
 
 
 const AboutUsPage = () => {
@@ -20,7 +20,7 @@ const AboutUsPage = () => {
     <div className="min-h-screen flex flex-col">
       <TopHeader />
 
-      <Header />
+      <PrimaryHeader />
       
       <main className="flex-grow">
         <SecondaryHeroSection 
