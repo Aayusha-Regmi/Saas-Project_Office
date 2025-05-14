@@ -8,7 +8,7 @@ import TeamSection from './AboutComponents/TeamSection';
 import PartnersSection from './AboutComponents/PartnersSection';
 import TopHeader from '../../components/common/TopHeader';
 import PrimaryHeader from '../../components/common/PrimaryHeader';
-
+/*Solving issues */
 
 const AboutUsPage = () => {
   const breadcrumbItem = [
