@@ -59,7 +59,7 @@ const TestimonialsSection = () => {
   );
 
   return (
-    <section className="py-16 bg-[#eaf8ff] relative">
+    <section className="py-16 bg-[#eaf8ff] relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 left-0">
         <img src="/images/img_ellipse_335.png" alt="Background shape" />

@@ -32,12 +32,12 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0a1e43] text-white relative">
+    <footer className="bg-[#0a1e43] text-white relative overflow-hidden" style={{ minHeight: 450 }}>
       <div className="container mx-auto px-4 pt-16 pb-8">
         {/* Wave background */}
-        <div className="absolute bottom-0 bottom-0 left-0 w-full">
-          <img src="/images/img_rectangle_42130.png" alt="" className="w-full h-[500px] mt-[-350px] mr-[-50px]" />
-          <img src="/images/img_rectangle_42131.png" alt="" className="w-full h-[500px] mt-[-500px] mr-[-50px]" />
+        <div className="absolute bottom-0 left-0 w-full pointer-events-none select-none">
+          <img src="/images/img_rectangle_42130.png" alt="" className="w-full h-[450px] mt-[-350px] mr-[-50px]" draggable="false" />
+          <img src="/images/img_rectangle_42131.png" alt="" className="w-full h-[450px] mt-[-500px] mr-[-50px]" draggable="false" />
         </div>
         
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
