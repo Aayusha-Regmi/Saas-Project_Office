@@ -36,7 +36,6 @@
 
 
 
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../../../components/ui/Button';
@@ -70,11 +69,12 @@ const ConsultationSection = () => {
 
   return (
     <section
-      className="relative py-16 bg-cover bg-center"
-      style={{ backgroundImage: 'url(img_image_36.png)' }}
+      className="relative py-24 bg-fixed bg-center bg-no-repeat bg-cover"
+      style={{
+        backgroundImage:
+          'url(https://img.freepik.com/free-photo/business-owner-working-their-strategy_23-2149241276.jpg?ga=GA1.1.312675452.1737013063&semt=ais_hybrid&w=740)',
+      }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-700/80 to-blue-700/80"></div>
-
       <motion.div
         className="container mx-auto px-4 relative z-10 text-center"
         variants={staggerContainer}
