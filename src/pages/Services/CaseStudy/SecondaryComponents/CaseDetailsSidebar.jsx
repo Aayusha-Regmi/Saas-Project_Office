@@ -1,8 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import RatingBar from '../../../../components/ui/RatingBar';
 
 const CaseDetailsSidebar = () => {
+  const { page } = useParams();
+
+  // Map the `page` parameter to a readable title
+  const pageTitles = {
+    'personal-tax': 'Personal Tax',
+    'tax-audit-support': 'Tax Audit Support',
+    'international-tax': 'International Tax',
+    'tax-advisory-support': 'Tax Advisory Support',
+    'investment-advisor': 'Investment Advisor',
+    'insurance-tax': 'Insurance Tax',
+    'corporate-tax': 'Corporate Tax',
+    'corporate-tax-planning': 'Corporate Tax Planning',
+  };
+
+  // Default to 'Corporate Tax Planning' if no match is found
+  const title = pageTitles[page] || 'Corporate Tax Planning';
+
   return (
     <div className="bg-gray-600 rounded-2xl p-6 h-full">
       <h2 className="text-2xl font-bold text-blue-800 text-center mb-8">Case Details</h2>
@@ -10,7 +27,7 @@ const CaseDetailsSidebar = () => {
       {/* Category */}
       <div className="mb-6">
         <h3 className="case-detail-label">Category</h3>
-        <p className="case-detail-value">Corporate Tax Planning</p>
+        <p className="case-detail-value">{title}</p>
         <div className="h-px bg-gray-500 w-full"></div>
       </div>
       

@@ -9,9 +9,11 @@ const ServicesCard = ({
   icon, 
   cornerImage, 
   buttonText = "Read More", 
-  buttonLink = "#",
+  buttonLink = "",
   iconBgColor = "#33B5FF"
 }) => {
+ 
+    
   return (
     <div className="bg-white rounded-[20px] p-7 relative overflow-hidden">
       {/* Corner image */}

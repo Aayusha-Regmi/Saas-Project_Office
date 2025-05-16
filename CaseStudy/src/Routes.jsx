@@ -2,15 +2,16 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Import page components
-import CorporateTaxPlanningCaseStudy from './pages/CaseStudy/CorporateTaxPlanning';
+
+import CaseStudy from './pages/CaseStudy/CorporateTaxPlanning/components/TaxPlanning/CaseStudy';
 
 const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/case-study/corporate-tax-planning" element={<CorporateTaxPlanningCaseStudy />} />
+        <Route path="/case-study" element={<CaseStudy/>} />
         {/* Redirect from root to case study for this single-page example */}
-        <Route path="/" element={<CorporateTaxPlanningCaseStudy />} />
+        <Route path="/" element={<CaseStudy />} />
       </Routes>
     </Router>
   );

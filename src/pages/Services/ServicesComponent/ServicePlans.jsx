@@ -71,7 +71,7 @@ const ServicePlans = () => {
           icon={service.icon}
           cornerImage={service.cornerImage}
           buttonText="Read More"
-          buttonLink={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+         buttonLink={`/caseStudy/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
         />
       ))}
     </div>
