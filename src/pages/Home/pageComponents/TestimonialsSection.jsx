@@ -18,7 +18,7 @@ const TestimonialsSection = () => {
     },
     {
       id: 2,
-      name: "Sabal Kafle",
+      name: "Safal Kafle",
       role: "Customer",
       image: "/images/img_stt6_3.png",
       rating: 5,
@@ -59,7 +59,7 @@ const TestimonialsSection = () => {
   );
 
   return (
-    <section className="py-16 bg-[#eaf8ff] relative overflow-hidden">
+    <section className="py-16 bg-[#eaf8ff] relative">
       {/* Background elements */}
       <div className="absolute top-0 left-0">
         <img src="/images/img_ellipse_335.png" alt="Background shape" />

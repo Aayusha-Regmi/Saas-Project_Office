@@ -114,8 +114,8 @@
 
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import TeamsCard from '../../../components/common/TeamsCard';
+import { motion } from 'framer-motion';
 
 const TeamSection = () => {
   const teamMembers = [
@@ -194,63 +194,43 @@ const TeamSection = () => {
   ];
 
   return (
-    <motion.section
-      className="py-16"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6 }}
-      variants={{
-        hidden: { opacity: 0 },
-        visible: { opacity: 1 }
-      }}
-    >
+    <section className="py-16">
       <div className="container mx-auto px-4">
-        <motion.div
-          className="flex justify-center mb-8"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="flex justify-center mb-8">
           <div className="inline-flex items-center bg-gray-600 rounded-xl">
             <div className="bg-blue-500 w-[38px] h-[38px] rounded-xl flex items-center justify-center">
               <span className="text-white font-semibold">%</span>
             </div>
             <span className="text-base font-semibold text-blue-500 px-4">Our Team</span>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.h2
-          className="text-4xl font-semibold text-[#071e45] text-center mb-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          Meet With Our <span className="text-[#22a8ff]">Experts</span>
-        </motion.h2>
+        <h2 className="text-4xl font-semibold text-[#071e45] text-center mb-16">Meet With Our <span className="text-[#22a8ff]">Experts</span></h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+              className="h-full"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <TeamsCard
-                image={member.image}
-                name={member.name}
-                position={member.position}
-                description={member.description}
-                contactInfo={member.contactInfo}
-              />
+              <div className="h-full flex">
+                <TeamsCard
+                  image={member.image}
+                  name={member.name}
+                  position={member.position}
+                  description={member.description}
+                  contactInfo={member.contactInfo}
+                />
+              </div>
             </motion.div>
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
