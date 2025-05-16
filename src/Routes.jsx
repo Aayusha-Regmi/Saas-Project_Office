@@ -11,11 +11,15 @@ import LetsTalk from "./pages/Contact/LetsTalk";
 import IndustryForm from './pages/Industries/IndustryForm/IndustryForm';
 import Insights from './pages/Insights/Insights';
 import Teams from './pages/Team/Teams';
+import CaseStudy from './pages/Services/CaseStudy/CaseStudy';
 
 const AppRoutes = () => {
   return (
     <Router>
       <Routes>
+        {/* Dynamic route with a parameter */}
+        <Route path="/caseStudy/:page" element={<CaseStudy />} />
+        <Route path="/caseStudy" element={<CaseStudy />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/industries" element={<IndustriesPage />} />
         <Route path="/industries/industry-form" element={<IndustryForm />} />

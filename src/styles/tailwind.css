@@ -169,6 +169,9 @@
   .text-primary-blue {
     color: var(--primary-blue);
   }
+  .text-secondary-dark {
+    color: var(--secondary-foreground);
+  }
   .text-secondary-dark-blue {
     color: var(--secondary-foreground);
   }
@@ -190,6 +193,9 @@
   
   .text-primary-darkBlue {
     color: var(--primary-darkBlue);
+  }
+  .text-accent-blue {
+    color: var(--accent-color);
   }
   .text-primary-navy {
     color: var(--primary-navy);
@@ -286,5 +292,16 @@
   
   .section-title {
     @apply text-3xl font-semibold text-[#071e45] mb-6;
+  }
+  .case-detail-label {
+    @apply text-lg font-bold text-blue-800 mb-2;
+  }
+  
+  .case-detail-value {
+    @apply text-base font-light text-blue-800 mb-6;
+  }
+  
+  .content-paragraph {
+    @apply text-lg md:text-xl font-semibold text-gray-400 mb-6;
   }
 }
