@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import RatingBar from '../../../../components/ui/RatingBar';
+import RatingBar from '@/components/ui/RatingBar';
 
 const CaseDetailsSidebar = () => {
   const { page } = useParams();

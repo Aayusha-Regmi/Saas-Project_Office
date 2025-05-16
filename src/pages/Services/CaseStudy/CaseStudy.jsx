@@ -1,7 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Header from '@/components/common/Header';
-import Footer from '@/components/common/Footer';
 import CaseDetailsSidebar from './SecondaryComponents/CaseDetailsSidebar';
 import TaxPlanning from './CSContentPages/CorporateTaxPlanning/TaxPlanning';
 import PersonalTax from './CSContentPages/PersonalTax/PersonalTax';
@@ -11,9 +9,18 @@ import TaxAdvisorySupport from './CSContentPages/TaxAdvisorySupport/TaxAdvisoryS
 import InvestmentAdvisor from './CSContentPages/InvestmentAdvisor/InvestmentAdvisor';
 import InsuranceTax from './CSContentPages/InsuranceTax/InsuranceTax';
 import CorporateTax from './CSContentPages/CorporateTax/CorporateTax';
+import TopHeader from '@/components/common/TopHeader';
+import PrimaryHeader from '@/components/common/PrimaryHeader';
+import SecondaryHeroSection from '@/components/common/SecondaryHeroSection';
+import Footer from '@/components/common/Footer';
 
 const CaseStudy = () => {
   const { page } = useParams();
+
+  const breadcrumbItem = [
+    { label: 'Home', path: '/' },
+    { label: 'Case Study', path: '/caseStudy', className:'text-red-500' },
+  ];
 
   const renderContent = () => {
     switch (page) {
@@ -40,17 +47,15 @@ const CaseStudy = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <TopHeader/>
+      <PrimaryHeader/>
       
       {/* Hero Banner */}
-      <div 
-        className="w-full h-80 bg-cover bg-center relative" style={{ backgroundImage: 'url("/images/img_image.png")' }}
-      >
-        <div className="absolute inset-0 bg-blue-700 bg-opacity-50 flex flex-col items-center justify-center text-white">
-          <h1 className="text-3xl font-extrabold mb-2">Case Study Single</h1>
-          <p className="text-lg font-extrabold">Home&gt;&gt;Services</p>
-        </div>
-      </div>
+      <SecondaryHeroSection 
+        title="Case-Study" 
+        breadcrumbItem={breadcrumbItem} 
+      />
+        
       
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12">
