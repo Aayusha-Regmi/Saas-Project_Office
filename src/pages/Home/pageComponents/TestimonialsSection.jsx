@@ -18,7 +18,7 @@ const TestimonialsSection = () => {
     },
     {
       id: 2,
-      name: "Sabal Kafle",
+      name: "Safal Kafle",
       role: "Customer",
       image: "/images/img_stt6_3.png",
       rating: 5,

@@ -141,7 +141,7 @@ const IndustrySection = () => {
       imageSrc: "/images/img_image_14.png",
       imageAlt: "Banking & Financial Service",
       buttonVariant: "default",
-      link: "/industries/banking"
+      link: "/industries/banking" 
     },
     {
       id: 2,
