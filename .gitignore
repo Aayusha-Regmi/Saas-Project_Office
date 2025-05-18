@@ -18,5 +18,6 @@ build/
 *.swp
 
 # OS files
+.env
 .DS_Store
 Thumbs.db
