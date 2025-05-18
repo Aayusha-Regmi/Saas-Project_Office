@@ -104,10 +104,11 @@ const HomeHeroSection = () => {
       <div className="absolute right-0 top-[277px]">
         <div className="w-[408px] h-[427px] rounded-full bg-green-300"></div>
         <div className="absolute top-[73px] left-[56px] w-[115px] h-[115px] rounded-full bg-red-600/30"></div>
-        <div className="absolute top-[395px] left-[427px] w-[115px] h-[115px] rounded-full bg-red-600/30"></div>
+        <div className="absolute top-[395px] left-[180px] w-[115px] h-[115px] rounded-full bg-red-600/30"></div>
       </div>
 
-      <div className="container mx-auto px-4 pt-16 pb-24 relative">
+      {/* <div className="container mx-auto px-4 pt-16 pb-24 relative"> */}
+      <div className="container mx-auto relative">
         <motion.div
           className="flex flex-col md:flex-row"
           initial={{ opacity: 0, y: 50 }}
