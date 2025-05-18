@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../ui/Button';
+import { useNavigate } from 'react-router-dom';
 
 const PrimaryHeader = () => {
+  const navigate = useNavigate();
+  const handleContactClick = () => {
+    navigate('/contact');
+  };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -78,6 +83,7 @@ const PrimaryHeader = () => {
             <Button 
               variant="primary" 
               className="hidden md:flex"
+              onClick={handleContactClick}
             >
               Let's Talk
               <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-2" />
@@ -148,7 +154,7 @@ const PrimaryHeader = () => {
                 About
               </Link>
               <div className="pt-2">
-                <Button variant="primary" className="w-full">
+                <Button variant="primary" className="w-full" onClick={handleContactClick}>
                   Let's Talk
                   <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-2" />
                 </Button>
