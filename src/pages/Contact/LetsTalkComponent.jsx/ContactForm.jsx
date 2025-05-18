@@ -192,16 +192,17 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              <div className="relative">
+              <div className="relative mb-8">
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Your Message"
-                  className="contact-form-input h-32"
+                  rows="4"
+                  className="contact-form-textarea"
                 ></textarea>
-                <div className="absolute left-6 top-1/2 transform -translate-y-1/2">
-                  <img src="/images/img_materialsymbolschatbubble.svg" alt="Message" className="w-6 h-6" />
+                <div className="absolute left-6 top-6">
+                  <img src="/images/img_mynauimessagedotssolid.svg" alt="Message" className="w-6 h-6" />
                 </div>
                 {errors.message && <p className="text-red-500 mt-1">{errors.message}</p>}
               </div>
