@@ -222,7 +222,7 @@ const ContactForm = () => {
               </LetsTalkButton>
             </form>
 
-            {/* Thank You Message */}
+            
             {success && (
               <div className="mt-6 bg-green-100 border border-green-400 text-green-700 px-4 py-4 rounded-lg">
                 <strong className="block font-bold text-lg mb-1">Thank you!</strong>
