@@ -117,7 +117,7 @@ const TestimonialsSection = () => {
                         </div>
                         {/* Testimonial content */}
                         <div className="mb-4">
-                          <img src="/images/img_group_1171276006.svg" alt="Quote" className="mb-4" />
+                          <img src="/images/img_group_1171275971.svg" alt="Quote" className="mb-4" />
                           <p className="text-xl leading-relaxed mb-6">{testimonial.text}</p>
                         </div>
                         {/* Author info */}

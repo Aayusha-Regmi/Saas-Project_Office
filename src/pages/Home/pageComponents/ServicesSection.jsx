@@ -8,28 +8,28 @@
 //       title: 'Tax Advisory',
 //       description: 'Finance Minister Barshaman Pun has tabled a budget of Rs. 18.60 trillion for the fiscal',
 //       icon: '/images/img_group.svg',
-//       cornerImage: '/images/img_group_1171276006.svg'
+//       cornerImage: '/images/img_group_1171275971.svg'
 //     },
 //     {
 //       id: 2,
 //       title: 'Merger & Acquisitions',
 //       description: 'Finance Minister Barshaman Pun has tabled a budget of Rs. 18.60 trillion for the fiscal',
 //       icon: '/images/img_group_43x46.svg',
-//       cornerImage: '/images/img_group_1171276006.svg'
+//       cornerImage: '/images/img_group_1171275971.svg'
 //     },
 //     {
 //       id: 3,
 //       title: 'Audit & Assurance',
 //       description: 'Finance Minister Barshaman Pun has tabled a budget of Rs. 18.60 trillion for the fiscal',
 //       icon: '/images/img_vector_44x48.svg',
-//       cornerImage: '/images/img_group_1171276006.svg'
+//       cornerImage: '/images/img_group_1171275971.svg'
 //     },
 //     {
 //       id: 4,
 //       title: 'Risk Advisory & Consult',
 //       description: 'Finance Minister Barshaman Pun has tabled a budget of Rs. 18.60 trillion for the fiscal',
 //       icon: '/images/img_group_43x46.svg',
-//       cornerImage: '/images/img_group_1171276006.svg'
+//       cornerImage: '/images/img_group_1171275971.svg'
 //     }
 //   ];
 
@@ -106,28 +106,28 @@ const ServicesSection = () => {
       title: 'Tax Advisory',
       description: 'Finance Minister Barshaman Pun has tabled a budget of Rs. 18.60 trillion for the fiscal',
       icon: '/images/img_group.svg',
-      cornerImage: '/images/img_group_1171276006.svg'
+      cornerImage: '/images/img_group_1171275971.svg'
     },
     {
       id: 2,
       title: 'Merger & Acquisitions',
       description: 'Finance Minister Barshaman Pun has tabled a budget of Rs. 18.60 trillion for the fiscal',
       icon: '/images/img_group_43x46.svg',
-      cornerImage: '/images/img_group_1171276006.svg'
+      cornerImage: '/images/img_group_1171275971.svg'
     },
     {
       id: 3,
       title: 'Audit & Assurance',
       description: 'Finance Minister Barshaman Pun has tabled a budget of Rs. 18.60 trillion for the fiscal',
       icon: '/images/img_vector_44x48.svg',
-      cornerImage: '/images/img_group_1171276006.svg'
+      cornerImage: '/images/img_group_1171275971.svg'
     },
     {
       id: 4,
       title: 'Risk Advisory & Consult',
       description: 'Finance Minister Barshaman Pun has tabled a budget of Rs. 18.60 trillion for the fiscal',
       icon: '/images/img_group_43x46.svg',
-      cornerImage: '/images/img_group_1171276006.svg'
+      cornerImage: '/images/img_group_1171275971.svg'
     }
   ];
 

@@ -18,7 +18,7 @@
 //       label: "Experts Staff"
 //     },
 //     {
-//       icon: "/images/img_award_3.svg",
+//       icon: "/images/img_award_2.svg",
 //       count: "50 k",
 //       label: "Win Awards"
 //     }
@@ -68,7 +68,7 @@ const StatsSection = () => {
     { icon: "/images/img_group_starts.svg", count: 150000, label: "Projects Done" },
     { icon: "/images/img_group_53x55.svg", count: 25000, label: "Happy Clients" },
     { icon: "/images/img_group_51x48.svg", count: 120, label: "Expert Staff" },
-    { icon: "/images/img_award_3.svg", count: 50000, label: "Awards Won" },
+    { icon: "/images/img_award_2.svg", count: 50000, label: "Awards Won" },
   ];
 
   // State for dynamically updating stats
