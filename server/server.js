@@ -32,7 +32,8 @@ const transporter = nodemailer.createTransport({
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
-    }
+    },
+    debug: true // Enable debug logs
 });
 
 // Route to get all submissions
@@ -58,63 +59,49 @@ app.delete('/api/submissions/:id', (req, res) => {
     });
 });
 
-app.post('/api/contact', async (req, res) => {
-    try {
-        const { name, email, phone, service, message } = req.body;
+app.post('/api/contact', (req, res) => {
+    const { name, email, phone, service, message } = req.body;
 
-        const handleSubmit = async (e) => {
-            e.preventDefault();
+    // Save to database
+    const sql = 'INSERT INTO contact_submissions (name, email, phone, service, message) VALUES (?, ?, ?, ?, ?)';
+    db.query(sql, [name, email, phone, service, message], (err) => {
+        if (err) {
+            console.error('Error saving to database:', err);
+            return res.status(500).json({ error: 'Failed to save submission' });
+        }
 
-            const newErrors = validateForm();
+        // Define mailOptions here, inside the callback
+        const mailOptions = {
+            from: process.env.EMAIL_USER,
+            to: process.env.EMAIL_USER,
+            replyTo: email,
+            subject: `New Contact Form Submission from ${name}`,
+            html: `
+                <div style="font-family: Arial, sans-serif; padding: 20px;">
+                    <h2 style="color: #22A8FF;">New Contact Form Submission</h2>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Phone:</strong> ${phone}</p>
+                    <p><strong>Service:</strong> ${service}</p>
+                    <p><strong>Message:</strong></p>
+                    <p>${message}</p>
+                </div>
+            `
+        };
 
-            if (Object.keys(newErrors).length > 0) {
-                setErrors(newErrors);
-                return;
+        // Send email after defining mailOptions
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Error sending email:', error);
+                return res.status(500).json({ error: 'Failed to send email' });
             }
 
-            const { name, email, phone, service, message } = formData;
-
-            // Save to database
-            const sql = 'INSERT INTO contact_submissions (name, email, phone, service, message) VALUES (?, ?, ?, ?, ?)';
-            db.query(sql, [name, email, phone, service, message], (err) => {
-                if (err) {
-                    console.error('Error saving to database:', err);
-                    return res.status(500).json({ error: 'Failed to save submission' });
-                }
-
-                // Send email
-                const mailOptions = {
-                    from: email,
-                    to: process.env.EMAIL_USER,
-                    subject: 'New Contact Form Submission',
-                    html: `
-                        <h2>New Contact Form Submission</h2>
-                        <p><strong>Name:</strong> ${name}</p>
-                        <p><strong>Email:</strong> ${email}</p>
-                        <p><strong>Phone:</strong> ${phone}</p>
-                        <p><strong>Service:</strong> ${service}</p>
-                        <p><strong>Message:</strong></p>
-                        <p>${message}</p>
-                    `
-                };
-
-                transporter.sendMail(mailOptions, (error, info) => {
-                    if (error) {
-                        console.error('Error sending email:', error);
-                        return res.status(500).json({ error: 'Failed to send email' });
-                    }
-
-                    res.status(200).json({ 
-                        message: 'Email sent successfully',
-                        submissionId: info.messageId
-                    });
-                });
+            res.status(200).json({ 
+                message: 'Email sent successfully',
+                submissionId: info.messageId
             });
-        };
-    } catch (error) {
-        console.error('Error sending email:', error);
-        res.status(500).json({ error: 'Failed to send email' });
-    }
+        });
+    });
 });
 
 const PORT = process.env.PORT || 5000;
