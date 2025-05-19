@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LetsTalkButton from '@/components/ui/LetsTalkButton';
 import LetsTalkInputField from '@/components/ui/LetsTalkInputField';
 import LetsTalkTextarea from '@/components/ui/LetsTalkTextarea';
@@ -53,6 +53,12 @@ const ContactForm = () => {
 
     return newErrors;
   };
+
+  // Move useEffect here, outside handleSubmit
+  useEffect(() => {
+    setSuccess(false);
+    setErrors({});
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
