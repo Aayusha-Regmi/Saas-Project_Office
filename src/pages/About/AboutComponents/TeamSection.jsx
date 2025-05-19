@@ -5,22 +5,22 @@
 //     {
 //       id: 1,
 //       image: "/images/img_group_1171276020.png",
-//       socialIcon: "/images/img_group_1171276047.svg"
+//       socialIcon: "/images/img_group_1171276030.svg"
 //     },
 //     {
 //       id: 2,
 //       image: "/images/img_group_1171276020.png",
-//       socialIcon: "/images/img_group_1171276047.svg"
+//       socialIcon: "/images/img_group_1171276030.svg"
 //     },
 //     {
 //       id: 3,
 //       image: "/images/img_group_1171276020.png",
-//       socialIcon: "/images/img_group_1171276047.svg"
+//       socialIcon: "/images/img_group_1171276030.svg"
 //     },
 //     {
 //       id: 4,
 //       image: "/images/img_group_1171276020.png",
-//       socialIcon: "/images/img_group_1171276047.svg"
+//       socialIcon: "/images/img_group_1171276030.svg"
 //     }
 //   ];
 
@@ -71,22 +71,22 @@ const TeamSection = () => {
     {
       id: 1,
       image: "/images/img_group_1171276020.png",
-      socialIcon: "/images/img_group_1171276047.svg"
+      socialIcon: "/images/img_group_1171276030.svg"
     },
     {
       id: 2,
       image: "/images/img_group_1171276020.png",
-      socialIcon: "/images/img_group_1171276047.svg"
+      socialIcon: "/images/img_group_1171276030.svg"
     },
     {
       id: 3,
       image: "/images/img_group_1171276020.png",
-      socialIcon: "/images/img_group_1171276047.svg"
+      socialIcon: "/images/img_group_1171276030.svg"
     },
     {
       id: 4,
       image: "/images/img_group_1171276020.png",
-      socialIcon: "/images/img_group_1171276047.svg"
+      socialIcon: "/images/img_group_1171276030.svg"
     }
   ];
 
