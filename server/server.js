@@ -59,6 +59,7 @@ app.delete('/api/submissions/:id', (req, res) => {
     });
 });
 
+// Route to handle contact form submission
 app.post('/api/contact', (req, res) => {
     const { name, email, phone, service, message } = req.body;
 
