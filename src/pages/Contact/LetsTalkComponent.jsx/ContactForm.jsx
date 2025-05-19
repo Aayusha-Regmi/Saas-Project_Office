@@ -14,6 +14,7 @@ const ContactForm = () => {
 
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false); // for controlling thank you message
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -90,6 +91,7 @@ const ContactForm = () => {
           message: ''
         });
         setSuccess(true); // Show success message
+        setErrorMessage(''); // Clear error message
         setTimeout(() => {
           setSuccess(false);
         }, 5000);
@@ -98,7 +100,8 @@ const ContactForm = () => {
       }
     } catch (error) {
       console.error('Error sending message:', error);
-      alert('Sorry, there was an error sending your message. Please try again.');
+      setErrorMessage('Sorry, there was an error sending your message. Please try again.');
+      setSuccess(false);
     }
   };
 
@@ -234,8 +237,12 @@ const ContactForm = () => {
                 <strong className="block font-bold text-lg mb-1">Thank you!</strong>
                 <span>Your message has been successfully sent. We’ll get back to you soon.</span>
               </div> 
-              
-
+            )}
+            {errorMessage && (
+              <div className="mt-6 bg-red-100 border border-red-400 text-red-700 px-4 py-4 rounded-lg">
+                <strong className="block font-bold text-lg mb-1">Error</strong>
+                <span>{errorMessage}</span>
+              </div>
             )}
           </div>
         </div>
