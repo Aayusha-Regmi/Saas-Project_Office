@@ -39,6 +39,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../../../components/ui/Button';
+import { useNavigate } from 'react-router-dom';
 
 // Animation Variants
 const fadeInUp = {
@@ -63,9 +64,7 @@ const staggerContainer = {
 };
 
 const ConsultationSection = () => {
-  const handleContactUs = () => {
-    console.log('Contact Us clicked');
-  };
+  const navigate = useNavigate();
 
   return (
     <section
@@ -95,9 +94,9 @@ const ConsultationSection = () => {
         </motion.p>
 
         <motion.div variants={fadeInUp}>
-          <Button onClick={handleContactUs} variant="primary" className="flex items-center mx-auto">
+          <Button onClick={() => navigate('/contact')} variant="primary" className="flex items-center mx-auto">
             Contact Us
-            <img src="/images/img_materialsymbolsarrowinsert.svg" alt="" className="ml-2 w-6 h-6" />
+            <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Contact Us" className="ml-2 w-6 h-6" />
           </Button>
         </motion.div>
       </motion.div>

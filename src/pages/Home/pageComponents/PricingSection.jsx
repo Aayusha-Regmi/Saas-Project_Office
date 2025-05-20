@@ -139,8 +139,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../../../components/ui/Button';
+import { useNavigate } from 'react-router-dom';
 
 const PricingSection = () => {
+  const navigate = useNavigate();
   const pricingPlans = [
     {
       id: 1,
@@ -244,6 +246,7 @@ const PricingSection = () => {
                 <Button
                   variant="primary"
                   className="w-full flex items-center justify-center my-6"
+                  onClick={() => navigate('/contact')}    
                 >
                   Purchase Now
                   <img

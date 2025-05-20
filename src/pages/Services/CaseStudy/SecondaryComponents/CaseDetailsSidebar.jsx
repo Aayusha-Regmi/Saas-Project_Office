@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import RatingBar from '@/components/ui/RatingBar';
+import { FiArrowUpRight } from 'react-icons/fi';  // Feather Icons
+
 
 const CaseDetailsSidebar = () => {
   const { page } = useParams();
@@ -76,9 +78,9 @@ const CaseDetailsSidebar = () => {
       <div className="bg-blue-600 rounded-lg p-6 text-white mt-10">
         <h3 className="text-2xl font-bold mb-4">We Are Providing<br />Best Tax Advisory Services.</h3>
         <Link to="/services/tax-advisory">
-          <button className="bg-white text-blue-800 font-semibold py-3 px-6 rounded-lg flex items-center mt-4">
+          <button className="bg-white text-blue-800 font-semibold py-3 px-6 rounded-lg flex items-center mt-4 hover:bg-blue-800 hover:text-white transition-colors">
             About More
-            <img src="/images/img_materialsymbolsarrowinsert_24x24.svg" alt="Arrow" className="w-6 h-6 ml-2" />
+            <img src="/images/img_materialsymbolsarrowinsert_24x24.svg" alt="Arrow" className="w-6 h-6 ml-2 " />
           </button>
         </Link>
       </div>

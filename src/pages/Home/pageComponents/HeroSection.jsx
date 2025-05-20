@@ -88,15 +88,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../../../components/ui/Button';
+import { useNavigate } from 'react-router-dom';
 
 const HomeHeroSection = () => {
-  const handleAboutMore = () => {
-    console.log('About More clicked');
-  };
-
-  const handleLearnMore = () => {
-    console.log('Learn More clicked');
-  };
+  const navigate = useNavigate();
 
   return (
     <section className="relative">
@@ -134,7 +129,7 @@ const HomeHeroSection = () => {
 
             <div className="flex space-x-6 mb-12">
               <Button 
-                onClick={handleAboutMore} 
+                onClick={() => navigate('/about')} 
                 variant="primary" className="flex items-center"
               >
                 About More
@@ -142,7 +137,7 @@ const HomeHeroSection = () => {
               </Button>
               
               <Button 
-                onClick={handleLearnMore} 
+                onClick={() => navigate('/services')} 
                 variant="secondary" className="flex items-center"
               >
                 Learn More

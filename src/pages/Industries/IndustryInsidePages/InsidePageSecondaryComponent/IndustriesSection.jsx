@@ -1,20 +1,27 @@
 import React from 'react';
 import Button from '@/components/ui/Button';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const IndustriesSection = () => {
   const location = useLocation();
   const currentPath = location.pathname;
+  const navigate = useNavigate();
+  const handleProposalClick = () => {
+    navigate('/industries/industry-form');
+    setTimeout(() => {
+      window.scrollTo({ top: 0 }); 
+    }, 0);
+  };
 
   const industries = [
-    { name: "Banking & Financial Service", path: "/industries/banking-financial-services" },
+    { name: "Banking & Financial Service", path: "/industries/banking" },
     { name: "Manufacturing", path: "/industries/manufacturing" },
     { name: "NGO/INGO", path: "/industries/ngo-ingo" },
-    { name: "Electronics & Communication Industry", path: "/industries/electronics-communication" },
-    { name: "Trading & Retail", path: "/industries/trading-retail" },
-    { name: "Travel, Tourism & Hotel", path: "/industries/travel-tourism-hotel" },
-    { name: "Hospital and Education Industry", path: "/industries/hospital-education" },
-    { name: "Hydropower & Construction", path: "/industries/hydropower-construction" },
+    { name: "Electronics & Communication Industry", path: "/industries/electronics" },
+    { name: "Trading & Retail", path: "/industries/trading" },
+    { name: "Travel, Tourism & Hotel", path: "/industries/travel" },
+    { name: "Hospital and Education Industry", path: "/industries/hospital" },
+    { name: "Hydropower & Construction", path: "/industries/hydropower" },
   ].map(industry => ({
     ...industry,
     active: currentPath === industry.path
@@ -26,7 +33,7 @@ const IndustriesSection = () => {
         <Button 
           variant="primary" 
           className="w-full py-4 text-xl"
-          onClick={() => window.location.href = '/request-proposal'}
+          onClick={handleProposalClick}
         >
           REQUEST FOR PROPOSAL
         </Button>

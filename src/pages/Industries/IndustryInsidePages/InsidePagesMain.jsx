@@ -25,21 +25,21 @@ const InsidePagesMain = () => {
 
   const renderContent = () => {
     switch (page) {
-      case 'banking-financial-services':
+      case 'banking':
         return <BankingandFinances />;
       case 'manufacturing':
         return <Manufacturing />;
       case 'ngo-ingo':
         return <NGO_INGO />;
-      case 'trading-retail':
+      case 'trading':
         return <TradingandRetail />;
-      case 'travel-tourism-hotel':
+      case 'travel':
         return <TravelTourismandHotel />;
-      case 'hospital-education':
+      case 'hospital':
         return <HospitalandEducationIndustry />;
-      case 'hydropower-construction':
+      case 'hydropower':
         return <HydropowerandConstruction />;
-      case 'electronics-communication':
+      case 'electronics':
         return <ElectronicsandCommunicationIndustry />;
       default:
         return <BankingandFinances />;

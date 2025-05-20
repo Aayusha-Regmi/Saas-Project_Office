@@ -96,6 +96,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../../../components/ui/Button';
+import { useNavigate } from 'react-router-dom';
 
 const expertiseVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -119,6 +120,7 @@ const staggerContainer = {
 };
 
 const ExpertiseSection = () => {
+  const navigate = useNavigate();
   const benefits = [
     {
       id: 1,
@@ -227,9 +229,9 @@ const ExpertiseSection = () => {
             </div>
 
             <motion.div variants={expertiseVariants}>
-              <Button variant="primary" className="mt-8 flex items-center">
+              <Button variant="primary" className="mt-8 flex items-center" onClick={() => navigate('/services')}>
                 Discover More
-                <img src="/images/img_materialsymbolsarrowinsert.svg" alt="" className="ml-2 w-6 h-6" />
+                <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Discover More" className="ml-2 w-6 h-6" />
               </Button>
             </motion.div>
           </motion.div>

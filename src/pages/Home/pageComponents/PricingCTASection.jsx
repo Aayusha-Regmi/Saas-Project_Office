@@ -134,8 +134,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../../../components/ui/Button';
+import { useNavigate } from 'react-router-dom';
 
 const PricingCTASection = () => {
+  const navigate = useNavigate();
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -204,7 +206,7 @@ const PricingCTASection = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <Button variant="primary" className="flex items-center">
+          <Button variant="primary" className="flex items-center" onClick={() => navigate('/contact')}>
             Contact Us
             <img
               src="/images/img_materialsymbolsarrowinsert.svg"

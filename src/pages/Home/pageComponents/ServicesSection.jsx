@@ -98,8 +98,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../../../components/ui/Button';
+import { useNavigate } from 'react-router-dom';
 
 const ServicesSection = () => {
+  const navigate = useNavigate();
   const services = [
     {
       id: 1,
@@ -202,7 +204,7 @@ const ServicesSection = () => {
 
         {/* All Services Button */}
         <div className="flex justify-center mt-12">
-          <Button variant="primary" className="flex items-center">
+          <Button variant="primary" className="flex items-center" onClick={() => navigate('/services')}>
             All Services
             <img src="/images/img_materialsymbolsarrowinsert.svg" alt="" className="ml-2 w-6 h-6" />
           </Button>
