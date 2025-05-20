@@ -12,9 +12,10 @@ import StatsSection from '../About/AboutComponents/StatsSection';
 import CaseStudySection from './pageComponents/CaseStudySection';
 import ConsultationSection from './pageComponents/ConsultationSection';
 import ExpertiseSection from './pageComponents/ExpertiseSection';
-import ContactSection from './pageComponents/ContactSection';
+
 import ExpertsSection from './pageComponents/ExpertsSection';
 import TestimonialsSection from './pageComponents/TestimonialsSection';
+import ContactForm from '../Contact/LetsTalkComponent.jsx/ContactForm';
 
 const HomePage = () => {
   return (
@@ -34,7 +35,7 @@ const HomePage = () => {
         <CaseStudySection />
         <ConsultationSection />
         <ExpertiseSection />
-        <ContactSection />
+        <ContactForm />
         <ExpertsSection />
         <TestimonialsSection />
       </main>

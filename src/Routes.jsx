@@ -12,6 +12,7 @@ import IndustryForm from './pages/Industries/IndustryForm/IndustryForm';
 import Insights from './pages/Insights/Insights';
 import Teams from './pages/Team/Teams';
 import CaseStudy from './pages/Services/CaseStudy/CaseStudy';
+import InsidePagesMain from './pages/Industries/IndustryInsidePages/InsidePagesMain';
 
 const AppRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const AppRoutes = () => {
         {/* Dynamic route with a parameter */}
         <Route path="/caseStudy/:page" element={<CaseStudy />} />
         <Route path="/caseStudy" element={<CaseStudy />} />
+        <Route path="/industries/:page" element={<InsidePagesMain />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/industries" element={<IndustriesPage />} />
         <Route path="/industries/industry-form" element={<IndustryForm />} />

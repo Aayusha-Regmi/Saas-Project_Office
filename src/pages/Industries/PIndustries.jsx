@@ -24,9 +24,10 @@ const PIndustries = () => {
         />
         
         <IndustrySection />
-        
         <ContactCTA />
+        
       </main>
+     
       
       <Footer />
     </div>
