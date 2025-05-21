@@ -133,8 +133,8 @@ const TestimonialsSection = () => {
                               className="w-20 h-20 opacity-80"
                             />
                           </div>
-                          <div className="flex-1 flex items-center">
-                            <p className="text-sm md:text-base leading-relaxed text-gray-700 mt-2">
+                          <div className="flex-1">
+                            <p className="text-sm md:text-base leading-relaxed text-gray-700 mt-5">
                               {testimonial.text}
                             </p>
                           </div>
