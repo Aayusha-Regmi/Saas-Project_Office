@@ -147,68 +147,113 @@ const ServicesSection = () => {
   };
 
   return (
-    <section className="bg-gray-600 py-16">
+    <section className="bg-gray-600 py-8 sm:py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <div className="flex justify-center mb-12">
+        <motion.div 
+          className="flex justify-center mb-6 sm:mb-8 md:mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <div className="inline-flex items-center bg-white rounded-xl">
-            <div className="bg-blue-500 w-[38px] h-[38px] rounded-xl flex items-center justify-center">
-              <span className="text-white font-semibold">%</span>
+            <div className="bg-blue-500 w-[30px] h-[30px] sm:w-[38px] sm:h-[38px] rounded-xl flex items-center justify-center">
+              <span className="text-white font-semibold text-sm sm:text-base">%</span>
             </div>
-            <span className="text-base font-semibold text-blue-500 px-4">Our Offers</span>
+            <span className="text-sm sm:text-base font-semibold text-blue-500 px-3 sm:px-4">Our Offers</span>
           </div>
-        </div>
+        </motion.div>
 
-        <h2 className="text-4xl font-bold text-blue-800 text-center mb-16">
+        <motion.h2 
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800 text-center mb-8 sm:mb-12 md:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           What We Offer To Our
-          <br />
+          <span className="hidden xs:inline"><br /></span>
+          <span className="xs:hidden"> </span>
           Customers
-        </h2>
+        </motion.h2>
 
         {/* Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {services.map((service, index) => (
             <motion.div
               key={service.id}
-              className="bg-white rounded-2xl p-6 relative"
+              className="bg-white rounded-2xl p-4 sm:p-6 relative"
               variants={fadeInUpVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: index * 0.1 }}
             >
               {/* Corner Image */}
               <div className="absolute top-0 right-0">
-                <img src={service.cornerImage} alt="" className="w-[84px] h-[97px]" />
+                <img 
+                  src={service.cornerImage} 
+                  alt="" 
+                  className="w-[60px] h-[70px] sm:w-[84px] sm:h-[97px]" 
+                />
               </div>
 
               {/* Service Icon */}
-              <div className="bg-blue-500 w-[75px] h-[75px] rounded-full flex items-center justify-center mb-6">
-                <img src={service.icon} alt={service.title} className="w-11 h-11" />
+              <div className="bg-blue-500 w-[60px] h-[60px] sm:w-[75px] sm:h-[75px] rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                <img 
+                  src={service.icon} 
+                  alt={service.title} 
+                  className="w-9 h-9 sm:w-11 sm:h-11" 
+                />
               </div>
 
               {/* Service Title */}
-              <h3 className="text-lg font-extrabold text-blue-800 mb-4">{service.title}</h3>
+              <h3 className="text-base sm:text-lg font-extrabold text-blue-800 mb-2 sm:mb-4">{service.title}</h3>
 
               {/* Service Description */}
-              <p className="text-sm font-semibold text-gray-400 mb-6">
+              <p className="text-xs sm:text-sm font-semibold text-gray-400 mb-4 sm:mb-6">
                 {service.description}
               </p>
 
               {/* Button */}
-              <Button variant="primary" className="w-full flex items-center justify-center">
+              <Button 
+                variant="primary" 
+                size="small"
+                className="w-full flex items-center justify-center text-sm"
+              >
                 Read More
-                <img src="/images/img_materialsymbolsarrowinsert.svg" alt="" className="ml-2 w-6 h-6" />
+                <img 
+                  src="/images/img_materialsymbolsarrowinsert.svg" 
+                  alt="" 
+                  className="ml-1 sm:ml-2 w-5 h-5 sm:w-6 sm:h-6" 
+                />
               </Button>
             </motion.div>
           ))}
         </div>
 
         {/* All Services Button */}
-        <div className="flex justify-center mt-12">
-          <Button variant="primary" className="flex items-center" onClick={() => navigate('/services')}>
+        <motion.div 
+          className="flex justify-center mt-8 sm:mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <Button 
+            variant="primary" 
+            size="small" 
+            className="flex items-center w-full sm:w-auto justify-center" 
+            onClick={() => navigate('/services')}
+          >
             All Services
-            <img src="/images/img_materialsymbolsarrowinsert.svg" alt="" className="ml-2 w-6 h-6" />
+            <img 
+              src="/images/img_materialsymbolsarrowinsert.svg" 
+              alt="" 
+              className="ml-1 sm:ml-2 w-5 h-5 sm:w-6 sm:h-6" 
+            />
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
