@@ -55,7 +55,7 @@ const ContactForm = () => {
     return newErrors;
   };
 
-  // Move useEffect here, outside handleSubmit
+ 
   useEffect(() => {
     setSuccess(false);
     setErrors({});
@@ -90,8 +90,8 @@ const ContactForm = () => {
           service: '',
           message: ''
         });
-        setSuccess(true); // Show success message
-        setErrorMessage(''); // Clear error message
+        setSuccess(true); 
+        setErrorMessage(''); 
         setTimeout(() => {
           setSuccess(false);
         }, 5000);
@@ -187,7 +187,7 @@ const ContactForm = () => {
                     onChange={handleChange}
                     className="contact-form-input appearance-none"
                   >
-                    <option value="" disabled>Choose Service</option>
+                    <option value="" disabled>Choose Service </option>{/*add dropdown icon*/}
                     {services.map(service => (
                       <option key={service.value} value={service.value}>
                         {service.label}
