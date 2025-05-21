@@ -14,7 +14,7 @@ const TestimonialsSection = () => {
       role: "Customer",
       image: "/images/img_stt6_2.png",
       rating: 5,
-      text: "They stay ahead of the curve, bringing fresh ideas and solutions that truly work."
+      text:"Innovative, reliable, and always one step ahead of the curve. Their solutions truly make a difference in our operations."
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const TestimonialsSection = () => {
       role: "Customer",
       image: "/images/img_stt6_3.png",
       rating: 5,
-      text: "They stay ahead of the curve, bringing fresh ideas and solutions that truly work."
+      text: "From concept to execution, their team delivers results with creativity and precision. Highly recommended!"
     },
     {
       id: 3,
@@ -31,6 +31,7 @@ const TestimonialsSection = () => {
       image: "/images/img_stt6_3.png",
       rating: 5,
       text: "They stay ahead of the curve, bringing fresh ideas and solutions that truly work."
+
     },
     {
       id: 4,
@@ -38,7 +39,7 @@ const TestimonialsSection = () => {
       role: "Client",
       image: "/images/img_stt6_3.png",
       rating: 5,
-      text: "They stay ahead of the curve, bringing fresh ideas and solutions that truly work."
+      text: "They consistently deliver exceptional results with innovative approaches. Their dedication and expertise have made a significant impact on our business growth."
     }
   ];
 
@@ -59,7 +60,7 @@ const TestimonialsSection = () => {
   );
 
   return (
-    <section className="py-16 bg-[#eaf8ff] relative">
+    <section className="py-20 bg-[#eaf8ff] relative">
       {/* Background elements */}
       <div className="absolute top-0 left-0">
         <img src="/images/img_ellipse_335.png" alt="Background shape" />
@@ -69,39 +70,39 @@ const TestimonialsSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-12">
           {/* Left side */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-5/12">
             <div className="flex items-center mb-6">
               <div className="bg-[#22a8ff] w-14 h-14 rounded-full flex items-center justify-center mr-4">
                 <span className="text-3xl font-semibold text-white">%</span>
               </div>
               <h2 className="text-3xl font-semibold text-[#32b5fd]">Testimonials</h2>
             </div>
-            <h3 className="text-4xl font-bold text-[#071e45] mb-4">What Our Client</h3>
-            <h3 className="text-4xl font-bold text-[#071e45] mb-6">Say's About Us</h3>
-            <p className="text-lg text-gray-800 leading-relaxed mb-8">
-              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. All the generators on the Internet tend to repeat predefined chunks.
+            <h3 className="text-4xl font-bold text-[#071e45] mb-4">What Our Clients</h3>
+            <h3 className="text-4xl font-bold text-[#071e45] mb-6">Say About Us</h3>
+            <p className="text-lg text-gray-700 leading-relaxed mb-8">
+              Don't just take our word for it. Here's what our clients have to say about our services and how we've helped transform their businesses.
             </p>
-            <Button className="flex items-center bg-[#32b5fd] text-white px-6 py-4 rounded-md">
-              Know More 
+            <Button className="flex items-center bg-[#32b5fd] hover:bg-[#1a9cef] text-white px-8 py-3 rounded-lg transition-colors duration-300">
+              View More
               <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-2" />
             </Button>
           </div>
 
           {/* Right side - Testimonials */}
-          <div className="md:w-1/2">
+          <div className="w-full md:w-7/12">
             <div className="relative">
               <AnimatePresence mode="wait">
-                <div key={activeSlide} className="flex flex-wrap flex-row gap-4">
+                <div key={activeSlide} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {currentTestimonials.map((testimonial, index) => (
                     <motion.div
-                      key={`${testimonial.id}-${activeSlide}`} // Unique key per slide
-                      initial={{ opacity: 0, x: 50 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      key={`${testimonial.id}-${activeSlide}`}
+                      initial={{ opacity: 0, y: 20, x: 50 }}
+                      animate={{ opacity: 1, y: 0, x: 0 }}
                       exit={{ opacity: 0, x: -50 }}
-                      transition={{ duration: 0.5 }}
-                      className="w-full md:w-[calc(50%-0.5rem)]"
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="h-full w-full md:w-[calc(50%-0.75rem)]"
                     >
                       <Card
                         className="relative"
