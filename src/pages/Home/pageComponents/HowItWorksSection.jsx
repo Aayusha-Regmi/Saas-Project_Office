@@ -81,28 +81,29 @@ const HowItWorksSection = () => {
     {
       id: 1,
       title: 'Choose Your Services',
-      description: 'It is a long established fact that a reader will be distracted.',
+      description: 'Select the services that best fit your business needs from our comprehensive solutions catalog.',
       image: '/images/img_image_78x78.png',
     },
     {
       id: 2,
       title: 'Consult Expert Staff',
-      description: 'It is a long established fact that a reader will be distracted.',
+      description: 'Our experienced consultants will guide you through the process and provide tailored recommendations.',
       image: '/images/img_image_78x78.png',
     },
     {
       id: 3,
       title: 'Strategic Work Planning',
-      description: 'It is a long established fact that a reader will be distracted.',
+      description: 'We create a customized action plan to ensure smooth implementation and measurable results.',
       image: '/images/img_image_78x78.png',
     },
     {
       id: 4,
       title: 'Completed Work',
-      description: 'It is a long established fact that a reader will be distracted.',
+      description: 'Receive high-quality, timely deliverables with full transparency and client satisfaction guaranteed.',
       image: '/images/img_image_78x78.png',
     },
   ];
+  
 
   // Animation Variants for each step
   const stepVariants = {
@@ -154,7 +155,7 @@ const HowItWorksSection = () => {
               </div>
 
               {/* Arrow line animation only for steps before the last one */}
-              {index < steps.length - 1 && (
+              {index < steps.length && (
                 <div className="hidden lg:block absolute">
                   <img
                     src="/images/img_line_408.svg"
@@ -166,7 +167,7 @@ const HowItWorksSection = () => {
               )}
 
               <h3 className="text-lg font-extrabold text-white mb-4 text-center">{step.title}</h3>
-              <p className="text-base font-semibold text-white text-center">{step.description}</p>
+              <p className="text-base   text-blue-100 px-3 text-white text-center">{step.description}</p>
             </motion.div>
           ))}
         </div>

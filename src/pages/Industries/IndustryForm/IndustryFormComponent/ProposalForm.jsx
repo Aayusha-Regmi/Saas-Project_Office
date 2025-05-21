@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import IndustryFormCard from '@/components/common/IndustryFormCard';
 import IndustryFormInputField from '@/components/ui/IndustryFormInputField';
 import Dropdown from '@/components/ui/Dropdown';
@@ -7,6 +7,8 @@ import FileUpload from '@/components/ui/FileUpload';
 const ProposalForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ success: false, message: '' });
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   
   const [formData, setFormData] = useState({
     fullName: '',
@@ -44,8 +46,65 @@ const ProposalForm = () => {
     });
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+    const requiredFields = ['fullName', 'title', 'position', 'email', 'contactNumber', 'yearlyRevenue1', 'country', 'industry'];
+    
+    requiredFields.forEach(field => {
+      if (!formData[field]) {
+        newErrors[field] = 'This field is required';
+      }
+    });
+
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (formData.contactNumber && !/^[0-9+\-\s()]{10,20}$/.test(formData.contactNumber)) {
+      newErrors.contactNumber = 'Please enter a valid phone number';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  useEffect(() => {
+    if (Object.keys(touched).length > 0) {
+      validateForm();
+    }
+  }, [formData, touched]);
+
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouched(prev => ({ ...prev, [name]: true }));
+    validateForm();
+  }; 
+  
+  const handleDropdownBlur = (field) => () => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+    validateForm();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Mark all fields as touched to show all errors
+    const allTouched = {};
+    Object.keys(formData).forEach(key => {
+      allTouched[key] = true;
+    });
+    setTouched(allTouched);
+    
+    // Validate form
+    const isValid = validateForm();
+    if (!isValid) {
+      setSubmitStatus({ 
+        success: false, 
+        message: 'Please fix the errors in the form before submitting.' 
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     setSubmitStatus({ success: false, message: '' });
 
@@ -153,46 +212,82 @@ const ProposalForm = () => {
         )}
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-          <IndustryFormInputField
-            label="Full Name"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="relative">
+            <IndustryFormInputField
+              label="Full Name"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+             
+              className={touched.fullName && errors.fullName ? 'border-red-500' : ''}
+            />
+            {touched.fullName && errors.fullName && (
+              <p className="absolute -bottom-5 text-xs text-red-500">{errors.fullName}</p>
+            )}
+          </div>
           
-          <Dropdown
-            label="Title"
-            options={titleOptions}
-            value={formData.title}
-            onChange={handleDropdownChange('title')}
-            required
-          />
+          <div className="relative">
+            <Dropdown
+              label="Title"
+              options={titleOptions}
+              value={formData.title}
+              onChange={handleDropdownChange('title')}
+              onBlur={handleDropdownBlur('title')}
+             
+              className={touched.title && errors.title ? 'border-red-500' : ''}
+            />
+            {touched.title && errors.title && (
+              <p className="absolute -bottom-5 text-xs text-red-500">{errors.title}</p>
+            )}
+          </div>
           
-          <IndustryFormInputField
-            label="Position / Job Title"
-            name="position"
-            value={formData.position}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="relative">
+            <IndustryFormInputField
+              label="Position / Job Title"
+              name="position"
+              value={formData.position}
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+             
+              className={touched.position && errors.position ? 'border-red-500' : ''}
+            />
+            {touched.position && errors.position && (
+              <p className="absolute -bottom-5 text-xs text-red-500">{errors.position}</p>
+            )}
+          </div>
           
-          <IndustryFormInputField
-            label="Email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="relative">
+            <IndustryFormInputField
+              label="Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+             
+              className={touched.email && errors.email ? 'border-red-500' : ''}
+            />
+            {touched.email && errors.email && (
+              <p className="absolute -bottom-5 text-xs text-red-500">{errors.email}</p>
+            )}
+          </div>
           
-          <IndustryFormInputField
-            label="Contact Number"
-            name="contactNumber"
-            value={formData.contactNumber}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="relative">
+            <IndustryFormInputField
+              label="Contact Number"
+              name="contactNumber"
+              value={formData.contactNumber}
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+             
+              className={touched.contactNumber && errors.contactNumber ? 'border-red-500' : ''}
+              placeholder="e.g. +1234567890 or (123) 456-7890"
+            />
+            {touched.contactNumber && errors.contactNumber && (
+              <p className="absolute -bottom-5 text-xs text-red-500">{errors.contactNumber}</p>
+            )}
+          </div>
           
           <IndustryFormInputField
             label="Post Code"
@@ -201,30 +296,49 @@ const ProposalForm = () => {
             onChange={handleInputChange}
           />
           
-          <Dropdown
-            label="Select Yearly Revenue"
-            options={revenueOptions}
-            value={formData.yearlyRevenue1}
-            onChange={handleDropdownChange('yearlyRevenue1')}
-            required
-          />
+          <div className="relative">
+            <Dropdown
+              label="Select Yearly Revenue"
+              options={revenueOptions}
+              value={formData.yearlyRevenue1}
+              onChange={handleDropdownChange('yearlyRevenue1')}
+              onBlur={handleDropdownBlur('yearlyRevenue1')}
+             
+              className={touched.yearlyRevenue1 && errors.yearlyRevenue1 ? 'border-red-500' : ''}
+            />
+            {touched.yearlyRevenue1 && errors.yearlyRevenue1 && (
+              <p className="absolute -bottom-5 text-xs text-red-500">{errors.yearlyRevenue1}</p>
+            )}
+          </div>
           
-          <Dropdown
-            label="Country"
-            options={countryOptions}
-            value={formData.country}
-            onChange={handleDropdownChange('country')}
-            required
-          />
+          <div className="relative">
+            <Dropdown
+              label="Country"
+              options={countryOptions}
+              value={formData.country}
+              onChange={handleDropdownChange('country')}
+              onBlur={handleDropdownBlur('country')}
+             
+              className={touched.country && errors.country ? 'border-red-500' : ''}
+            />
+            {touched.country && errors.country && (
+              <p className="absolute -bottom-5 text-xs text-red-500">{errors.country}</p>
+            )}
+          </div>
           
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 relative">
             <Dropdown
               label="Industry"
               options={industryOptions}
               value={formData.industry}
               onChange={handleDropdownChange('industry')}
-              required
+              onBlur={handleDropdownBlur('industry')}
+             
+              className={touched.industry && errors.industry ? 'border-red-500' : ''}
             />
+            {touched.industry && errors.industry && (
+              <p className="absolute -bottom-5 text-xs text-red-500">{errors.industry}</p>
+            )}
           </div>
           
           <div className="md:col-span-2">
