@@ -15,6 +15,7 @@ const ContactForm = () => {
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false); // for controlling thank you message
   const [errorMessage, setErrorMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -63,11 +64,14 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage('');
 
     const newErrors = validateForm();
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      setIsSubmitting(false);
       return;
     }
 
@@ -102,6 +106,8 @@ const ContactForm = () => {
       console.error('Error sending message:', error);
       setErrorMessage('Sorry, there was an error sending your message. Please try again.');
       setSuccess(false);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -216,19 +222,28 @@ const ContactForm = () => {
                 {errors.message && <p className="text-red-500 mt-1">{errors.message}</p>}
               </div>
 
-              <LetsTalkButton
+              <button
                 type="submit"
-                className="relative overflow-hidden text-white font-semibold py-3 px-8 rounded-md transition-all duration-300 bg-gradient-to-r from-primary-lightBlue to-primary-darkBlue active:from-purple-500 active:to-pink-500 focus:outline-none"
-                icon={
-                  <img
-                    src="/images/img_materialsymbolsarrowinsert.svg"
-                    alt="Submit"
-                    className="w-6 h-6"
-                  />
-                }
+                disabled={isSubmitting}
+                className={`w-full bg-primary-darkBlue hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                Submit Now
-              </LetsTalkButton>
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </>
+                )}
+              </button>
             </form>
 
             
