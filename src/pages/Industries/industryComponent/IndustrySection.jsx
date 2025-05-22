@@ -1,7 +1,3 @@
-
-
-
-
 import React from 'react';
 import Card from '../../../components/common/IndustryCard';
 import { motion } from 'framer-motion';

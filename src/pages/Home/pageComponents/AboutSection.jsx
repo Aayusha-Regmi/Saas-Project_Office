@@ -1,6 +1,3 @@
-
-
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../../../components/ui/Button';
@@ -80,14 +77,14 @@ const AboutSection = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           {/* Image - Order changed on mobile for better visual hierarchy */}
-          <motion.div 
+          <motion.div
             className="md:col-span-1 relative order-2 md:order-1"
             variants={fadeInLeft}
           >
-            <img 
-              src="/images/img_image.png" 
-              alt="About Us" 
-              className="w-full h-auto rounded-full" 
+            <img
+              src="/images/img_image.png"
+              alt="About Us"
+              className="w-full h-auto rounded-full"
             />
             <motion.div
               className="absolute bottom-[10%] left-[5%] bg-blue-500 p-2 rounded-lg"
@@ -103,8 +100,8 @@ const AboutSection = () => {
           </motion.div>
 
           {/* Content */}
-          <motion.div 
-            className="md:col-span-1 order-1 md:order-2 mb-6 md:mb-0" 
+          <motion.div
+            className="md:col-span-1 order-1 md:order-2 mb-6 md:mb-0"
             variants={fadeInRight}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800 mb-4 md:mb-8">
@@ -114,53 +111,59 @@ const AboutSection = () => {
               Savings With Us
             </h2>
 
-            <p className="text-base sm:text-lg md:text-xl font-semibold text-gray-400 mb-6 md:mb-8">
-              Finance Minister Barshaman Pun has tabled a budget of
-              <span className="hidden sm:inline"><br /></span>
-              <span className="sm:hidden"> </span>
-              Rs. 18.60 trillion for the fiscal year 2081/82 at the parliament.
+            <p className="text-base sm:text-lg md:text-lg font-semibold text-gray-400 mb-6 md:mb-8">
+              At TaxWise Nepal, we specialize in maximizing your savings and minimizing tax liabilities through expert advice and tailored financial strategies.  
+            
+             
             </p>
 
-            <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 md:mb-8" 
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 md:mb-8"
               variants={fadeInUp}
             >
               <div className="flex items-start sm:items-center">
-                <img 
-                  src="/images/img_image_29.png" 
-                  alt="Feature" 
-                  className="w-[30px] h-[30px] sm:w-[38px] sm:h-[38px] mr-2 sm:mr-3 mt-1 sm:mt-0" 
+                <img
+                  src="/images/img_image_29.png"
+                  alt="Feature"
+                  className="w-[30px] h-[30px] sm:w-[38px] sm:h-[38px] mr-2 sm:mr-3 mt-1 sm:mt-0"
                 />
                 <div>
-                  <h3 className="text-sm md:text-base font-bold">Professional Team</h3>
-                  <p className="text-xs md:text-sm text-gray-400">It has survived words which not only five centuries.</p>
+                  <h3 className="text-sm md:text-base font-bold">Experienced Professionals</h3>
+                  <p className="text-xs md:text-sm text-gray-400">
+                    Our team of experts brings decades of hands-on experience to secure your financial future.
+                  </p>
                 </div>
               </div>
               <div className="flex items-start sm:items-center mt-4 sm:mt-0">
-                <img 
-                  src="/images/img_image_30.png" 
-                  alt="Feature" 
-                  className="w-[30px] h-[30px] sm:w-[38px] sm:h-[38px] mr-2 sm:mr-3 mt-1 sm:mt-0" 
+                <img
+                  src="/images/img_image_30.png"
+                  alt="Feature"
+                  className="w-[30px] h-[30px] sm:w-[38px] sm:h-[38px] mr-2 sm:mr-3 mt-1 sm:mt-0"
                 />
                 <div>
-                  <h3 className="text-sm md:text-base font-bold">Clients Satisfaction</h3>
-                  <p className="text-xs md:text-sm text-gray-400">Take a look at our round up of the best shows.</p>
+                  <h3 className="text-sm md:text-base font-bold">Client Satisfaction</h3>
+                  <p className="text-xs md:text-sm text-gray-400">
+                    We prioritize your needs and consistently deliver solutions that exceed expectations.
+                  </p>
                 </div>
               </div>
             </motion.div>
 
-            <motion.div variants={fadeInUp}>
-              <Button 
-                variant="primary" 
+            <motion.div 
+              variants={fadeInUp}
+              className="flex justify-center mt-6"
+            >
+              <Button
+                variant="primary"
                 size="small"
-                className="flex items-center w-full sm:w-auto justify-center sm:justify-start" 
+                className="flex items-center justify-center px-8 py-2.5"
                 onClick={() => navigate('/services')}
               >
                 Discover More
-                <img 
-                  src="/images/img_materialsymbolsarrowinsert.svg" 
-                  alt="Discover More" 
-                  className="ml-2 w-5 h-5 sm:w-6 sm:h-6" 
+                <img
+                  src="/images/img_materialsymbolsarrowinsert.svg"
+                  alt="Discover More"
+                  className="ml-2 w-5 h-5 sm:w-6 sm:h-6"
                 />
               </Button>
             </motion.div>

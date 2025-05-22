@@ -11,7 +11,7 @@ const ServicePlans = () => {
       id: 1,
       title: "Tax Planning",
       description:
-        "Finance Minister Barshaman Pun has tabled a budget of\nRs. 18.60 trillion for the fiscal",
+        "Tax Planning involves strategizing financial decisions to minimize tax liabilities. Effective planning might include choosing the right investments, understanding available deductions, and timing income and expenses.",
       icon: "/images/img_group.svg",
       cornerImage: "/images/img_group_1171275971.svg",
     },
@@ -19,7 +19,7 @@ const ServicePlans = () => {
       id: 2,
       title: "Personal Tax",
       description:
-        "There are many variations of the passages available majority have suffered alteration in some.",
+        "Personal Tax refers to the taxation of individual income. It typically includes salaries, pensions, and interest. Understanding personal tax obligations can help individuals file accurately and avoid penalties.",
       icon: "/images/img_group_45x49.svg",
       cornerImage: "/images/img_group_1171275971.svg",
     },
@@ -27,7 +27,7 @@ const ServicePlans = () => {
       id: 3,
       title: "Insurance Tax",
       description:
-        "There are many variations of the passages available majority have suffered alteration in some.",
+        "Insurance Tax pertains to any taxes levied on insurance premiums, policies, or benefits. It’s crucial for both insurers and policyholders to be aware of these taxes to ensure compliance and proper financial planning.",
       icon: "/images/img_vector_44x48.svg",
       cornerImage: "/images/img_group_1171275971.svg",
     },
@@ -35,7 +35,7 @@ const ServicePlans = () => {
       id: 4,
       title: "Corporate Tax",
       description:
-        "There are many variations of the passages available majority have suffered alteration in some.",
+        "Corporate Tax is the tax imposed on the income or profit of corporations. It varies by jurisdiction and can affect business decisions regarding company structure, dividends, and reinvestment.",
       icon: "/images/img_group_44x48.svg",
       cornerImage: "/images/img_group_1171275971.svg",
     },
@@ -43,7 +43,7 @@ const ServicePlans = () => {
       id: 5,
       title: "Tax Audit Support",
       description:
-        "There are many variations of the passages available majority have suffered alteration in some.",
+        "Tax Audit Support involves assistance provided to individuals or businesses during a tax audit process. This might include preparing documents, responding to inquiries, and ensuring compliance with tax laws.",
       icon: "/images/img_group_47x51.svg",
       cornerImage: "/images/img_group_1171275971.svg",
     },
@@ -51,7 +51,7 @@ const ServicePlans = () => {
       id: 6,
       title: "Investment Advisor",
       description:
-        "There are many variations of the passages available majority have suffered alteration in some.",
+        "An Investment Advisor provides financial advice and strategies related to investments to help individuals or businesses maximize their returns while managing risks. Their guidance can also include tax implications of investment choices.",
       icon: "/images/img_vector_45x49.svg",
       cornerImage: "/images/img_group_1171275971.svg",
     },
@@ -59,15 +59,15 @@ const ServicePlans = () => {
       id: 7,
       title: "Tax Advisory",
       description:
-        "There are many variations of the passages available majority have suffered alteration in some.",
-      icon: "/images/img_group_51x48.svg",
+        "Tax Advisory services provide expert guidance on tax matters, helping clients navigate complex regulations and optimize their tax situations. This may include advice on compliance, planning, and risk assessment.",
+      icon: "/images/img_group_51x48.png",
       cornerImage: "/images/img_group_1171275971.svg",
     },
     {
       id: 8,
       title: "International Tax",
       description:
-        "There are many variations of the passages available majority have suffered alteration in some.",
+        "International Tax encompasses the tax challenges multinational companies face when operating across borders. This includes issues like transfer pricing, tax treaties, and compliance with varying national laws.",
       icon: "/images/img_tax5_1.svg",
       cornerImage: "/images/img_group_1171275971.svg",
     },
