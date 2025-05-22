@@ -13,32 +13,33 @@ const ServicesSection = () => {
     {
       id: 1,
       title: 'Tax Advisory',
-      description: 'Finance Minister Barshaman Pun has tabled a budget of Rs. 18.60 trillion for the fiscal',
+      description: 'Navigate complex tax laws with ease. Our expert tax advisors help optimize your liabilities and stay compliant.',
       icon: '/images/img_group.svg',
       cornerImage: '/images/img_group_1171275971.svg'
     },
     {
       id: 2,
       title: 'Merger & Acquisitions',
-      description: 'Finance Minister Barshaman Pun has tabled a budget of Rs. 18.60 trillion for the fiscal',
+      description: 'Strategically plan and execute M&A deals. We assist in due diligence, valuation, and seamless transitions.',
       icon: '/images/img_group_43x46.svg',
       cornerImage: '/images/img_group_1171275971.svg'
     },
     {
       id: 3,
       title: 'Audit & Assurance',
-      description: 'Finance Minister Barshaman Pun has tabled a budget of Rs. 18.60 trillion for the fiscal',
+      description: 'Ensure transparency and accuracy in your financial reporting. We offer comprehensive audit solutions.',
       icon: '/images/img_vector_44x48.svg',
       cornerImage: '/images/img_group_1171275971.svg'
     },
     {
       id: 4,
       title: 'Risk Advisory & Consult',
-      description: 'Finance Minister Barshaman Pun has tabled a budget of Rs. 18.60 trillion for the fiscal',
+      description: 'Identify, assess, and mitigate risks effectively. Our consultants tailor solutions for long-term resilience.',
       icon: '/images/img_group_43x46.svg',
       cornerImage: '/images/img_group_1171275971.svg'
     }
   ];
+  
 
   // Animation variants for service cards
   const fadeInUpVariants = {
@@ -89,52 +90,59 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              className="bg-white rounded-2xl p-4 sm:p-6 relative"
+              className="bg-white rounded-2xl p-4 sm:p-6 relative flex flex-col h-full"
               variants={fadeInUpVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.1 }}
             >
-              {/* Corner Image */}
-              <div className="absolute top-0 right-0">
-                <img 
-                  src={service.cornerImage} 
-                  alt="" 
-                  className="w-[60px] h-[70px] sm:w-[84px] sm:h-[97px]" 
-                />
+              <div className="flex-grow">
+                {/* Corner Image */}
+                <div className="absolute top-0 right-0">
+                  <img 
+                    src={service.cornerImage} 
+                    alt="" 
+                    className="w-[60px] h-[70px] sm:w-[84px] sm:h-[97px]" 
+                  />
+                </div>
+
+                {/* Service Icon */}
+                <div className="bg-blue-500 w-[60px] h-[60px] sm:w-[75px] sm:h-[75px] rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                  <img 
+                    src={service.icon} 
+                    alt={service.title} 
+                    className="w-9 h-9 sm:w-11 sm:h-11" 
+                  />
+                </div>
+
+                {/* Service Title */}
+                <h3 className="text-base sm:text-lg font-extrabold text-blue-800 mb-2 sm:mb-4">{service.title}</h3>
+
+
+                {/* Service Description */}
+                <div className="h-[80px] overflow-hidden">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-400">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-
-              {/* Service Icon */}
-              <div className="bg-blue-500 w-[60px] h-[60px] sm:w-[75px] sm:h-[75px] rounded-full flex items-center justify-center mb-4 sm:mb-6">
-                <img 
-                  src={service.icon} 
-                  alt={service.title} 
-                  className="w-9 h-9 sm:w-11 sm:h-11" 
-                />
-              </div>
-
-              {/* Service Title */}
-              <h3 className="text-base sm:text-lg font-extrabold text-blue-800 mb-2 sm:mb-4">{service.title}</h3>
-
-              {/* Service Description */}
-              <p className="text-xs sm:text-sm font-semibold text-gray-400 mb-4 sm:mb-6">
-                {service.description}
-              </p>
 
               {/* Button */}
-              <Button 
-                variant="primary" 
-                size="small"
-                className="w-full flex items-center justify-center text-sm"
-              >
-                Read More
-                <img 
-                  src="/images/img_materialsymbolsarrowinsert.svg" 
-                  alt="" 
-                  className="ml-1 sm:ml-2 w-5 h-5 sm:w-6 sm:h-6" 
-                />
-              </Button>
+              <div className="mt-4">
+                <Button 
+                  variant="primary" 
+                  size="small"
+                  className="w-full flex items-center justify-center text-sm"
+                >
+                  Read More
+                  <img 
+                    src="/images/img_materialsymbolsarrowinsert.svg" 
+                    alt="" 
+                    className="ml-1 sm:ml-2 w-5 h-5 sm:w-6 sm:h-6" 
+                  />
+                </Button>
+              </div>
             </motion.div>
           ))}
         </div>

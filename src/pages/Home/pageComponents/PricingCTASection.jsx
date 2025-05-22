@@ -25,7 +25,7 @@ const PricingCTASection = () => {
       className="relative py-24 bg-fixed bg-center bg-no-repeat bg-cover"
       style={{
         backgroundImage:
-          'url(https://img.freepik.com/free-photo/partnership_1098-18072.jpg?ga=GA1.1.312675452.1737013063&semt=ais_hybrid&w=740)',
+          'url(https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80)',
       }}
     >
       <div className="container mx-auto px-4 relative z-10">
@@ -50,9 +50,9 @@ const PricingCTASection = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          Let's Check Our Pricing
+          Transparent Pricing for
           <br />
-          Plan For You
+          Your Financial Success
         </motion.h2>
 
        {/* Animated Paragraph */}
@@ -63,9 +63,9 @@ const PricingCTASection = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            At SAHARA, our pricing reflects more than services — it reflects our promise. 
+            Our transparent pricing reflects our commitment to delivering exceptional value. 
             <br />
-            We offer tailored mental wellness care designed with compassion, support, and peace at its core.
+            We offer customized financial solutions designed to drive growth and ensure compliance for your business.
           </motion.p>
 
         {/* Animated CTA Button */}
@@ -77,7 +77,7 @@ const PricingCTASection = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <Button variant="primary" className="flex items-center" onClick={() => navigate('/contact')}>
-            Contact Us
+            Get a Free Consultation
             <img
               src="/images/img_materialsymbolsarrowinsert.svg"
               alt="arrow icon"
