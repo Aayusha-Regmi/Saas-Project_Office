@@ -108,7 +108,7 @@ const ExpertiseSection = () => {
               <span className="text-sm font-medium text-blue-600">Why Choose Us</span>
             </motion.div>
 
-            <motion.h2 className="text-[36px] leading-snug font-bold text-blue-900 max-w-xl mb-4" variants={expertiseVariants}>
+            <motion.h2 className="text-[36px] leading-snug text-4xl font-bold text-blue-800 max-w-xl mb-4" variants={expertiseVariants}>
               We Deliver Expertise You Can <span className="text-blue-600">Services</span>
             </motion.h2>
 

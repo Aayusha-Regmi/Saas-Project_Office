@@ -55,18 +55,18 @@ const PricingCTASection = () => {
           Plan For You
         </motion.h2>
 
-        {/* Animated Paragraph */}
-        <motion.p
-          className="text-xl font-semibold text-white text-center max-w-2xl mx-auto mb-12"
-          variants={fadeInUpVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          Finance Minister Barshaman Pun has tabled a budget of
-          <br />
-          Rs. 18.60 trillion for the fiscal year 2081/82 at the parliament.
-        </motion.p>
+       {/* Animated Paragraph */}
+          <motion.p
+            className="text-xl font-semibold text-white text-center max-w-2xl mx-auto mb-12"
+            variants={fadeInUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            At SAHARA, our pricing reflects more than services — it reflects our promise. 
+            <br />
+            We offer tailored mental wellness care designed with compassion, support, and peace at its core.
+          </motion.p>
 
         {/* Animated CTA Button */}
         <motion.div

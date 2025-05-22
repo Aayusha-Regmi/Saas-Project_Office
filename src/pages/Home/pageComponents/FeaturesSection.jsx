@@ -67,7 +67,7 @@ const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-4xl font-bold text-blue-900 text-center mb-16"
+          className="text-4xl font-bold text-blue-800 text-center mb-16"
         >
           Our Awesome Features
         </motion.h2>

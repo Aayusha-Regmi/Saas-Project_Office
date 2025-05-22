@@ -118,7 +118,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start justify-center md:justify-start">
-                <img src="/images/img_vector_24x28.svg" alt="Phone" className="w-5 h-6 md:w-6 md:h-7 mr-3 mt-1" />
+                <img src="/images/img_riphonefill.svg" alt="Phone" className="w-5 h-6 md:w-6 md:h-7 mr-3 mt-1" />
                 <div>
                   <h4 className="text-base md:text-lg font-semibold">Call Us</h4>
                   <p className="text-base md:text-lg font-light">+977 9818962673</p>
