@@ -35,7 +35,26 @@ const HomePage = () => {
         <CaseStudySection />
         <ConsultationSection />
         <ExpertiseSection />
-        <ContactForm />
+
+        {/* Contact Us Section */}
+        
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex items-center bg-gray-600 rounded-xl">
+            <div className="bg-blue-500 w-[38px] h-[38px] rounded-xl flex items-center justify-center">
+              <span className="text-white font-semibold">%</span>
+            </div>
+            <span className="text-base font-semibold text-blue-500 px-4">Contact Us</span>
+          </div>
+        </div>
+     
+        <h2 className="text-4xl font-bold text-blue-800 text-center mb-16">
+          Contact Us
+        </h2>
+
+        <ContactForm style={{ marginTop: '-10rem' }} />
+
+
+
         <ExpertsSection />
         <TestimonialsSection />
       </main>

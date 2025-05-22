@@ -121,7 +121,7 @@ const ContactForm = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto px-4 pt-0 pb-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div>
           <img 
