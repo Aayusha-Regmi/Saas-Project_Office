@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../ui/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';   
 
 const PrimaryHeader = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -35,14 +35,13 @@ const PrimaryHeader = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  
 
+ 
   return (
-    <header className="w-full">
+    <header className="w-full fixed top-[30px] left-0 z-40">
       {/* Main navigation */}
-      <div className="bg-white py-4">
+      <div className="bg-white py-4 shadow-sm">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <Link
             to="/"

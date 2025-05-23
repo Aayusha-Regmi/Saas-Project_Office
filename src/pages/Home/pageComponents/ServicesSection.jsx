@@ -112,11 +112,11 @@ const ServicesSection = () => {
             >
               <div className="flex-grow">
                 {/* Corner Image */}
-                <div className="absolute top-0 right-0">
-                  <img 
+                <div className="absolute top-0 right-0">                  <img 
                     src={service.cornerImage} 
                     alt="" 
-                    className="w-[60px] h-[70px] sm:w-[84px] sm:h-[97px]" 
+                    className="w-[60px] h-[70px] sm:w-[84px] sm:h-[97px]"
+                    loading="lazy" 
                   />
                 </div>
 
@@ -125,7 +125,8 @@ const ServicesSection = () => {
                   <img 
                     src={service.icon} 
                     alt={service.title} 
-                    className="w-9 h-9 sm:w-11 sm:h-11" 
+                    className="w-9 h-9 sm:w-11 sm:h-11"
+                    loading="lazy" 
                   />
                 </div>
 

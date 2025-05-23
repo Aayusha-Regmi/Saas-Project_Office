@@ -155,6 +155,7 @@ const path = '/about';
                                   src={testimonial.image}
                                   alt={testimonial.name}
                                   className="w-full h-full rounded-full object-cover"
+                                  loading="lazy"
                                 />
                               </div>
                             </div>

@@ -38,9 +38,8 @@ const ContactInfoCards = () => {
           >
             <div className="mb-6 mt-5">
               {card.icon}
-            </div>
-            <h3 className="text-2xl font-bold text-primary-darkBlue mb-3">{card.title}</h3>
-            <p className="text-xl font-semibold text-primary-darkBlue text-center">{card.content}</p>
+            </div>            <h3 className="text-xl font-bold text-primary-darkBlue mb-3">{card.title}</h3>
+            <p className="text-base font-semibold text-primary-darkBlue text-center">{card.content}</p>
           </div>
         ))}
       </div>

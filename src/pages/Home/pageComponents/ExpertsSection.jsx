@@ -90,8 +90,7 @@ const ExpertsSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-            >
-              <img src={expert.image} alt={expert.name} className="w-full h-auto rounded-md" />
+            >              <img src={expert.image} alt={expert.name} className="w-full h-auto rounded-md" loading="lazy" />
               <div className="mt-4">
                 <h3 className="text-lg font-extrabold text-blue-800">{expert.name}</h3>
                 <p className="text-base font-semibold text-blue-500">{expert.position}</p>
@@ -101,6 +100,7 @@ const ExpertsSection = () => {
                   src={expert.socialIcon} 
                   alt="Social" 
                   className="w-[42px] h-[42px] cursor-pointer hover:opacity-80 transition-opacity"
+                  loading="lazy"
                   onClick={() => handleNavigation('/about')}
                 />
               </div>

@@ -123,11 +123,11 @@ const ContactForm = () => {
   return (
     <div className="container mx-auto px-4 pt-0 pb-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div>
-          <img 
+        <div>          <img 
             src="/images/img_image_41.png" 
             alt="Contact" 
             className="w-full h-auto rounded-2xl"
+            loading="lazy"
           />
         </div>
 
