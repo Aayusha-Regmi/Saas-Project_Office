@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from 'framer-motion';
+import { motion, secondsToMilliseconds } from 'framer-motion';
 
 // Animation variants
 const fadeInUp = {
@@ -33,6 +33,7 @@ const contentData = {
 
 const MainContent = () => {
   return (
+    <div className="py-12 md:py-20  relative overflow-hidden">
     <div className="md:col-span-2">
       {/* Featured Image */}
       <motion.img 
@@ -135,6 +136,7 @@ const MainContent = () => {
           Businesses often struggle with balancing aggressive tax saving strategies with legal boundaries. International operations, multi-state filings, and frequent regulatory shifts make this landscape highly dynamic. The challenge lies in creating a tax plan that is both flexible and defensible, especially as organizations scale. Prioritizing documentation, expert consultation, and regular reviews is essential to stay ahead of audits and capture all legitimate savings opportunities.
         </motion.div>
       </motion.div>
+    </div>
     </div>
   );
 };

@@ -33,6 +33,7 @@ const contentData = {
 
 const CorporateTax = () => {
   return (
+    <div className="py-12 md:py-20  relative overflow-hidden">
     <div className="md:col-span-2">
       {/* Featured Image */}
       <motion.img 
@@ -135,6 +136,7 @@ const CorporateTax = () => {
           Corporate tax compliance can be challenging due to constantly changing tax laws and complex regulations. Companies must navigate through multiple tax regimes, ensure accurate documentation, and stay prepared for potential audits. Expert support helps businesses manage these challenges effectively while optimizing their tax obligations.
         </motion.div>
       </motion.div>
+    </div>
     </div>
   );
 };

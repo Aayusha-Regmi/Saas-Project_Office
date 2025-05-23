@@ -3,9 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion'; // <-- Added Framer Mot
 import Card from '../../../components/common/AboutCard';
 import RatingBar from '../../../components/ui/AboutRatingBar';
 import Button from '../../../components/ui/AboutButton';
+import { useNavigate } from 'react-router-dom';
 
 const TestimonialsSection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const navigate = useNavigate();
+const path = '/about';
+  const handleNavigation = (path) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   const testimonials = [
     {
@@ -60,8 +70,9 @@ const TestimonialsSection = () => {
   );
 
   return (
-    <section className="py-12 md:py-20 bg-[#eaf8ff] relative overflow-hidden">
-      {/* Background elements */}      <div className="absolute top-0 left-0 w-full h-full">
+    <section id="testimonials" className="py-12 md:py-20 bg-[#eaf8ff] relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute top-0 left-0 w-full h-full">
         <img 
           src="/images/img_ellipse_335.png" 
           alt="Background shape" 
@@ -93,8 +104,8 @@ const TestimonialsSection = () => {
             <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6 md:mb-8">
               Don't just take our word for it. Here's what our clients have to say about our services and how we've helped transform their businesses.
             </p>
-            <Button className="flex items-center bg-[#32b5fd] hover:bg-[#1a9cef] text-white px-8 py-3 rounded-lg transition-colors duration-300">
-              View More
+            <Button className="flex items-center bg-[#32b5fd] hover:bg-[#1a9cef] text-white px-8 py-3 rounded-lg transition-colors duration-300" onClick={() => handleNavigation('/about')}>
+              Know More
               <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-2" />
             </Button>
           </div>

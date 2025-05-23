@@ -33,6 +33,7 @@ const contentData = {
 
 const TaxAdvisorySupport = () => {
   return (
+    <div className="py-12 md:py-20  relative overflow-hidden">
     <div className="md:col-span-2">
       {/* Featured Image */}
       <motion.img 
@@ -135,6 +136,7 @@ const TaxAdvisorySupport = () => {
           One of the biggest challenges is keeping up with dynamic tax laws that vary by jurisdiction and industry. Misinterpretation or delay in adapting to these changes can cause compliance risks. Additionally, organizations often struggle with implementing tax recommendations operationally, requiring close coordination between finance and operations. Advisory support bridges this gap and ensures clarity throughout.
         </motion.div>
       </motion.div>
+    </div>
     </div>
   );
 };

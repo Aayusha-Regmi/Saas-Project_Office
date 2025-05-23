@@ -6,6 +6,14 @@ import { useNavigate } from 'react-router-dom';
 const HomeHeroSection = () => {
   const navigate = useNavigate();
 
+  const handleNavigation = (path) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <section className="relative overflow-hidden py-8 md:py-12 lg:py-16">
       {/* Background elements - hidden on small screens, visible and responsive on larger screens */}
@@ -42,7 +50,7 @@ const HomeHeroSection = () => {
             {/* Buttons stack on mobile, side by side on larger screens */}
             <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0 mb-8 md:mb-12">
               <Button 
-                onClick={() => navigate('/about')} 
+                onClick={() => handleNavigation('/about')} 
                 variant="primary"
                 size="small"
                 className="flex items-center justify-center sm:justify-start w-full sm:w-auto"
@@ -52,7 +60,7 @@ const HomeHeroSection = () => {
               </Button>
               
               <Button 
-                onClick={() => navigate('/services')} 
+                onClick={() => handleNavigation('/services')} 
                 variant="secondary"
                 size="small" 
                 className="flex items-center justify-center sm:justify-start w-full sm:w-auto"

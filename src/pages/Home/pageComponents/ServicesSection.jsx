@@ -2,41 +2,54 @@
 
 
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Button from '../../../components/ui/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const ServicesSection = () => {
   const navigate = useNavigate();
+
+  // Handle navigation with scroll to top
+  const handleNavigation = (path) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
   const services = [
     {
       id: 1,
       title: 'Tax Advisory',
       description: 'Navigate complex tax laws with ease. Our expert tax advisors help optimize your liabilities and stay compliant.',
       icon: '/images/img_group.svg',
-      cornerImage: '/images/img_group_1171275971.svg'
+      cornerImage: '/images/img_group_1171275971.svg',
+      path: '/caseStudy/TaxAdvisory'
     },
     {
       id: 2,
       title: 'Merger & Acquisitions',
       description: 'Strategically plan and execute M&A deals. We assist in due diligence, valuation, and seamless transitions.',
       icon: '/images/img_group_43x46.svg',
-      cornerImage: '/images/img_group_1171275971.svg'
+      cornerImage: '/images/img_group_1171275971.svg',
+      path: '/services'
     },
     {
       id: 3,
       title: 'Audit & Assurance',
       description: 'Ensure transparency and accuracy in your financial reporting. We offer comprehensive audit solutions.',
       icon: '/images/img_vector_44x48.svg',
-      cornerImage: '/images/img_group_1171275971.svg'
+      cornerImage: '/images/img_group_1171275971.svg',
+      path: '/caseStudy/tax-advisory'
     },
     {
       id: 4,
       title: 'Risk Advisory & Consult',
       description: 'Identify, assess, and mitigate risks effectively. Our consultants tailor solutions for long-term resilience.',
       icon: '/images/img_group_43x46.svg',
-      cornerImage: '/images/img_group_1171275971.svg'
+      cornerImage: '/images/img_group_1171275971.svg',
+      path: '/services'
     }
   ];
   
@@ -135,6 +148,7 @@ const ServicesSection = () => {
                   variant="primary" 
                   size="small"
                   className="w-full flex items-center justify-center text-sm"
+                  onClick={() => handleNavigation(service.path)}
                 >
                   Read More
                   <img 
@@ -160,7 +174,7 @@ const ServicesSection = () => {
             variant="primary" 
             size="small" 
             className="flex items-center w-full sm:w-auto justify-center" 
-            onClick={() => navigate('/services')}
+            onClick={() => handleNavigation('/services')}
           >
             All Services
             <img 

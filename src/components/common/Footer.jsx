@@ -1,11 +1,35 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../ui/Button';
 import InputField from '../ui/InputField';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
   const [subscribeStatus, setSubscribeStatus] = useState(null);
+  const navigate = useNavigate();
+
+  // Handle navigation to testimonials section
+  const handleTestimonialsClick = () => {
+    navigate('/');
+    // Add a small delay to ensure navigation is complete
+    setTimeout(() => {
+      const testimonialsSection = document.getElementById('testimonials');
+      if (testimonialsSection) {
+        testimonialsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
+
+  // Handle navigation to case study pages
+  const handleCaseStudyClick = (pagePath) => {
+    navigate(pagePath);
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
+  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -82,11 +106,11 @@ const Footer = () => {
             <div className="h-1 w-5 bg-white mx-auto md:mx-0 mb-6"></div>
             <ul className="space-y-3 md:space-y-4 text-base md:text-lg font-semibold">
               <li><Link to="/about" className="hover:text-[#22a8ff] transition-colors">About Us</Link></li>
-              <li><Link to="/news" className="hover:text-[#22a8ff] transition-colors">Update News</Link></li>
+              <li><Link to="/" className="hover:text-[#22a8ff] transition-colors">Update News</Link></li>
               <li><Link to="/contact" className="hover:text-[#22a8ff] transition-colors">Contact Us</Link></li>
-              <li><Link to="/testimonials" className="hover:text-[#22a8ff] transition-colors">Testimonials</Link></li>
-              <li><Link to="/terms" className="hover:text-[#22a8ff] transition-colors">Terms Of Service</Link></li>
-              <li><Link to="/privacy" className="hover:text-[#22a8ff] transition-colors">Privacy Policy</Link></li>
+              <li onClick={handleTestimonialsClick} className="cursor-pointer hover:text-[#22a8ff] transition-colors">Testimonials</li>
+              <li><Link to="/" className="hover:text-[#22a8ff] transition-colors">Terms Of Service</Link></li>
+              <li><Link to="/" className="hover:text-[#22a8ff] transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
           
@@ -95,12 +119,12 @@ const Footer = () => {
             <h3 className="text-xl md:text-2xl font-bold mb-4">Services</h3>
             <div className="h-1 w-5 bg-white mx-auto md:mx-0 mb-6"></div>
             <ul className="space-y-4 text-lg font-semibold">
-              <li><Link to="/services/tax-planning" className="hover:text-[#22a8ff] transition-colors">Tax Planning</Link></li>
-              <li><Link to="/services/personal-tax" className="hover:text-[#22a8ff] transition-colors">Personal Tax</Link></li>
-              <li><Link to="/services/insurance-tax" className="hover:text-[#22a8ff] transition-colors">Insurance Tax</Link></li>
-              <li><Link to="/services/tax-audit" className="hover:text-[#22a8ff] transition-colors">Tax Audit Support</Link></li>
-              <li><Link to="/services/corporate-tax" className="hover:text-[#22a8ff] transition-colors">Corporate Tax</Link></li>
-              <li><Link to="/services/tax-advisory" className="hover:text-[#22a8ff] transition-colors">Tax Advisory</Link></li>
+              <li onClick={() => handleCaseStudyClick('/caseStudy/tax-planning')} className="cursor-pointer hover:text-[#22a8ff] transition-colors">Tax Planning</li>
+              <li onClick={() => handleCaseStudyClick('/caseStudy/personal-tax')} className="cursor-pointer hover:text-[#22a8ff] transition-colors">Personal Tax</li>
+              <li onClick={() => handleCaseStudyClick('/caseStudy/insurance-tax')} className="cursor-pointer hover:text-[#22a8ff] transition-colors">Insurance Tax</li>
+              <li onClick={() => handleCaseStudyClick('/caseStudy/tax-audit-support')} className="cursor-pointer hover:text-[#22a8ff] transition-colors">Tax Audit Support</li>
+              <li onClick={() => handleCaseStudyClick('/caseStudy/corporate-tax')} className="cursor-pointer hover:text-[#22a8ff] transition-colors">Corporate Tax</li>
+              <li onClick={() => handleCaseStudyClick('/caseStudy/tax-advisory')} className="cursor-pointer hover:text-[#22a8ff] transition-colors">Tax Advisory</li>
             </ul>
           </div>
             {/* Column 4 - Contact Info */}

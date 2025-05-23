@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const caseStudies = [
   {
@@ -90,6 +91,15 @@ const caseStudies = [
 ];
 
 const CaseStudySection = () => {
+  const navigate = useNavigate();
+  
+  const handleNavigation = (path) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const itemsPerPage = 3;
@@ -179,7 +189,11 @@ const CaseStudySection = () => {
                 className="grid grid-cols-1 md:grid-cols-3 gap-8"
               >
                 {visibleStudies.map((study, idx) => (
-                  <div key={study.id} className="group">
+                  <div 
+                    key={study.id} 
+                    className="group cursor-pointer"
+                    onClick={() => handleNavigation(`/caseStudy/${study.id}`)}
+                  >
                     <div className="overflow-hidden rounded-lg mb-4">
                       <img 
                         src={study.image} 
