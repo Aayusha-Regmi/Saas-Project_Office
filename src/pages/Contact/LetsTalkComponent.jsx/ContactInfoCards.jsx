@@ -4,25 +4,25 @@ const ContactInfoCards = () => {
   const contactCards = [
     {
       id: 1,
-      icon: <img src="/images/img_vector_62x49.svg" alt="Office Address" className="w-16 h-12" />,
+      icon: <img src="/images/img_vector_62x49.svg" alt="Office Address" className="w-12 h-12" />,
       title: "Office Address",
       content: "Panipokhari, Ktm"
     },
     {
       id: 2,
-      icon: <img src="/images/img_vector_25x28.svg" alt="Calls Us" className="w-14 h-14" />,
+      icon: <img src="/images/img_vector_25x28.svg" alt="Calls Us" className="w-12 h-12" />,
       title: "Calls Us",
       content: "+977 9818962672"
     },
     {
       id: 3,
-      icon: <img src="/images/img_linemdemailaltfilled_35x35.svg" alt="Email Us" className="w-20 h-20" />,
+      icon: <img src="/images/img_linemdemailaltfilled_35x35.svg" alt="Email Us" className="w-16 h-16 mt-[-10px]" />,
       title: "Email Us",
       content: "saas.brj@gmail.com"
     },
     {
       id: 4,
-      icon: <img src="/images/img_magealarmclockfill.svg" alt="Open Time" className="w-16 h-16" />,
+      icon: <img src="/images/img_magealarmclockfill.svg" alt="Open Time" className="w-14 h-14 mt-[-7px]" />,
       title: "Open Time",
       content: "Sun - Fri (9:00 AM - 5:00 PM)"
     }

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../ui/Button';
-import { useNavigate } from 'react-router-dom';   
+import { useNavigate } from 'react-router-dom';     
 
 const PrimaryHeader = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const location = useLocation();
-
+const navigate = useNavigate();
   // Save scroll position when navigating away
   useEffect(() => {
     window.addEventListener('scroll', saveScrollPosition);
@@ -23,6 +23,7 @@ const PrimaryHeader = () => {
   }, [location.pathname]);
 
   const handleContactClick = () => {
+    navigate('/contact');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
