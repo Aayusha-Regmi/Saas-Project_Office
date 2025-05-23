@@ -61,12 +61,12 @@ const TestimonialsSection = () => {
 
   return (
     <section className="py-12 md:py-20 bg-[#eaf8ff] relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-full h-full">
+      {/* Background elements */}      <div className="absolute top-0 left-0 w-full h-full">
         <img 
           src="/images/img_ellipse_335.png" 
           alt="Background shape" 
           className="w-auto h-full object-cover opacity-50"
+          loading="lazy"
         />
       </div>
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
@@ -74,6 +74,7 @@ const TestimonialsSection = () => {
           src="/images/img_group_1171275968_426x131.svg" 
           alt="Background pattern" 
           className="w-full h-full object-cover"
+          loading="lazy"
         />
       </div>
 
@@ -126,11 +127,11 @@ const TestimonialsSection = () => {
                         </div>
                         {/* Testimonial content */}
                         <div className="relative flex-1 flex flex-col">
-                          <div className="absolute top-0 right-0 -mt-7 -mr-6">
-                            <img 
+                          <div className="absolute top-0 right-0 -mt-7 -mr-6">                            <img 
                               src="/images/img_group_1171275971.svg" 
                               alt="Quote" 
                               className="w-20 h-20 opacity-80"
+                              loading="lazy"
                             />
                           </div>
                           <div className="flex-1">
@@ -143,11 +144,11 @@ const TestimonialsSection = () => {
                         <div className="border-t border-gray-100 mt-4 pt-4">
                           <div className="flex items-center">
                             <div className="relative mr-3 md:mr-4 flex-shrink-0">
-                              <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-dotted border-[#32b5fd] flex items-center justify-center p-0.5">
-                                <img
+                              <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-dotted border-[#32b5fd] flex items-center justify-center p-0.5">                                <img
                                   src={testimonial.image}
                                   alt={testimonial.name}
                                   className="w-full h-full rounded-full object-cover"
+                                  loading="lazy"
                                 />
                               </div>
                             </div>

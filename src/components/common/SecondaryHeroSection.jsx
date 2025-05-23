@@ -19,7 +19,7 @@ const staggerContainer = {
 
 const SecondaryHeroSection = ({ title, breadcrumbItem }) => (
   <section
-    className="relative py-24 bg-fixed bg-center bg-no-repeat bg-cover text-white"
+    className="relative pt-36 pb-24 bg-fixed bg-center bg-no-repeat bg-cover text-white mt-16"
     style={{
       backgroundImage:
         'url("/images/img_image.png")',

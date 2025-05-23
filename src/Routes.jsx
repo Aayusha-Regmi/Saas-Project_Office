@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Import page components
-import HomePage from './pages/Home';
-import IndustriesPage from './pages/Industries/PIndustries';
-import AboutPage from './pages/About/PAbout';
-import ServicesPage from './pages/Services/Services';
-import TestimonialsSection from './pages/About/AboutComponents/TestimonialsSection';
-import LetsTalk from "./pages/Contact/LetsTalk";
-import IndustryForm from './pages/Industries/IndustryForm/IndustryForm';
-import Insights from './pages/Insights/Insights';
-import Teams from './pages/Team/Teams';
-import CaseStudy from './pages/Services/CaseStudy/CaseStudy';
-import InsidePagesMain from './pages/Industries/IndustryInsidePages/InsidePagesMain';
+// Loading spinner/component
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center h-screen">
+    <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary-lightBlue"></div>
+    <p className="ml-2 text-primary-darkBlue font-semibold">Loading...</p>
+  </div>
+);
+
+// Lazy load page components
+const HomePage = lazy(() => import('./pages/Home'));
+const IndustriesPage = lazy(() => import('./pages/Industries/PIndustries'));
+const AboutPage = lazy(() => import('./pages/About/PAbout'));
+const ServicesPage = lazy(() => import('./pages/Services/Services'));
+const TestimonialsSection = lazy(() => import('./pages/About/AboutComponents/TestimonialsSection'));
+const LetsTalk = lazy(() => import('./pages/Contact/LetsTalk'));
+const IndustryForm = lazy(() => import('./pages/Industries/IndustryForm/IndustryForm'));
+const Insights = lazy(() => import('./pages/Insights/Insights'));
+const Teams = lazy(() => import('./pages/Team/Teams'));
+const CaseStudy = lazy(() => import('./pages/Services/CaseStudy/CaseStudy'));
+const InsidePagesMain = lazy(() => import('./pages/Industries/IndustryInsidePages/InsidePagesMain'));
 
 const AppRoutes = () => {
   return (

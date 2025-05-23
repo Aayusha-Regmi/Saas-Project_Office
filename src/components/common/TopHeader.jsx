@@ -109,7 +109,7 @@ const TopHeader = () => {
     const [showMobileInfo, setShowMobileInfo] = useState(false);
     
     return (
-        <header className="w-full">
+        <header className="w-full fixed top-0 left-0 z-50">
         {/* Top bar */}
         <div className="bg-[#0a1e43] text-white py-2 relative">
             {/* Background decoration - hidden on small screens */}
@@ -151,15 +151,15 @@ const TopHeader = () => {
                 <div className="flex items-center mt-2 md:mt-0">
                     <span className="text-xs font-bold mr-2">Follow Us:</span>
                     <div className="flex items-center space-x-3">
-                        <a href="#" className="social-icon-container block w-7 h-7 md:w-8 md:h-8">
+                        <a href="#" className="social-icon-container block w-7 h-7 md:w-6 md:h-6">
                             <img src="/images/img_image_11.png" alt="Instagram" className="w-full h-full rounded-full" />
                             <div className="social-icon-sparkle"></div>
                         </a>
-                        <a href="#" className="social-icon-container block w-7 h-7 md:w-8 md:h-8">
+                        <a href="https://www.facebook.com/saasnepal1" className="social-icon-container block w-7 h-7 md:w-6 md:h-6">
                             <img src="/images/img_image_22.png" alt="Facebook" className="w-full h-full rounded-full" />
                             <div className="social-icon-sparkle"></div>
                         </a>
-                        <a href="#" className="social-icon-container block w-7 h-7 md:w-8 md:h-8">
+                        <a href="https://www.linkedin.com/company/saasnepal/" className="social-icon-container block w-7 h-7 md:w-6 md:h-6">
                             <img src="/images/img_image_33.png" alt="LinkedIn" className="w-full h-full rounded-full" />
                             <div className="social-icon-sparkle"></div>
                         </a>

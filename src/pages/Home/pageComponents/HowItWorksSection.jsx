@@ -150,8 +150,7 @@ const HowItWorksSection = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
-              <div className="w-[100px] h-[100px] border-2 border-white rounded-full flex items-center justify-center mb-4">
-                <img src={step.image} alt={step.title} className="w-[78px] h-[78px] rounded-full" />
+              <div className="w-[100px] h-[100px] border-2 border-white rounded-full flex items-center justify-center mb-4">                <img src={step.image} alt={step.title} className="w-[78px] h-[78px] rounded-full" loading="lazy" />
               </div>
 
               {/* Arrow line animation only for steps before the last one */}
@@ -161,6 +160,7 @@ const HowItWorksSection = () => {
                     src="/images/img_line_408.svg"
                     alt="Arrow"
                     className="w-[74px] h-[74px]"
+                    loading="lazy"
                     style={{ marginLeft: '100px' }}
                   />
                 </div>

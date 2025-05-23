@@ -123,11 +123,11 @@ const TestimonialsSection = () => {
                         {/* Author info */}
                         <div className="flex items-center">
                           <div className="relative mr-4">
-                            <div className="w-24 h-24 rounded-full border-2 border-dotted border-[#32b5fd] flex items-center justify-center">
-                              <img
+                            <div className="w-24 h-24 rounded-full border-2 border-dotted border-[#32b5fd] flex items-center justify-center">                              <img
                                 src={testimonial.image}
                                 alt={testimonial.name}
                                 className="w-22 h-22 rounded-full object-cover"
+                                loading="lazy"
                               />
                             </div>
                           </div>

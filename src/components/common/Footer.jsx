@@ -138,11 +138,11 @@ const Footer = () => {
                     <img src="/images/img_image_11.png" alt="Instagram" className="w-full h-full rounded-full" />
                     <div className="social-icon-sparkle"></div>
                   </a>
-                  <a href="#" className="social-icon-container block w-9 h-9 md:w-10 md:h-10">
+                  <a href="https://www.facebook.com/saasnepal1" className="social-icon-container block w-9 h-9 md:w-10 md:h-10">
                     <img src="/images/img_image_22.png" alt="Facebook" className="w-full h-full rounded-full" />
                     <div className="social-icon-sparkle"></div>
                   </a>
-                  <a href="#" className="social-icon-container block w-9 h-9 md:w-10 md:h-10">
+                  <a href="https://www.linkedin.com/company/saasnepal/" className="social-icon-container block w-9 h-9 md:w-10 md:h-10">
                     <img src="/images/img_image_33.png" alt="LinkedIn" className="w-full h-full rounded-full" />
                     <div className="social-icon-sparkle"></div>
                   </a>

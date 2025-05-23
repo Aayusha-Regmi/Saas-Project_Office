@@ -16,11 +16,10 @@ const PrimaryHeader = () => {
   const location = useLocation();
 
   const isActive = (path) => location.pathname === path;
-
   return (
-    <header className="w-full">
+    <header className="w-full fixed top-[30px] left-0 z-40">
       {/* Main navigation */}
-      <div className="bg-white py-4">
+      <div className="bg-white py-4 shadow-sm">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <Link to="/" className="block">
             <img src="/images/img_saas_logo_101_1.png" alt="SAAS Logo" className="h-16 w-auto" />
