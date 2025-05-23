@@ -120,7 +120,7 @@ const path = '/about';
                       className="w-full h-full"
                     >
                       <Card
-                        className="relative h-[380px] flex flex-col"
+                        className="relative h-[400px] flex flex-col"
                         rounded="lg"
                         shadow="md"
                         padding="lg"
@@ -133,7 +133,7 @@ const path = '/about';
                         </div>
                         {/* Testimonial content */}
                         <div className="relative flex-1 flex flex-col">
-                          <div className="absolute top-0 right-0 -mt-7 -mr-6">
+                          <div className="absolute top-0 right-0 -mt-10 -mr-6">
                             <img 
                               src="/images/img_group_1171275971.svg" 
                               alt="Quote" 
@@ -141,13 +141,13 @@ const path = '/about';
                             />
                           </div>
                           <div className="flex-1">
-                            <p className="text-sm md:text-base leading-relaxed text-gray-700 mt-5">
+                            <p className="text-sm md:text-base leading-relaxed text-gray-700 flex-1">
                               {testimonial.text}
                             </p>
                           </div>
                         </div>
                         {/* Author info */}
-                        <div className="border-t border-gray-100 mt-4 pt-4">
+                        <div className="border-t border-gray-100 flex-shrink-0 mt-4 pt-4">
                           <div className="flex items-center">
                             <div className="relative mr-3 md:mr-4 flex-shrink-0">
                               <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-dotted border-[#32b5fd] flex items-center justify-center p-0.5">
@@ -159,10 +159,10 @@ const path = '/about';
                               </div>
                             </div>
                             <div className="min-w-0">
-                              <h4 className="text-base md:text-lg font-semibold text-gray-800 truncate">
+                              <h4 className="text-base md:text-lg font-semibold text-gray-800 mb-1 truncate">
                                 {testimonial.name}
                               </h4>
-                              <p className="text-sm md:text-base font-medium text-[#33b6ff] my-1">
+                              <p className="text-sm md:text-base font-medium text-[#33b6ff] mb-2">
                                 {testimonial.role}
                               </p>
                               <RatingBar 

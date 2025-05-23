@@ -71,7 +71,11 @@ const InsightsCardsMain = () => {
       viewport={{ once: true }}
     >
       {insightCards.map((card) => (
-        <motion.div key={card.id} variants={cardVariants}>
+        <motion.div 
+          key={card.id} 
+          variants={cardVariants}
+          className="h-full"
+        >
           <InsightsCard
             title={card.title}
             description={card.description}

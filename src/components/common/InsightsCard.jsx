@@ -12,30 +12,34 @@ const InsightsCard = ({
   className = '' 
 }) => {
   return (
-    <div className={`bg-white rounded-[20px] p-6 relative ${className}`}>
+    <div className={`bg-white rounded-[20px] p-6 relative h-full ${className}`}>
       {ribbonImage && (
-        <div className="absolute top-0 right-0">
+        <div className="absolute top-0 right-0 -mt-4">
           <img src={ribbonImage} alt="Ribbon" className="w-24 h-24" />
         </div>
       )}
       
-      <h3 className="text-lg font-extrabold text-[#071e45] mb-6">{title}</h3>
-      
-      <p className="text-sm font-semibold text-[#797979] mb-6 leading-relaxed">
-        {description}
-      </p>
-      
-      <Link to={buttonLink}>
-        <Button 
-          variant="primary" 
-          className="h-[47px]"
-        >
-          <div className='flex items-center'>
-          {buttonText}
-          <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-1" />
-          </div>
-        </Button>
-      </Link>
+      <div className="flex flex-col h-full">
+        <h3 className="text-lg font-extrabold text-[#071e45] mb-4">{title}</h3>
+        
+        <div className="flex-1">
+          <p className="text-sm font-semibold text-[#797979] leading-relaxed">
+            {description}
+          </p>
+        </div>
+        
+        <Link to={buttonLink} className="mt-6">
+          <Button 
+            variant="primary" 
+            className="h-[47px] w-full"
+          >
+            <div className='flex items-center'>
+              {buttonText}
+              <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-1" />
+            </div>
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };
