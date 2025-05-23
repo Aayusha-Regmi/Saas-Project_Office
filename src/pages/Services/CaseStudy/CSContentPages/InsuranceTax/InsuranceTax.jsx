@@ -33,6 +33,7 @@ const contentData = {
 
 const InsuranceTax = () => {
   return (
+    <div className="py-12 md:py-20 bg-[#eaf8ff] relative overflow-hidden">
     <div className="md:col-span-2">
       {/* Featured Image */}
       <motion.img 
@@ -135,6 +136,7 @@ const InsuranceTax = () => {
           Insurance tax compliance is increasingly subject to scrutiny from tax authorities. Companies must maintain clear documentation, keep pace with changing rates and rules, and ensure alignment between policy records and tax filings. Challenges include managing surplus line taxes, jurisdictional inconsistencies, and reconciling tax data across multiple systems. A proactive and structured approach can mitigate risks while enhancing transparency.
         </motion.div>
       </motion.div>
+    </div>
     </div>
   );
 };

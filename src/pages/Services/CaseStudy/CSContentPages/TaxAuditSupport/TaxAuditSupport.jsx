@@ -33,6 +33,7 @@ const contentData = {
 
 const TaxAuditSupport = () => {
   return (
+    <div className="py-12 md:py-20 relative overflow-hidden">
     <div className="md:col-span-2">
       {/* Featured Image */}
       <motion.img 
@@ -135,6 +136,7 @@ const TaxAuditSupport = () => {
           Tax audits present challenges like complex regulatory requirements and tight deadlines. Organizations often face difficulties gathering all requested information timely, interpreting audit scope correctly, and negotiating disputed findings. Professional audit support mitigates these challenges by providing expertise, documentation, and negotiation skills that protect the client’s interests.
         </motion.div>
       </motion.div>
+    </div>
     </div>
   );
 };

@@ -8,6 +8,13 @@ import { useNavigate } from 'react-router-dom';
 
 const PricingCTASection = () => {
   const navigate = useNavigate();
+  const path= "/about";
+  const handleNavigation = (path)=>{
+    navigate(path)
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    }) }
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -33,7 +40,7 @@ const PricingCTASection = () => {
         <motion.div
           className="flex justify-center mb-8"
           variants={fadeInUpVariants}
-          initial="hidden"
+          initial="hidden" 
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
@@ -76,8 +83,8 @@ const PricingCTASection = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <Button variant="primary" className="flex items-center" onClick={() => navigate('/contact')}>
-            Contact Us
+          <Button variant="primary" className="flex items-center" onClick={() => handleNavigation('/about')}>
+            About Us
             <img
               src="/images/img_materialsymbolsarrowinsert.svg"
               alt="arrow icon"

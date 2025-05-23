@@ -51,6 +51,15 @@ const fadeInRight = {
 
 const AboutSection = () => {
   const navigate = useNavigate();
+  const path = '/about';
+  const handleNavigation =(path)=>{
+    navigate(path),
+    window.scrollTo({
+      top:0,
+      behaviour:'smooth'
+    })
+
+  }
   return (
     <section className="py-8 sm:py-12 md:py-16">
       <div className="container mx-auto px-4">
@@ -157,7 +166,7 @@ const AboutSection = () => {
                 variant="primary"
                 size="small"
                 className="flex items-center justify-center px-8 py-2.5"
-                onClick={() => navigate('/services')}
+                onClick={() => handleNavigation('/caseStudy/tax-planning')}
               >
                 Discover More
                 <img

@@ -1,34 +1,71 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../ui/Button';
 import { useNavigate } from 'react-router-dom';
 
 const PrimaryHeader = () => {
-  const navigate = useNavigate();
-  const handleContactClick = () => {
-    navigate('/contact');
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const location = useLocation();
+
+  // Save scroll position when navigating away
+  useEffect(() => {
+    window.addEventListener('scroll', saveScrollPosition);
+    return () => window.removeEventListener('scroll', saveScrollPosition);
+  }, []);
+
+  const saveScrollPosition = () => {
+    setScrollPosition(window.scrollY);
   };
+
+  // Restore scroll position when returning to a page
+  useEffect(() => {
+    window.scrollTo(0, scrollPosition);
+  }, [location.pathname]);
+
+  const handleContactClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const location = useLocation();
-
-  const isActive = (path) => location.pathname === path;
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="w-full">
       {/* Main navigation */}
       <div className="bg-white py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <Link to="/" className="block">
+          <Link
+            to="/"
+            onClick={(e) => {
+              if (window.location.pathname === '/') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+            className="block"
+          >
             <img src="/images/img_saas_logo_101_1.png" alt="SAAS Logo" className="h-16 w-auto" />
           </Link>
           
           <nav className="hidden md:flex items-center space-x-6">
             <Link
               to="/"
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className={`font-bold flex items-center ${isActive('/') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
             >
               Home
@@ -36,6 +73,12 @@ const PrimaryHeader = () => {
             </Link>
             <Link
               to="/industries"
+              onClick={(e) => {
+                if (window.location.pathname === '/industries') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className={`font-bold flex items-center ${isActive('/industries') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
             >
               Industries
@@ -43,6 +86,12 @@ const PrimaryHeader = () => {
             </Link>
             <Link
               to="/services"
+              onClick={(e) => {
+                if (window.location.pathname === '/services') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className={`font-bold flex items-center ${isActive('/services') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
             >
               Services
@@ -50,12 +99,24 @@ const PrimaryHeader = () => {
             </Link>
             <Link
               to="/teams"
+              onClick={(e) => {
+                if (window.location.pathname === '/teams') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className={`font-bold ${isActive('/teams') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
             >
               Teams
             </Link>
             <Link
               to="/calculations"
+              onClick={(e) => {
+                if (window.location.pathname === '/calculations') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className={`font-bold flex items-center ${isActive('/calculations') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
             >
               Calculations
@@ -63,6 +124,12 @@ const PrimaryHeader = () => {
             </Link>
             <Link
               to="/insights"
+              onClick={(e) => {
+                if (window.location.pathname === '/insights') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className={`font-bold flex items-center ${isActive('/insights') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
             >
               Insights
@@ -70,6 +137,12 @@ const PrimaryHeader = () => {
             </Link>
             <Link
               to="/about"
+              onClick={(e) => {
+                if (window.location.pathname === '/about') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className={`font-bold ${isActive('/about') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
             >
               About

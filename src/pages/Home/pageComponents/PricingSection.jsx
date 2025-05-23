@@ -143,6 +143,14 @@ import { useNavigate } from 'react-router-dom';
 
 const PricingSection = () => {
   const navigate = useNavigate();
+  const path = '/contact';
+  const handleNavigation = (path)=>{
+    navigate(path);
+    window.scrollTo({
+      top:0,
+      behavior:'smooth'
+    })
+  }
   const pricingPlans = [
     {
       id: 1,
@@ -246,7 +254,7 @@ const PricingSection = () => {
                 <Button
                   variant="primary"
                   className="w-full flex items-center justify-center my-6"
-                  onClick={() => navigate('/contact')}    
+                  onClick={() => handleNavigation(path)}    
                 >
                   Purchase Now
                   <img
