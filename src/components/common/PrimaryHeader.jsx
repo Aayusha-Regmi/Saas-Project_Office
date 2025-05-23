@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../ui/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';   
 
 const PrimaryHeader = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -35,9 +35,9 @@ const PrimaryHeader = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const location = useLocation();
+  
 
-  const isActive = (path) => location.pathname === path;
+ 
   return (
     <header className="w-full fixed top-[30px] left-0 z-40">
       {/* Main navigation */}
