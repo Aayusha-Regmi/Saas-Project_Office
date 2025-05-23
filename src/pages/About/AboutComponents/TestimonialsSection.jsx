@@ -77,6 +77,7 @@ const path = '/about';
           src="/images/img_ellipse_335.png" 
           alt="Background shape" 
           className="w-auto h-full object-cover opacity-50"
+          loading="lazy"
         />
       </div>
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
@@ -84,6 +85,7 @@ const path = '/about';
           src="/images/img_group_1171275968_426x131.svg" 
           alt="Background pattern" 
           className="w-full h-full object-cover"
+          loading="lazy"
         />
       </div>
 
@@ -102,7 +104,10 @@ const path = '/about';
             <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6 md:mb-8">
               Don't just take our word for it. Here's what our clients have to say about our services and how we've helped transform their businesses.
             </p>
-            
+            <Button className="flex items-center bg-[#32b5fd] hover:bg-[#1a9cef] text-white px-8 py-3 rounded-lg transition-colors duration-300" onClick={() => handleNavigation('/about')}>
+              Know More
+              <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-2" />
+            </Button>
           </div>
 
           {/* Right side - Testimonials */}
@@ -120,7 +125,7 @@ const path = '/about';
                       className="w-full h-full"
                     >
                       <Card
-                        className="relative h-[400px] flex flex-col"
+                        className="relative h-[380px] flex flex-col"
                         rounded="lg"
                         shadow="md"
                         padding="lg"
@@ -133,25 +138,24 @@ const path = '/about';
                         </div>
                         {/* Testimonial content */}
                         <div className="relative flex-1 flex flex-col">
-                          <div className="absolute top-0 right-0 -mt-10 -mr-6">
-                            <img 
+                          <div className="absolute top-0 right-0 -mt-7 -mr-6">                            <img 
                               src="/images/img_group_1171275971.svg" 
                               alt="Quote" 
                               className="w-20 h-20 opacity-80"
+                              loading="lazy"
                             />
                           </div>
                           <div className="flex-1">
-                            <p className="text-sm md:text-base leading-relaxed text-gray-700 flex-1">
+                            <p className="text-sm md:text-base leading-relaxed text-gray-700 mt-5">
                               {testimonial.text}
                             </p>
                           </div>
                         </div>
                         {/* Author info */}
-                        <div className="border-t border-gray-100 flex-shrink-0 mt-4 pt-4">
+                        <div className="border-t border-gray-100 mt-4 pt-4">
                           <div className="flex items-center">
                             <div className="relative mr-3 md:mr-4 flex-shrink-0">
-                              <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-dotted border-[#32b5fd] flex items-center justify-center p-0.5">
-                                <img
+                              <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-dotted border-[#32b5fd] flex items-center justify-center p-0.5">                                <img
                                   src={testimonial.image}
                                   alt={testimonial.name}
                                   className="w-full h-full rounded-full object-cover"
@@ -160,10 +164,10 @@ const path = '/about';
                               </div>
                             </div>
                             <div className="min-w-0">
-                              <h4 className="text-base md:text-lg font-semibold text-gray-800 mb-1 truncate">
+                              <h4 className="text-base md:text-lg font-semibold text-gray-800 truncate">
                                 {testimonial.name}
                               </h4>
-                              <p className="text-sm md:text-base font-medium text-[#33b6ff] mb-2">
+                              <p className="text-sm md:text-base font-medium text-[#33b6ff] my-1">
                                 {testimonial.role}
                               </p>
                               <RatingBar 

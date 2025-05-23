@@ -14,8 +14,8 @@ const InsightsCard = ({
   return (
     <div className={`bg-white rounded-[20px] p-6 relative h-full ${className}`}>
       {ribbonImage && (
-        <div className="absolute top-0 right-0 -mt-4">
-          <img src={ribbonImage} alt="Ribbon" className="w-24 h-24" />
+        <div className="absolute top-0 right-0 -mt-1.5 -mr-1.2">
+          <img src={ribbonImage} alt="Ribbon" className="w-24 h-24 object-contain" />
         </div>
       )}
       
