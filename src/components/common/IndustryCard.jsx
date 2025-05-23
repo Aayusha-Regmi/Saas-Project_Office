@@ -17,7 +17,7 @@ const Card = ({
       
       <Link to={link}>
         <IndustryButton 
-          className={`read-more-btn ${buttonVariant === 'active' ? 'read-more-btn-active' : 'read-more-btn-default'}`}
+          className={`read-more-btn ${buttonVariant === 'active' ? 'read-more-btn-active' : 'read-more-btn-default'} hover:border-none`}
         >
           Read More
         </IndustryButton>
