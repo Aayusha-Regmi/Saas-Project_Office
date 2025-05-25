@@ -70,7 +70,7 @@ const path = '/about';
   );
 
   return (
-    <section id="testimonials" className="py-12 md:py-20 bg-[#eaf8ff] relative overflow-hidden">
+    <section id="testimonial" className="py-12 md:py-20 bg-[#eaf8ff] relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full">
         <img 

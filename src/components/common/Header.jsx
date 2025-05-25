@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,6 +12,21 @@ const Header = () => {
     about: false
   });
   const menuRef = useRef(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleAboutSectionClick = (sectionId) => {
+    // Navigate to about page
+    navigate('/about');
+    
+    // Wait for navigation to complete before scrolling
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100); // Small delay to ensure navigation is complete
+  };
 
   // Handle scroll effect for header
   useEffect(() => {
@@ -67,7 +82,8 @@ const Header = () => {
       [menu]: !prev[menu]
     }));
   };
-    return (
+
+  return (
     <header 
       className={`sticky top-0 z-50 py-1 sm:py-2 md:py-3 bg-white/70 backdrop-blur-md transition-all duration-300 ${
         scrolled ? 'shadow-md' : ''
@@ -124,8 +140,7 @@ const Header = () => {
                 <Link to="/caseStudy/tax-advisory" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Tax Advisory</Link>
                 <Link to="/caseStudy/investment-advisor" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Investment Advisor</Link>
                 <Link to="/caseStudy/insurance-tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Insurance Tax</Link>
-                <Link to="/caseStudy/corporate-tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Digital Marketing</Link>
-                <Link to="/caseStudy/corporate-tax-planning" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Digital Marketing</Link>
+
               </div>
             </div>
           </div>
@@ -135,16 +150,16 @@ const Header = () => {
           </Link>
             {/* Calculations Dropdown */}
           <div className="relative group">
-            <Link to="/calculations" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
+            <Link to="#" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               Calculations
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5 transition-transform group-hover:rotate-180 duration-300" />
             </Link>
             {/* Dropdown menu with glass effect */}
             <div className="absolute top-full left-0 w-60 bg-white/90 backdrop-blur-md shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
               <div className="py-2">
-                <Link to="/calculations/tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Tax Calculator</Link>
-                <Link to="/calculations/roi" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">ROI Calculator</Link>
-                <Link to="/calculations/pricing" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Pricing Models</Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Tax Calculator</Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">ROI Calculator</Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Pricing Models</Link>
               </div>
             </div>
           </div>
@@ -157,10 +172,10 @@ const Header = () => {
             {/* Dropdown menu with glass effect */}
             <div className="absolute top-full left-0 w-60 bg-white/90 backdrop-blur-md shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
               <div className="py-2">
-                <Link to="/insights/blog" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Blog</Link>
-                <Link to="/insights/case-studies" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Case Studies</Link>
-                <Link to="/insights/resources" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Resources</Link>
-                <Link to="/insights/events" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Events</Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Blog</Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Case Studies</Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Resources</Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Events</Link>
               </div>
             </div>
           </div>
@@ -173,10 +188,37 @@ const Header = () => {
             {/* Dropdown menu with glass effect */}
             <div className="absolute top-full left-0 w-60 bg-white/90 backdrop-blur-md shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
               <div className="py-2">
-                <Link to="/about/company" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Our Company</Link>
-                <Link to="/about/team" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Leadership Team</Link>
-                <Link to="/about/careers" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Careers</Link>
-                <Link to="/about/contact" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Contact Us</Link>
+                <Link 
+                  to="/about" 
+                  className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAboutSectionClick('aboutus');
+                  }}
+                >
+                  Our Company
+                </Link>
+                <Link 
+                  to="/about" 
+                  className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAboutSectionClick('testimonial');
+                  }}
+                >
+                  Testimonials
+                </Link>
+                <Link 
+                  to="/about" 
+                  className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAboutSectionClick('our-experts');
+                  }}
+                >
+                  Our Experts
+                </Link>
+              
               </div>
             </div>
           </div>
