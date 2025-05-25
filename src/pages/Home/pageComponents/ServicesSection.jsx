@@ -25,7 +25,7 @@ const ServicesSection = () => {
       description: 'Navigate complex tax laws with ease. Our expert tax advisors help optimize your liabilities and stay compliant.',
       icon: '/images/img_group.svg',
       cornerImage: '/images/img_group_1171275971.svg',
-      path: '/caseStudy/TaxAdvisory'
+      path: '/caseStudy/tax-advisory'
     },
     {
       id: 2,
@@ -41,7 +41,7 @@ const ServicesSection = () => {
       description: 'Ensure transparency and accuracy in your financial reporting. We offer comprehensive audit solutions.',
       icon: '/images/img_vector_44x48.svg',
       cornerImage: '/images/img_group_1171275971.svg',
-      path: '/caseStudy/tax-advisory'
+      path: '/caseStudy/tax-audit-support'
     },
     {
       id: 4,

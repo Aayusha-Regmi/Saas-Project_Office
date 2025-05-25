@@ -14,7 +14,7 @@ const fadeInUp = {
 };
 
 const contentData = {
-  title: "Corporate Tax Planning",
+  title: "Tax Planning",
   description:
     "Corporate tax planning helps businesses reduce their tax liability through strategic financial management while maintaining full legal compliance. It involves assessing deductions, credits, deferrals, and the company’s structure to make informed decisions that positively impact profitability.",
   tips: [
@@ -38,7 +38,7 @@ const MainContent = () => {
       {/* Featured Image */}
       <motion.img 
         src={contentData.images.main}
-        alt="Corporate Tax Planning Case Study"
+        alt="Tax Planning Case Study"
         className="w-full h-auto rounded-lg mb-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ const MainContent = () => {
         <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10" variants={fadeInUp}>
           <motion.img
             src={contentData.images.content1}
-            alt="Corporate tax planning meeting"
+            alt="Tax planning meeting"
             className="w-full h-auto rounded-lg"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}

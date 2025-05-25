@@ -5,7 +5,7 @@ import TaxPlanning from './CSContentPages/CorporateTaxPlanning/TaxPlanning';
 import PersonalTax from './CSContentPages/PersonalTax/PersonalTax';
 import TaxAuditSupport from './CSContentPages/TaxAuditSupport/TaxAuditSupport';
 import InternationalTax from './CSContentPages/InternationalTax/InternationalTax';
-import TaxAdvisorySupport from './CSContentPages/TaxAdvisorySupport/TaxAdvisorySupport';
+import TaxAdvisory from './CSContentPages/TaxAdvisorySupport/TaxAdvisory';
 import InvestmentAdvisor from './CSContentPages/InvestmentAdvisor/InvestmentAdvisor';
 import InsuranceTax from './CSContentPages/InsuranceTax/InsuranceTax';
 import CorporateTax from './CSContentPages/CorporateTax/CorporateTax';
@@ -30,8 +30,8 @@ const CaseStudy = () => {
         return <TaxAuditSupport />;
       case 'international-tax':
         return <InternationalTax />;
-      case 'tax-advisory-support':
-        return <TaxAdvisorySupport />;
+      case 'tax-advisory':
+        return <TaxAdvisory/>;
       case 'investment-advisor':
         return <InvestmentAdvisor />;
       case 'insurance-tax':

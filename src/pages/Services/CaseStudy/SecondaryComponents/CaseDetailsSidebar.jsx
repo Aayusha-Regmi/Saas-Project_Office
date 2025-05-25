@@ -32,8 +32,8 @@ const caseStudyData = {
     location: 'Lalitpur, Nepal',
     rating: 5.0
   },
-  'tax-advisory-support': {
-    title: 'Tax Advisory Support',
+  'tax-advisory': {
+    title: 'Tax Advisory',
     date: '18 April, 2024',
     client: 'Everest Holdings',
     budget: 'Rs. 250,000',
@@ -69,7 +69,7 @@ const caseStudyData = {
     rating: 4.9
   },
   'corporate-tax-planning': {
-    title: 'Corporate Tax Planning',
+    title: 'Tax Planning',
     date: '23 May, 2024',
     client: 'Himalayan Enterprises',
     budget: 'Rs. 350,000',
@@ -84,7 +84,7 @@ const CaseDetailsSidebar = () => {
   
   // Get case details for current page or use default values
   const caseDetails = caseStudyData[page] || {
-    title: 'Corporate Tax Planning',
+    title: 'Tax Planning',
     date: '23 May, 2024',
     client: 'Himalayan Enterprises',
     budget: 'Rs. 350,000',

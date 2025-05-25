@@ -31,7 +31,7 @@ const contentData = {
   }
 };
 
-const TaxAdvisorySupport = () => {
+const TaxAdvisory = () => {
   return (
     <div className="py-12 md:py-20  relative overflow-hidden">
     <div className="md:col-span-2">
@@ -141,4 +141,4 @@ const TaxAdvisorySupport = () => {
   );
 };
 
-export default TaxAdvisorySupport;
+export default TaxAdvisory;
