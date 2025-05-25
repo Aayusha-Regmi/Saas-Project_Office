@@ -301,39 +301,60 @@ const Header = () => {
                 mobileDropdowns.industries ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
               }`}>
                 <Link 
-                  to="/industries/finance" 
+                  to="/industries/banking" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Finance & Banking
+                  Banking & Finance
                 </Link>
                 <Link 
-                  to="/industries/healthcare" 
+                  to="/industries/manufacturing" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Healthcare
+                  Manufacturing
                 </Link>
                 <Link 
-                  to="/industries/education" 
+                  to="/industries/ngo-ingo" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Education
+                  NGO/INGO
                 </Link>
                 <Link 
-                  to="/industries/retail" 
+                  to="/industries/electronics" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Retail & E-commerce
+                  Electronics & Communication Industry
                 </Link>
                 <Link 
-                  to="/industries/technology" 
+                  to="/industries/trading" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Technology
+                  Trading & Retail
+                </Link>
+                <Link 
+                  to="/industries/travel" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Travel, Tourism & Hospitality
+                </Link>
+                <Link 
+                  to="/industries/hospital" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Hospital and Education Industry
+                </Link>
+                <Link 
+                  to="/industries/hydropower" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Hydropower & Construction
                 </Link>
               </div>
             </div>
@@ -355,32 +376,46 @@ const Header = () => {
                 mobileDropdowns.services ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
               }`}>
                 <Link 
-                  to="/services/consulting" 
+                  to="/caseStudy/personal-tax" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Business Consulting
+                  Personal Tax
                 </Link>
                 <Link 
-                  to="/services/development" 
+                  to="/caseStudy/tax-audit-support" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Software Development
+                  Tax Audit Support
                 </Link>
                 <Link 
-                  to="/services/support" 
+                  to="/caseStudy/international-tax" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Technical Support
+                  International Tax
                 </Link>
                 <Link 
-                  to="/services/marketing" 
+                  to="/caseStudy/tax-advisory" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Digital Marketing
+                  Tax Advisory
+                </Link>
+                <Link 
+                  to="/caseStudy/investment-advisor" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Investment Advisor
+                </Link>
+                <Link 
+                  to="/caseStudy/insurance-tax" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Insurance Tax
                 </Link>
               </div>
             </div>
@@ -410,21 +445,21 @@ const Header = () => {
                 mobileDropdowns.calculations ? 'max-h-36 opacity-100' : 'max-h-0 opacity-0'
               }`}>
                 <Link 
-                  to="/calculations/tax" 
+                  to="#" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Tax Calculator
                 </Link>
                 <Link 
-                  to="/calculations/roi" 
+                  to="#" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   ROI Calculator
                 </Link>
                 <Link 
-                  to="/calculations/pricing" 
+                  to="#" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
