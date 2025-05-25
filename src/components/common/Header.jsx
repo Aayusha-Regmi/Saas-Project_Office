@@ -225,9 +225,9 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center space-x-4">
-          <button className="p-1" aria-label="Search">
+          {/* <button className="p-1" aria-label="Search">
             <img src="/images/img_search.svg" alt="Search" className="w-4 h-4 xl:w-5 xl:h-5" />
-          </button>
+          </button> */}
           <div className="flex items-center">
             <img src="/images/img_group_1171275967.svg" alt="Call" className="w-7 h-7 xl:w-8 xl:h-8" />
             <div className="ml-2">
@@ -239,9 +239,9 @@ const Header = () => {
 
         {/* Mobile Controls (Search and Menu) */}
         <div className="flex items-center space-x-2 lg:hidden">
-          <button className="p-1" aria-label="Search">
+          {/* <button className="p-1" aria-label="Search">
             <img src="/images/img_search.svg" alt="Search" className="w-4 h-4 sm:w-5 sm:h-5" />
-          </button>
+          </button> */}
           
           <button 
             className="p-1 focus:outline-none" 
