@@ -33,7 +33,7 @@ const contentData = {
 
 const InsuranceTax = () => {
   return (
-    <div className="py-12 md:py-20 bg-[#eaf8ff] relative overflow-hidden">
+    <div className="py-12 md:py-20  relative overflow-hidden">
     <div className="md:col-span-2">
       {/* Featured Image */}
       <motion.img 
