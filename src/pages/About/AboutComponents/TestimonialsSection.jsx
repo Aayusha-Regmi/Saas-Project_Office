@@ -104,10 +104,7 @@ const path = '/about';
             <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6 md:mb-8">
               Don't just take our word for it. Here's what our clients have to say about our services and how we've helped transform their businesses.
             </p>
-            <Button className="flex items-center bg-[#32b5fd] hover:bg-[#1a9cef] text-white px-8 py-3 rounded-lg transition-colors duration-300" onClick={() => handleNavigation('/about')}>
-              Know More
-              <img src="/images/img_materialsymbolsarrowinsert.svg" alt="Arrow" className="w-6 h-6 ml-2" />
-            </Button>
+            
           </div>
 
           {/* Right side - Testimonials */}

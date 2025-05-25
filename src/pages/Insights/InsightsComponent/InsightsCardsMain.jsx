@@ -36,28 +36,28 @@ const InsightsCardsMain = () => {
       title: 'Industry Updates',
       description: 'Stay informed with the latest trends in international and domestic taxation, business valuation, and M&A activities in Nepal’s dynamic regulatory landscape.',
       ribbonImage: '/images/img_group_1171275970.svg',
-      buttonLink: '/',
+      buttonLink: '/insights',
     },
     {
       id: 2,
       title: 'SaaS Features & Benefits',
       description: 'Explore how SAAS delivers real-time tax advisory, compliance support, and due diligence services using a tech-driven approach powered by our expert team.',
       ribbonImage: '/images/img_group_1171275970.svg',
-      buttonLink: '/',
+      buttonLink: '/insights',
     },
     {
       id: 3,
       title: 'Upcoming Webinars & Events',
       description: 'Join sessions on Nepalese tax law, valuation techniques, and due diligence best practices led by SAAS professionals with hands-on transaction experience.',
       ribbonImage: '/images/img_group_1171275970.svg',
-      buttonLink: '/',
+      buttonLink: '/insights',
     },
     {
       id: 4,
       title: 'Compliance & Legal Resources',
       description: 'Access expert guidance on DTAA, NR taxation, VAT consulting, litigation support, and regulatory filings, all tailored to Nepalese legal frameworks.',
       ribbonImage: '/images/img_group_1171275970.svg',
-      buttonLink: '/',
+      buttonLink: '/insights',
     },
   ];
   
