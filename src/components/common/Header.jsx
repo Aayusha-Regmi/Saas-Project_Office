@@ -4,7 +4,24 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileDropdowns, setMobileDropdowns] = useState({
+    industries: false,
+    services: false,
+    calculations: false,
+    insights: false,
+    about: false
+  });
+  const [headerHeight, setHeaderHeight] = useState(0);
   const menuRef = useRef(null);
+  const headerRef = useRef(null);
+
+  // Toggle mobile dropdown menus
+  const toggleMobileDropdown = (key) => {
+    setMobileDropdowns(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
 
   // Handle scroll effect for header
   useEffect(() => {
@@ -21,6 +38,23 @@ const Header = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+  }, []);
+
+  // Measure header height for mobile menu positioning
+  useEffect(() => {
+    if (headerRef.current) {
+      const measureHeaderHeight = () => {
+        const height = headerRef.current.offsetHeight;
+        setHeaderHeight(height);
+      };
+      
+      measureHeaderHeight();
+      window.addEventListener('resize', measureHeaderHeight);
+      
+      return () => {
+        window.removeEventListener('resize', measureHeaderHeight);
+      };
+    }
   }, []);
 
   // Close menu when clicking outside
@@ -55,8 +89,11 @@ const Header = () => {
   };
   return (
     <header 
-      className={`sticky top-0 z-50 py-1 sm:py-2 md:py-3 bg-white transition-all duration-300 ${
-        scrolled ? 'shadow-md' : ''
+      ref={headerRef}
+      className={`sticky top-0 z-50 py-1 sm:py-2 md:py-3 transition-all duration-300 ${
+        scrolled 
+          ? 'shadow-md bg-white/85 backdrop-blur-md' 
+          : 'bg-white/70 backdrop-blur-sm'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -78,32 +115,129 @@ const Header = () => {
               Industries
               <img src="/images/img_expanddown.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5" />
             </Link>
-            {/* Dropdown can be added here */}
+            {/* Desktop dropdown menu */}
+            <div className="absolute left-0 mt-1 w-64 bg-white shadow-lg rounded-md overflow-hidden transform opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 ease-in-out z-50 border border-gray-100">
+              <div className="py-2">
+                <Link to="/industries/banking" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Banking & Finance
+                </Link>
+                <Link to="/industries/manufacturing" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Manufacturing
+                </Link>
+                <Link to="/industries/ngo-ingo" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  NGO/INGO
+                </Link>
+                <Link to="/industries/electronics" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Electronics & Communication Industry
+                </Link>
+                <Link to="/industries/trading" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Trading & Retail
+                </Link>
+                <Link to="/industries/travel" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Travel, Tourism & Hospitality
+                </Link>
+                <Link to="/industries/hospital" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Hospital and Education Industry
+                </Link>
+                <Link to="/industries/hydropower" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Hydropower & Construction
+                </Link>
+              </div>
+            </div>
           </div>          <div className="relative group">
             <Link to="/services" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               Services
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5" />
             </Link>
+            {/* Desktop dropdown menu */}
+            <div className="absolute left-0 mt-1 w-64 bg-white shadow-lg rounded-md overflow-hidden transform opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 ease-in-out z-50 border border-gray-100">
+              <div className="py-2">
+                <Link to="/caseStudy/personal-tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Personal Tax
+                </Link>
+                <Link to="/caseStudy/tax-audit-support" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Tax Audit Support
+                </Link>
+                <Link to="/caseStudy/international-tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  International Tax
+                </Link>
+                <Link to="/caseStudy/tax-advisory" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Tax Advisory
+                </Link>
+                <Link to="/caseStudy/investment-advisor" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Investment Advisor
+                </Link>
+                <Link to="/caseStudy/insurance-tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Insurance Tax
+                </Link>
+              </div>
+            </div>
           </div>
           <Link to="/teams" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 transition-colors">
             Teams
-          </Link>
-          <div className="relative group">
+          </Link>          <div className="relative group">
             <Link to="/calculations" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               Calculations
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5" />
             </Link>
+            {/* Desktop dropdown menu */}
+            <div className="absolute left-0 mt-1 w-64 bg-white shadow-lg rounded-md overflow-hidden transform opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 ease-in-out z-50 border border-gray-100">
+              <div className="py-2">
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Tax Calculator
+                </Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  ROI Calculator
+                </Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Pricing Models
+                </Link>
+              </div>
+            </div>
           </div>          <div className="relative group">
             <Link to="/insights" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               Insights
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5" />
             </Link>
-          </div>
-          <div className="relative group">
+            {/* Desktop dropdown menu */}
+            <div className="absolute left-0 mt-1 w-64 bg-white shadow-lg rounded-md overflow-hidden transform opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 ease-in-out z-50 border border-gray-100">
+              <div className="py-2">
+                <Link to="/insights/blog" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Blog
+                </Link>
+                <Link to="/insights/case-studies" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Case Studies
+                </Link>
+                <Link to="/insights/resources" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Resources
+                </Link>
+                <Link to="/insights/events" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Events
+                </Link>
+              </div>
+            </div>
+          </div>          <div className="relative group">
             <Link to="/about" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               About
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5" />
             </Link>
+            {/* Desktop dropdown menu */}
+            <div className="absolute left-0 mt-1 w-64 bg-white shadow-lg rounded-md overflow-hidden transform opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 ease-in-out z-50 border border-gray-100">
+              <div className="py-2">
+                <Link to="/about/company" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Our Company
+                </Link>
+                <Link to="/about/team" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Leadership Team
+                </Link>
+                <Link to="/about/careers" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Careers
+                </Link>
+                <Link to="/about/contact" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Contact Us
+                </Link>
+              </div>
+            </div>
           </div>
         </nav>
 
@@ -147,13 +281,12 @@ const Header = () => {
             </svg>
           </button>
         </div>
-      </div>      {/* Mobile Navigation - Full Screen Overlay */}
-      <div 
+      </div>      {/* Mobile Navigation - Full Screen Overlay */}      <div 
         ref={menuRef}
-        className={`fixed inset-0 bg-white z-40 transition-transform duration-300 lg:hidden ${
+        className={`fixed inset-0 bg-white/95 backdrop-blur-sm z-40 transition-transform duration-300 ease-in-out lg:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
-        style={{ top: '60px' }} // Adjusted to match smaller header
+        style={{ top: `${headerHeight}px` }}
       >
         <div className="container mx-auto px-4 py-4 h-full overflow-y-auto">
           <nav className="flex flex-col space-y-4">            <Link 
@@ -163,10 +296,9 @@ const Header = () => {
             >
               Home
             </Link>
-            
-            {/* Mobile Industries Dropdown */}
+              {/* Mobile Industries Dropdown */}
             <div className="border-b border-gray-100 pb-2">              <div 
-                className="flex justify-between items-center py-2 cursor-pointer hover:bg-blue-50/50 rounded-md px-2 transition-colors"
+                className="flex justify-between items-center py-2 px-3 cursor-pointer hover:bg-blue-50/50 rounded-md transition-colors duration-150 ease-in-out"
                 onClick={() => toggleMobileDropdown('industries')}
               >
                 <span className="text-base font-bold text-blue-800">Industries</span>
@@ -239,9 +371,8 @@ const Header = () => {
             </div>
             
             {/* Mobile Services Dropdown */}
-            <div className="border-b border-gray-100 pb-2">
-              <div 
-                className="flex justify-between items-center"
+            <div className="border-b border-gray-100 pb-2">              <div 
+                className="flex justify-between items-center py-2 px-3 cursor-pointer hover:bg-blue-50/50 rounded-md transition-colors duration-150 ease-in-out"
                 onClick={() => toggleMobileDropdown('services')}
               >
                 <span className="text-base font-bold text-blue-800">Services</span>
@@ -308,9 +439,8 @@ const Header = () => {
             </Link>
             
             {/* Mobile Calculations Dropdown */}
-            <div className="border-b border-gray-100 pb-2">
-              <div 
-                className="flex justify-between items-center"
+            <div className="border-b border-gray-100 pb-2">              <div 
+                className="flex justify-between items-center py-2 px-3 cursor-pointer hover:bg-blue-50/50 rounded-md transition-colors duration-150 ease-in-out"
                 onClick={() => toggleMobileDropdown('calculations')}
               >
                 <span className="text-base font-bold text-blue-800">Calculations</span>
@@ -348,9 +478,8 @@ const Header = () => {
             </div>
             
             {/* Mobile Insights Dropdown */}
-            <div className="border-b border-gray-100 pb-2">
-              <div 
-                className="flex justify-between items-center"
+            <div className="border-b border-gray-100 pb-2">              <div 
+                className="flex justify-between items-center py-2 px-3 cursor-pointer hover:bg-blue-50/50 rounded-md transition-colors duration-150 ease-in-out"
                 onClick={() => toggleMobileDropdown('insights')}
               >
                 <span className="text-base font-bold text-blue-800">Insights</span>
