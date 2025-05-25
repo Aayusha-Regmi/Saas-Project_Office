@@ -101,7 +101,7 @@ const StatsSection = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-[#0a1e43] text-white relative overflow-hidden">
+    <section className="py-16 mt-[-50px] bg-[#0a1e43] text-white relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-5 left-0">
         <img src="/images/img_group_1171275968.svg" alt="Background pattern" className="opacity-30" />
