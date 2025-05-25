@@ -105,10 +105,12 @@ const Header = () => {
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5" />
             </Link>
           </div>
-        </nav>        <div className="hidden lg:flex items-center space-x-4">
-          <button className="p-1" aria-label="Search">
+        </nav>
+
+        <div className="hidden lg:flex items-center space-x-4">
+          {/* <button className="p-1" aria-label="Search">
             <img src="/images/img_search.svg" alt="Search" className="w-4 h-4 xl:w-5 xl:h-5" />
-          </button>
+          </button> */}
           <div className="flex items-center">
             <img src="/images/img_group_1171275967.svg" alt="Call" className="w-7 h-7 xl:w-8 xl:h-8" />
             <div className="ml-2">
@@ -118,9 +120,9 @@ const Header = () => {
           </div>
         </div>        {/* Mobile Controls (Search and Menu) */}
         <div className="flex items-center space-x-2 lg:hidden">
-          <button className="p-1" aria-label="Search">
+          {/* <button className="p-1" aria-label="Search">
             <img src="/images/img_search.svg" alt="Search" className="w-4 h-4 sm:w-5 sm:h-5" />
-          </button>
+          </button> */}
           
           <button 
             className="p-1 focus:outline-none" 
@@ -161,21 +163,142 @@ const Header = () => {
             >
               Home
             </Link>
-            <Link 
-              to="/industries" 
-              className="text-base font-bold text-blue-800 hover:text-blue-600 border-b border-gray-100 pb-2 flex justify-between items-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Industries
-              <img src="/images/img_expanddown.svg" alt="Expand" className="w-5 h-5" />
-            </Link>            <Link 
-              to="/services" 
-              className="text-base font-bold text-blue-800 hover:text-blue-600 border-b border-gray-100 pb-2 flex justify-between items-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Services
-              <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="w-5 h-5" />
-            </Link>
+            
+            {/* Mobile Industries Dropdown */}
+            <div className="border-b border-gray-100 pb-2">              <div 
+                className="flex justify-between items-center py-2 cursor-pointer hover:bg-blue-50/50 rounded-md px-2 transition-colors"
+                onClick={() => toggleMobileDropdown('industries')}
+              >
+                <span className="text-base font-bold text-blue-800">Industries</span>
+                <img 
+                  src="/images/img_expanddown.svg" 
+                  alt="Expand" 
+                  className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.industries ? 'rotate-180' : ''}`} 
+                />
+              </div>
+              <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
+                mobileDropdowns.industries ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
+              }`}>
+                <Link 
+                  to="/industries/banking" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Banking & Finance
+                </Link>
+                <Link 
+                  to="/industries/manufacturing" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Manufacturing
+                </Link>
+                <Link 
+                  to="/industries/ngo-ingo" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  NGO/INGO
+                </Link>
+                <Link 
+                  to="/industries/electronics" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Electronics & Communication Industry
+                </Link>
+                <Link 
+                  to="/industries/trading" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Trading & Retail
+                </Link>
+                <Link 
+                  to="/industries/travel" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Travel, Tourism & Hospitality
+                </Link>
+                <Link 
+                  to="/industries/hospital" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Hospital and Education Industry
+                </Link>
+                <Link 
+                  to="/industries/hydropower" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Hydropower & Construction
+                </Link>
+              </div>
+            </div>
+            
+            {/* Mobile Services Dropdown */}
+            <div className="border-b border-gray-100 pb-2">
+              <div 
+                className="flex justify-between items-center"
+                onClick={() => toggleMobileDropdown('services')}
+              >
+                <span className="text-base font-bold text-blue-800">Services</span>
+                <img 
+                  src="/images/img_expanddown_24x24.svg" 
+                  alt="Expand" 
+                  className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.services ? 'rotate-180' : ''}`} 
+                />
+              </div>
+              <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
+                mobileDropdowns.services ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+              }`}>
+                <Link 
+                  to="/caseStudy/personal-tax" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Personal Tax
+                </Link>
+                <Link 
+                  to="/caseStudy/tax-audit-support" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Tax Audit Support
+                </Link>
+                <Link 
+                  to="/caseStudy/international-tax" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  International Tax
+                </Link>
+                <Link 
+                  to="/caseStudy/tax-advisory" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Tax Advisory
+                </Link>
+                <Link 
+                  to="/caseStudy/investment-advisor" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Investment Advisor
+                </Link>
+                <Link 
+                  to="/caseStudy/insurance-tax" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Insurance Tax
+                </Link>
+              </div>
+            </div>
+            
             <Link 
               to="/teams" 
               className="text-base font-bold text-blue-800 hover:text-blue-600 border-b border-gray-100 pb-2"
@@ -183,29 +306,140 @@ const Header = () => {
             >
               Teams
             </Link>
-            <Link 
-              to="/calculations" 
-              className="text-base font-bold text-blue-800 hover:text-blue-600 border-b border-gray-100 pb-2 flex justify-between items-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Calculations
-              <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="w-5 h-5" />
-            </Link>            <Link 
-              to="/insights" 
-              className="text-base font-bold text-blue-800 hover:text-blue-600 border-b border-gray-100 pb-2 flex justify-between items-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Insights
-              <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="w-5 h-5" />
-            </Link>
-            <Link 
-              to="/about" 
-              className="text-base font-bold text-blue-800 hover:text-blue-600 border-b border-gray-100 pb-2 flex justify-between items-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-              <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="w-5 h-5" />
-            </Link>
+            
+            {/* Mobile Calculations Dropdown */}
+            <div className="border-b border-gray-100 pb-2">
+              <div 
+                className="flex justify-between items-center"
+                onClick={() => toggleMobileDropdown('calculations')}
+              >
+                <span className="text-base font-bold text-blue-800">Calculations</span>
+                <img 
+                  src="/images/img_expanddown_24x24.svg" 
+                  alt="Expand" 
+                  className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.calculations ? 'rotate-180' : ''}`} 
+                />
+              </div>
+              <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
+                mobileDropdowns.calculations ? 'max-h-36 opacity-100' : 'max-h-0 opacity-0'
+              }`}>
+                <Link 
+                  to="#" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Tax Calculator
+                </Link>
+                <Link 
+                  to="#" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  ROI Calculator
+                </Link>
+                <Link 
+                  to="#" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Pricing Models
+                </Link>
+              </div>
+            </div>
+            
+            {/* Mobile Insights Dropdown */}
+            <div className="border-b border-gray-100 pb-2">
+              <div 
+                className="flex justify-between items-center"
+                onClick={() => toggleMobileDropdown('insights')}
+              >
+                <span className="text-base font-bold text-blue-800">Insights</span>
+                <img 
+                  src="/images/img_expanddown_24x24.svg" 
+                  alt="Expand" 
+                  className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.insights ? 'rotate-180' : ''}`} 
+                />
+              </div>
+              <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
+                mobileDropdowns.insights ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+              }`}>
+                <Link 
+                  to="/insights/blog" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Blog
+                </Link>
+                <Link 
+                  to="/insights/case-studies" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Case Studies
+                </Link>
+                <Link 
+                  to="/insights/resources" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Resources
+                </Link>
+                <Link 
+                  to="/insights/events" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Events
+                </Link>
+              </div>
+            </div>
+            
+            {/* Mobile About Dropdown */}
+            <div className="border-b border-gray-100 pb-2">
+              <div 
+                className="flex justify-between items-center"
+                onClick={() => toggleMobileDropdown('about')}
+              >
+                <span className="text-base font-bold text-blue-800">About</span>
+                <img 
+                  src="/images/img_expanddown_24x24.svg" 
+                  alt="Expand" 
+                  className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.about ? 'rotate-180' : ''}`} 
+                />
+              </div>
+              <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
+                mobileDropdowns.about ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+              }`}>
+                <Link 
+                  to="/about/company" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Our Company
+                </Link>
+                <Link 
+                  to="/about/team" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Leadership Team
+                </Link>
+                <Link 
+                  to="/about/careers" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Careers
+                </Link>
+                <Link 
+                  to="/about/contact" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
             
             {/* Call Info */}
             <div className="flex items-center pt-3 mt-3 border-t border-gray-200">
