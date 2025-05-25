@@ -53,15 +53,15 @@ const AboutSection = () => {
   const navigate = useNavigate();
   const path = '/about';
   const handleNavigation =(path)=>{
-    navigate(path),
+    navigate(path);
     window.scrollTo({
-      top:0,
-      behaviour:'smooth'
-    })
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
-  }
   return (
-    <section className="py-8 sm:py-12 md:py-16">
+    <section id='aboutus' className="py-8 sm:py-12 md:py-16">
       <div className="container mx-auto px-4">
         <motion.div
           className="flex justify-center mb-6 md:mb-8"

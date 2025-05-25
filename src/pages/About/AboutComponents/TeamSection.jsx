@@ -30,7 +30,7 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className="py-16">
+    <section id='our-experts' className="py-16">
       <div className="container mx-auto px-4">
         <motion.div
           className="flex items-center justify-center mb-10"
