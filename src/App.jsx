@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import Routes from './Routes';
+import SparkClick from './components/animations/SparkClick';
 
 // Error boundary component for handling lazy loading errors
 class ErrorBoundary extends React.Component {
@@ -49,6 +50,7 @@ function App() {
   return (
     <ErrorBoundary>
       <Suspense fallback={<LoadingFallback />}>
+        <SparkClick />
         <Routes />
       </Suspense>
     </ErrorBoundary>

@@ -67,10 +67,9 @@ const Header = () => {
       [menu]: !prev[menu]
     }));
   };
-  
-  return (
+    return (
     <header 
-      className={`sticky top-0 z-50 py-1 sm:py-2 md:py-3 bg-white transition-all duration-300 ${
+      className={`sticky top-0 z-50 py-1 sm:py-2 md:py-3 bg-white/70 backdrop-blur-md transition-all duration-300 ${
         scrolled ? 'shadow-md' : ''
       }`}
     >
@@ -90,15 +89,14 @@ const Header = () => {
           <Link to="/" className="text-sm xl:text-base font-bold text-blue-500 hover:text-blue-600 transition-colors">
             Home
           </Link>
-          
-          {/* Industries Dropdown */}
+            {/* Industries Dropdown */}
           <div className="relative group">
             <Link to="/industries" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               Industries
               <img src="/images/img_expanddown.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5 transition-transform group-hover:rotate-180 duration-300" />
             </Link>
-            {/* Dropdown menu */}
-            <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
+            {/* Dropdown menu with glass effect */}
+            <div className="absolute top-full left-0 w-60 bg-white/90 backdrop-blur-md shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
               <div className="py-2">
                 <Link to="/industries/finance" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Finance & Banking</Link>
                 <Link to="/industries/healthcare" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Healthcare</Link>
@@ -108,15 +106,14 @@ const Header = () => {
               </div>
             </div>
           </div>
-          
-          {/* Services Dropdown */}
+            {/* Services Dropdown */}
           <div className="relative group">
             <Link to="/services" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               Services
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5 transition-transform group-hover:rotate-180 duration-300" />
             </Link>
-            {/* Dropdown menu */}
-            <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
+            {/* Dropdown menu with glass effect */}
+            <div className="absolute top-full left-0 w-60 bg-white/90 backdrop-blur-md shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
               <div className="py-2">
                 <Link to="/services/consulting" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Business Consulting</Link>
                 <Link to="/services/development" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Software Development</Link>
@@ -129,15 +126,14 @@ const Header = () => {
           <Link to="/teams" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 transition-colors">
             Teams
           </Link>
-          
-          {/* Calculations Dropdown */}
+            {/* Calculations Dropdown */}
           <div className="relative group">
             <Link to="/calculations" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               Calculations
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5 transition-transform group-hover:rotate-180 duration-300" />
             </Link>
-            {/* Dropdown menu */}
-            <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
+            {/* Dropdown menu with glass effect */}
+            <div className="absolute top-full left-0 w-60 bg-white/90 backdrop-blur-md shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
               <div className="py-2">
                 <Link to="/calculations/tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Tax Calculator</Link>
                 <Link to="/calculations/roi" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">ROI Calculator</Link>
@@ -145,15 +141,14 @@ const Header = () => {
               </div>
             </div>
           </div>
-          
-          {/* Insights Dropdown */}
+            {/* Insights Dropdown */}
           <div className="relative group">
             <Link to="/insights" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               Insights
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5 transition-transform group-hover:rotate-180 duration-300" />
             </Link>
-            {/* Dropdown menu */}
-            <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
+            {/* Dropdown menu with glass effect */}
+            <div className="absolute top-full left-0 w-60 bg-white/90 backdrop-blur-md shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
               <div className="py-2">
                 <Link to="/insights/blog" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Blog</Link>
                 <Link to="/insights/case-studies" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Case Studies</Link>
@@ -162,15 +157,14 @@ const Header = () => {
               </div>
             </div>
           </div>
-          
-          {/* About Dropdown */}
+            {/* About Dropdown */}
           <div className="relative group">
             <Link to="/about" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               About
               <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5 transition-transform group-hover:rotate-180 duration-300" />
             </Link>
-            {/* Dropdown menu */}
-            <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
+            {/* Dropdown menu with glass effect */}
+            <div className="absolute top-full left-0 w-60 bg-white/90 backdrop-blur-md shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
               <div className="py-2">
                 <Link to="/about/company" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Our Company</Link>
                 <Link to="/about/team" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Leadership Team</Link>
@@ -223,12 +217,10 @@ const Header = () => {
             </svg>
           </button>
         </div>
-      </div>
-
-      {/* Mobile Navigation - Full Screen Overlay */}
+      </div>      {/* Mobile Navigation - Full Screen Overlay with Glass Effect */}
       <div 
         ref={menuRef}
-        className={`fixed inset-0 bg-white z-40 transition-transform duration-300 lg:hidden ${
+        className={`fixed inset-0 bg-white/80 backdrop-blur-md z-40 transition-transform duration-300 lg:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ top: '60px' }} // Adjusted to match smaller header

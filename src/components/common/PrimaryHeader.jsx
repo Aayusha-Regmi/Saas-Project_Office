@@ -50,9 +50,9 @@ const PrimaryHeader = () => {
       [menu]: !prev[menu]
     }));
   };  return (
-    <header className="w-full fixed top-[30px] left-0 z-40">
-      {/* Main navigation */}
-      <div className="bg-white py-4 shadow-sm">
+    <header className="w-full fixed top-10 left-0 z-40">
+      {/* Main navigation with full-width glass effect */}
+      <div className="w-full bg-white/60 backdrop-blur-md py-4 shadow-md">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <Link
             to="/"
@@ -75,8 +75,7 @@ const PrimaryHeader = () => {
                   e.preventDefault();
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
-              }}
-              className={`font-bold ${isActive('/') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+              }}              className={`font-bold transition-all duration-300 hover:text-[#22a8ff] ${isActive('/') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
             >
               Home
             </Link>
@@ -141,8 +140,7 @@ const PrimaryHeader = () => {
                   e.preventDefault();
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
-              }}
-              className={`font-bold ${isActive('/teams') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+              }}              className={`font-bold transition-all duration-300 hover:text-[#22a8ff] ${isActive('/teams') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
             >
               Teams
             </Link>
@@ -206,8 +204,7 @@ const PrimaryHeader = () => {
                   e.preventDefault();
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
-              }}
-              className={`font-bold ${isActive('/about') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+              }}              className={`font-bold transition-all duration-300 hover:text-[#22a8ff] ${isActive('/about') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
             >
               About
             </Link>
@@ -235,11 +232,9 @@ const PrimaryHeader = () => {
               <span className="w-4 h-0.5 bg-black"></span>
             </button>
           </div>
-        </div>
-      </div>
-        {/* Mobile menu */}
+        </div>      </div>        {/* Mobile menu with full-width glass effect */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg py-4">
+        <div className="md:hidden w-full bg-white/80 backdrop-blur-md shadow-lg py-4">
           <div className="container mx-auto px-4">
             <nav className="flex flex-col space-y-4">              {/* Home (no dropdown) */}
               <Link
