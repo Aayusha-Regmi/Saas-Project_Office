@@ -18,8 +18,8 @@ const ServicesCard = ({
     <div className="bg-white rounded-[20px] p-7 relative overflow-hidden h-full flex flex-col">
       {/* Corner image */}
       {cornerImage && (
-        <div className="absolute top-0 right-0">
-          <img src={cornerImage} alt="" className="w-24 h-24" />
+        <div className="absolute top-0 right-0 ">
+          <img src={cornerImage} alt="" className="w-24 h-24 " />
         </div>
       )}
       

@@ -15,9 +15,9 @@ const HeroSection = ({
   className = '',
 }) => {
   return (
-    <section className={`relative py-16 ${className}`}>
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center">
+    <section className={`relative z-10  ${className}`}>
+      <div className="container mx-auto px-4 overflow-hidden">
+        <div className="flex flex-col md:flex-row items-center overflow-hidden">
           <div className="md:w-1/2 mb-10 md:mb-0">
             {badgeText && (
               <div className="inline-flex items-center bg-red-500 text-white px-6 py-2 rounded-2xl mb-6">
@@ -56,7 +56,7 @@ const HeroSection = ({
               {secondaryButtonText && (
                 <Button 
                   onClick={secondaryButtonAction} 
-                  variant="secondary" className="flex items-center"
+                  variant="secondary" className="flex items-center "
                 >
                   {secondaryButtonText}
                   <img src="/images/img_materialsymbolsarrowinsert.svg" alt="" className="ml-2 w-6 h-6" />
@@ -65,10 +65,10 @@ const HeroSection = ({
             </div>
           </div>
           
-          <div className="md:w-1/2 relative">
+          <div className="md:w-1/2 relative h-full">
             {image && (
-              <div className="relative">
-                <img src={image} alt="Hero" className="w-full h-auto z-10 relative" />
+              <div className="relative h-full">
+                <img src={image} alt="Hero" className="w-full h-full object-cover z-10 " />
               </div>
             )}
           </div>

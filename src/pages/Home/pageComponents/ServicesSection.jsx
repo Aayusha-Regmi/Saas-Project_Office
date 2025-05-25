@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Button from '../../../components/ui/Button';
@@ -112,10 +108,11 @@ const ServicesSection = () => {
             >
               <div className="flex-grow">
                 {/* Corner Image */}
-                <div className="absolute top-0 right-0">                  <img 
+                <div className="absolute top-0 right-0">                 
+                   <img 
                     src={service.cornerImage} 
                     alt="" 
-                    className="w-[60px] h-[70px] sm:w-[84px] sm:h-[97px]"
+                    className="w-[60px] h-[70px] mt-[-12px] sm:w-[84px] sm:h-[97px]"
                     loading="lazy" 
                   />
                 </div>
