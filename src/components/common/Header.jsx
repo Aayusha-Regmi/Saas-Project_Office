@@ -1,10 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileDropdowns, setMobileDropdowns] = useState({
+    industries: false,
+    services: false,
+    calculations: false,
+    insights: false,
+    about: false
+  });
+  const [headerHeight, setHeaderHeight] = useState(0);
   const menuRef = useRef(null);
+  const headerRef = useRef(null);
+
+  // Toggle mobile dropdown menus
+  const toggleMobileDropdown = (key) => {
+    setMobileDropdowns(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
 
   // Handle scroll effect for header
   useEffect(() => {
@@ -70,18 +87,13 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  const toggleMobileDropdown = (menu) => {
-    setMobileDropdowns(prev => ({
-      ...prev,
-      [menu]: !prev[menu]
-    }));
-  };
-
   return (
     <header 
-      className={`sticky top-0 z-50 py-1 sm:py-2 md:py-3 bg-white transition-all duration-300 ${
-        scrolled ? 'shadow-md' : ''
+      ref={headerRef}
+      className={`sticky top-0 z-50 py-1 sm:py-2 md:py-3 transition-all duration-300 ${
+        scrolled 
+          ? 'shadow-md bg-white/85 backdrop-blur-md' 
+          : 'bg-white/70 backdrop-blur-sm'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -93,53 +105,146 @@ const Header = () => {
               className="h-[60px] sm:h-[70px] md:h-[90px] w-auto transition-all duration-300" 
             />
           </Link>
-        </div>
-
-        {/* Desktop Navigation */}
+        </div>        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-2 xl:space-x-5">
           <Link to="/" className="text-sm xl:text-base font-bold text-blue-500 hover:text-blue-600 transition-colors">
             Home
           </Link>
-            {/* Industries Dropdown */}
           <div className="relative group">
             <Link to="/industries" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               Industries
-              <img src="/images/img_expanddown.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5 transition-transform group-hover:rotate-180 duration-300" />
+              <img src="/images/img_expanddown.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5" />
             </Link>
-            {/* Dropdown can be added here */}
+            {/* Desktop dropdown menu */}
+            <div className="absolute left-0 mt-1 w-64 bg-white shadow-lg rounded-md overflow-hidden transform opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 ease-in-out z-50 border border-gray-100">
+              <div className="py-2">
+                <Link to="/industries/banking" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Banking & Finance
+                </Link>
+                <Link to="/industries/manufacturing" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Manufacturing
+                </Link>
+                <Link to="/industries/ngo-ingo" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  NGO/INGO
+                </Link>
+                <Link to="/industries/electronics" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Electronics & Communication Industry
+                </Link>
+                <Link to="/industries/trading" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Trading & Retail
+                </Link>
+                <Link to="/industries/travel" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Travel, Tourism & Hospitality
+                </Link>
+                <Link to="/industries/hospital" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Hospital and Education Industry
+                </Link>
+                <Link to="/industries/hydropower" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Hydropower & Construction
+                </Link>
+              </div>
+            </div>
           </div>          <div className="relative group">
             <Link to="/services" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               Services
-              <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5 transition-transform group-hover:rotate-180 duration-300" />
+              <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5" />
             </Link>
+            {/* Desktop dropdown menu */}
+            <div className="absolute left-0 mt-1 w-64 bg-white shadow-lg rounded-md overflow-hidden transform opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 ease-in-out z-50 border border-gray-100">
+              <div className="py-2">
+                <Link to="/caseStudy/personal-tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Personal Tax
+                </Link>
+                <Link to="/caseStudy/tax-audit-support" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Tax Audit Support
+                </Link>
+                <Link to="/caseStudy/international-tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  International Tax
+                </Link>
+                <Link to="/caseStudy/tax-advisory" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Tax Advisory
+                </Link>
+                <Link to="/caseStudy/investment-advisor" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Investment Advisor
+                </Link>
+                <Link to="/caseStudy/insurance-tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Insurance Tax
+                </Link>
+              </div>
+            </div>
           </div>
-          
           <Link to="/teams" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 transition-colors">
             Teams
-          </Link>
-          <div className="relative group">
+          </Link>          <div className="relative group">
             <Link to="/calculations" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               Calculations
-              <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5 transition-transform group-hover:rotate-180 duration-300" />
+              <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5" />
             </Link>
+            {/* Desktop dropdown menu */}
+            <div className="absolute left-0 mt-1 w-64 bg-white shadow-lg rounded-md overflow-hidden transform opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 ease-in-out z-50 border border-gray-100">
+              <div className="py-2">
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Tax Calculator
+                </Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  ROI Calculator
+                </Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Pricing Models
+                </Link>
+              </div>
+            </div>
           </div>          <div className="relative group">
             <Link to="/insights" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               Insights
-              <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5 transition-transform group-hover:rotate-180 duration-300" />
+              <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5" />
             </Link>
-          </div>
-          <div className="relative group">
+            {/* Desktop dropdown menu */}
+            <div className="absolute left-0 mt-1 w-64 bg-white shadow-lg rounded-md overflow-hidden transform opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 ease-in-out z-50 border border-gray-100">
+              <div className="py-2">
+                <Link to="/insights/blog" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Blog
+                </Link>
+                <Link to="/insights/case-studies" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Case Studies
+                </Link>
+                <Link to="/insights/resources" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Resources
+                </Link>
+                <Link to="/insights/events" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Events
+                </Link>
+              </div>
+            </div>
+          </div>          <div className="relative group">
             <Link to="/about" className="text-sm xl:text-base font-bold text-blue-800 hover:text-blue-600 flex items-center transition-colors">
               About
-              <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5 transition-transform group-hover:rotate-180 duration-300" />
+              <img src="/images/img_expanddown_24x24.svg" alt="Expand" className="ml-1 w-4 h-4 xl:w-5 xl:h-5" />
             </Link>
+            {/* Desktop dropdown menu */}
+            <div className="absolute left-0 mt-1 w-64 bg-white shadow-lg rounded-md overflow-hidden transform opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 ease-in-out z-50 border border-gray-100">
+              <div className="py-2">
+                <Link to="/about/company" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Our Company
+                </Link>
+                <Link to="/about/team" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Leadership Team
+                </Link>
+                <Link to="/about/careers" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Careers
+                </Link>
+                <Link to="/about/contact" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600">
+                  Contact Us
+                </Link>
+              </div>
+            </div>
           </div>
         </nav>
 
         <div className="hidden lg:flex items-center space-x-4">
-          <button className="p-1" aria-label="Search">
+          {/* <button className="p-1" aria-label="Search">
             <img src="/images/img_search.svg" alt="Search" className="w-4 h-4 xl:w-5 xl:h-5" />
-          </button>
+          </button> */}
           <div className="flex items-center">
             <img src="/images/img_group_1171275967.svg" alt="Call" className="w-7 h-7 xl:w-8 xl:h-8" />
             <div className="ml-2">
@@ -147,13 +252,11 @@ const Header = () => {
               <p className="text-xs font-bold text-blue-800">+977 9802374215</p>
             </div>
           </div>
-        </div>
-
-        {/* Mobile Controls (Search and Menu) */}
+        </div>        {/* Mobile Controls (Search and Menu) */}
         <div className="flex items-center space-x-2 lg:hidden">
-          <button className="p-1" aria-label="Search">
+          {/* <button className="p-1" aria-label="Search">
             <img src="/images/img_search.svg" alt="Search" className="w-4 h-4 sm:w-5 sm:h-5" />
-          </button>
+          </button> */}
           
           <button 
             className="p-1 focus:outline-none" 
@@ -178,27 +281,24 @@ const Header = () => {
             </svg>
           </button>
         </div>
-      </div>      {/* Mobile Navigation - Full Screen Overlay */}
-      <div 
+      </div>      {/* Mobile Navigation - Full Screen Overlay */}      <div 
         ref={menuRef}
-        className={`fixed inset-0 bg-white z-40 transition-transform duration-300 lg:hidden ${
+        className={`fixed inset-0 bg-white/95 backdrop-blur-sm z-40 transition-transform duration-300 ease-in-out lg:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ top: `${headerHeight}px` }}
       >
         <div className="container mx-auto px-4 py-4 h-full overflow-y-auto">
-          <nav className="flex flex-col space-y-4">
-            <Link 
+          <nav className="flex flex-col space-y-4">            <Link 
               to="/" 
               className="text-base font-bold text-blue-500 hover:text-blue-600 border-b border-gray-100 pb-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
-            
-            {/* Mobile Industries Dropdown */}
+              {/* Mobile Industries Dropdown */}
             <div className="border-b border-gray-100 pb-2">              <div 
-                className="flex justify-between items-center py-2 cursor-pointer hover:bg-blue-50/50 rounded-md px-2 transition-colors"
+                className="flex justify-between items-center py-2 px-3 cursor-pointer hover:bg-blue-50/50 rounded-md transition-colors duration-150 ease-in-out"
                 onClick={() => toggleMobileDropdown('industries')}
               >
                 <span className="text-base font-bold text-blue-800">Industries</span>
@@ -212,39 +312,60 @@ const Header = () => {
                 mobileDropdowns.industries ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
               }`}>
                 <Link 
-                  to="/industries/finance" 
+                  to="/industries/banking" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Finance & Banking
+                  Banking & Finance
                 </Link>
                 <Link 
-                  to="/industries/healthcare" 
+                  to="/industries/manufacturing" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Healthcare
+                  Manufacturing
                 </Link>
                 <Link 
-                  to="/industries/education" 
+                  to="/industries/ngo-ingo" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Education
+                  NGO/INGO
                 </Link>
                 <Link 
-                  to="/industries/retail" 
+                  to="/industries/electronics" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Retail & E-commerce
+                  Electronics & Communication Industry
                 </Link>
                 <Link 
-                  to="/industries/technology" 
+                  to="/industries/trading" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Technology
+                  Trading & Retail
+                </Link>
+                <Link 
+                  to="/industries/travel" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Travel, Tourism & Hospitality
+                </Link>
+                <Link 
+                  to="/industries/hospital" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Hospital and Education Industry
+                </Link>
+                <Link 
+                  to="/industries/hydropower" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Hydropower & Construction
                 </Link>
               </div>
             </div>
@@ -265,32 +386,46 @@ const Header = () => {
                 mobileDropdowns.services ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
               }`}>
                 <Link 
-                  to="/services/consulting" 
+                  to="/caseStudy/personal-tax" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Business Consulting
+                  Personal Tax
                 </Link>
                 <Link 
-                  to="/services/development" 
+                  to="/caseStudy/tax-audit-support" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Software Development
+                  Tax Audit Support
                 </Link>
                 <Link 
-                  to="/services/support" 
+                  to="/caseStudy/international-tax" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Technical Support
+                  International Tax
                 </Link>
                 <Link 
-                  to="/services/marketing" 
+                  to="/caseStudy/tax-advisory" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Digital Marketing
+                  Tax Advisory
+                </Link>
+                <Link 
+                  to="/caseStudy/investment-advisor" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Investment Advisor
+                </Link>
+                <Link 
+                  to="/caseStudy/insurance-tax" 
+                  className="block py-2 text-sm text-blue-800 hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Insurance Tax
                 </Link>
               </div>
             </div>
@@ -319,21 +454,21 @@ const Header = () => {
                 mobileDropdowns.calculations ? 'max-h-36 opacity-100' : 'max-h-0 opacity-0'
               }`}>
                 <Link 
-                  to="/calculations/tax" 
+                  to="#" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Tax Calculator
                 </Link>
                 <Link 
-                  to="/calculations/roi" 
+                  to="#" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   ROI Calculator
                 </Link>
                 <Link 
-                  to="/calculations/pricing" 
+                  to="#" 
                   className="block py-2 text-sm text-blue-800 hover:text-blue-600"
                   onClick={() => setIsMenuOpen(false)}
                 >
