@@ -17,7 +17,7 @@ import ExpertsSection from './pageComponents/ExpertsSection';
 import TestimonialsSection from './pageComponents/TestimonialsSection';
 import ContactForm from '../Contact/LetsTalkComponent.jsx/ContactForm';
 
-const HomePage = () => {
+const HomePage = () => { 
   return (
     <div className="min-h-screen flex flex-col">
       <Header />

@@ -98,14 +98,11 @@ const PrimaryHeader = () => {
               {/* Dropdown menu */}
               <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
                 <div className="py-2">
-                <Link to="/industries/banking" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Banking & Financial Service</Link>
-                  <Link to="/industries/manufacturing" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Manufacturing</Link>
-                  <Link to="/industries/ngo-ingo" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">NGO/INGO</Link>
-                  <Link to="/industries/electronics" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Electronics & Communication Industry</Link>
-                  <Link to="/industries/trading" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Trading & Retail</Link>
-                  <Link to="/industries/travel" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Travel, Tourism & Hotel</Link>
-                  <Link to="/industries/hospital" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Hospital and Education Industry</Link>
-                  <Link to="/industries/hydropower" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Hydropower & Construction</Link>
+                  <Link to="/industries/finance" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Banking&Finance</Link>
+                  <Link to="/industries/healthcare" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Manufacturing</Link>
+                  <Link to="/industries/education" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">NGO/</Link>
+                  <Link to="/industries/retail" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Retail & E-commerce</Link>
+                  <Link to="/industries/technology" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Technology</Link>
                 </div>
               </div>
             </div>
@@ -128,12 +125,10 @@ const PrimaryHeader = () => {
               {/* Dropdown menu */}
               <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
                 <div className="py-2">
-                  <Link to="/caseStudy/personal-tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Personal Tax</Link>
-                  <Link to="/caseStudy/tax-audit-support" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Tax Audit Support</Link>
-                  <Link to="/caseStudy/international-tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">International Tax</Link>
-                  <Link to="/caseStudy/tax-advisory" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Tax Advisory</Link>
-                  <Link to="/caseStudy/investment-advisor" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Investment Advisor</Link>
-                  <Link to="/caseStudy/insurance-tax" className="block px-4 py-2 text-sm text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Insurance Tax</Link>
+                  <Link to="/services/consulting" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Business Consulting</Link>
+                  <Link to="/services/development" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Software Development</Link>
+                  <Link to="/services/support" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Technical Support</Link>
+                  <Link to="/services/marketing" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Digital Marketing</Link>
                 </div>
               </div>
             </div>
@@ -145,7 +140,7 @@ const PrimaryHeader = () => {
                   e.preventDefault();
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
-              }}  className={`font-bold transition-all duration-300 hover:text-[#22a8ff] ${isActive('/teams') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+              }}              className={`font-bold transition-all duration-300 hover:text-[#22a8ff] ${isActive('/teams') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
             >
               Teams
             </Link>
@@ -168,9 +163,9 @@ const PrimaryHeader = () => {
               {/* Dropdown menu */}
               <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
                 <div className="py-2">
-                  <Link to="#" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Tax Calculator</Link>
-                  <Link to="#" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">ROI Calculator</Link>
-                  <Link to="#" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Pricing Models</Link>
+                  <Link to="/calculations/tax" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Tax Calculator</Link>
+                  <Link to="/calculations/roi" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">ROI Calculator</Link>
+                  <Link to="/calculations/pricing" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Pricing Models</Link>
                 </div>
               </div>
             </div>
@@ -193,10 +188,10 @@ const PrimaryHeader = () => {
               {/* Dropdown menu */}
               <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
                 <div className="py-2">
-                  <Link to="#" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Blog</Link>
-                  <Link to="#" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Case Studies</Link>
-                  <Link to="#" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Resources</Link>
-                  <Link to="#" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Events</Link>
+                  <Link to="/insights/blog" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Blog</Link>
+                  <Link to="/insights/case-studies" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Case Studies</Link>
+                  <Link to="/insights/resources" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Resources</Link>
+                  <Link to="/insights/events" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Events</Link>
                 </div>
               </div>
             </div>
@@ -213,9 +208,9 @@ const PrimaryHeader = () => {
             >
               About
             </Link>
-            {/* <button className="ml-4">
+            <button className="ml-4">
               <img src="/images/img_search.svg" alt="Search" className="w-6 h-6" />
-            </button> */}
+            </button>
           </nav>
           
           <div className="flex items-center space-x-4">
@@ -266,124 +261,90 @@ const PrimaryHeader = () => {
                 <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
                   mobileDropdowns.industries ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
                 }`}>
-      <Link 
-          to="/industries/banking" 
-          className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Banking & Finance
-        </Link>
-        <Link 
-          to="/industries/manufacturing" 
-          className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Manufacturing
-        </Link>
-        <Link 
-          to="/industries/ngo-ingo" 
-          className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          NGO/INGO
-        </Link>
-        <Link 
-          to="/industries/electronics" 
-          className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Electronics & Communication Industry
-        </Link>
-        <Link 
-          to="/industries/trading" 
-          className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Trading & Retail
-        </Link>
-        <Link 
-          to="/industries/travel" 
-          className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Travel, Tourism & Hospitality
-        </Link>
-        <Link 
-          to="/industries/hospital" 
-          className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Hospital and Education Industry
-        </Link>
-        <Link 
-          to="/industries/hydropower" 
-          className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Hydropower & Construction
-        </Link>
+                  <Link 
+                    to="/industries/finance" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Finance & Banking
+                  </Link>
+                  <Link 
+                    to="/industries/healthcare" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Healthcare
+                  </Link>
+                  <Link 
+                    to="/industries/education" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Education
+                  </Link>
+                  <Link 
+                    to="/industries/retail" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Retail & E-commerce
+                  </Link>
+                  <Link 
+                    to="/industries/technology" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Technology
+                  </Link>
                 </div>
               </div>
-               {/* Mobile Services Dropdown */}
-                          <div className="border-b border-gray-100 pb-2">
-                            <div 
-                              className="flex justify-between items-center"
-                              onClick={() => toggleMobileDropdown('services')}
-                            >
-                              <span className="text-base font-bold text-blue-800">Services</span>
-                              <img 
-                                src="/images/img_expanddown_24x24.svg" 
-                                alt="Expand" 
-                                className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.services ? 'rotate-180' : ''}`} 
-                              />
-                            </div>
-                            <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
-                              mobileDropdowns.services ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
-                            }`}>
-                              <Link 
-                                to="/caseStudy/personal-tax" 
-                                className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-                                onClick={() => setIsMenuOpen(false)}
-                              >
-                                Personal Tax
-                              </Link>
-                              <Link 
-                                to="/caseStudy/tax-audit-support" 
-                                className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-                                onClick={() => setIsMenuOpen(false)}
-                              >
-                                Tax Audit Support
-                              </Link>
-                              <Link 
-                                to="/caseStudy/international-tax" 
-                                className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-                                onClick={() => setIsMenuOpen(false)}
-                              >
-                                International Tax
-                              </Link>
-                              <Link 
-                                to="/caseStudy/tax-advisory" 
-                                className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-                                onClick={() => setIsMenuOpen(false)}
-                              >
-                                Tax Advisory
-                              </Link>
-                              <Link 
-                                to="/caseStudy/investment-advisor" 
-                                className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-                                onClick={() => setIsMenuOpen(false)}
-                              >
-                                Investment Advisor
-                              </Link>
-                              <Link 
-                                to="/caseStudy/insurance-tax" 
-                                className="block py-2 text-sm text-blue-800 hover:text-blue-600"
-                                onClick={() => setIsMenuOpen(false)}
-                              >
-                                Insurance Tax
-                              </Link>
-                            </div>
-                          </div>
+              
+              {/* Services Dropdown */}
+              <div className="border-b border-gray-100 pb-2">
+                <div 
+                  className="flex justify-between items-center"
+                  onClick={() => toggleMobileDropdown('services')}
+                >
+                  <span className={`font-bold ${isActive('/services') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}>Services</span>
+                  <img 
+                    src="/images/img_expanddown.svg" 
+                    alt="Expand" 
+                    className={`w-6 h-6 transition-transform duration-300 ${mobileDropdowns.services ? 'rotate-180' : ''}`} 
+                  />
+                </div>
+                <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
+                  mobileDropdowns.services ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
+                  <Link 
+                    to="/services/consulting" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Business Consulting
+                  </Link>
+                  <Link 
+                    to="/services/development" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Software Development
+                  </Link>
+                  <Link 
+                    to="/services/support" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Technical Support
+                  </Link>
+                  <Link 
+                    to="/services/marketing" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Digital Marketing
+                  </Link>
+                </div>
+              </div>
                 {/* Teams (no dropdown) */}
               <Link 
                 to="/teams" 
@@ -410,21 +371,21 @@ const PrimaryHeader = () => {
                   mobileDropdowns.calculations ? 'max-h-36 opacity-100' : 'max-h-0 opacity-0'
                 }`}>
                   <Link 
-                    to="#" 
+                    to="/calculations/tax" 
                     className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Tax Calculator
                   </Link>
                   <Link 
-                    to="#" 
+                    to="/calculations/roi" 
                     className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     ROI Calculator
                   </Link>
                   <Link 
-                    to="#" 
+                    to="/calculations/pricing" 
                     className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -450,28 +411,28 @@ const PrimaryHeader = () => {
                   mobileDropdowns.insights ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
                 }`}>
                   <Link 
-                    to="#" 
+                    to="/insights/blog" 
                     className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Blog
                   </Link>
                   <Link 
-                    to="#" 
+                    to="/insights/case-studies" 
                     className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Case Studies
                   </Link>
                   <Link 
-                    to="#" 
+                    to="/insights/resources" 
                     className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Resources
                   </Link>
                   <Link 
-                    to="#" 
+                    to="/insights/events" 
                     className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
                     onClick={() => setIsMenuOpen(false)}
                   >
