@@ -6,7 +6,15 @@ import { useNavigate } from 'react-router-dom';
 const PrimaryHeader = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const location = useLocation();
-const navigate = useNavigate();
+  const navigate = useNavigate();
+  // Track which dropdown is currently open in mobile view
+  const [mobileDropdowns, setMobileDropdowns] = useState({
+    industries: false,
+    services: false,
+    calculations: false,
+    insights: false
+  });
+  
   // Save scroll position when navigating away
   useEffect(() => {
     window.addEventListener('scroll', saveScrollPosition);
@@ -35,11 +43,13 @@ const navigate = useNavigate();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
   
-
- 
-  return (
+  const toggleMobileDropdown = (menu) => {
+    setMobileDropdowns(prev => ({
+      ...prev,
+      [menu]: !prev[menu]
+    }));
+  };  return (
     <header className="w-full fixed top-[30px] left-0 z-40">
       {/* Main navigation */}
       <div className="bg-white py-4 shadow-sm">
@@ -56,8 +66,8 @@ const navigate = useNavigate();
           >
             <img src="/images/img_saas_logo_101_1.png" alt="SAAS Logo" className="h-16 w-auto" />
           </Link>
-          
-          <nav className="hidden md:flex items-center space-x-6">
+            <nav className="hidden md:flex items-center space-x-6">
+            {/* Home (no dropdown) */}
             <Link
               to="/"
               onClick={(e) => {
@@ -66,37 +76,64 @@ const navigate = useNavigate();
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
               }}
-              className={`font-bold flex items-center ${isActive('/') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+              className={`font-bold ${isActive('/') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
             >
               Home
-              <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
             </Link>
-            <Link
-              to="/industries"
-              onClick={(e) => {
-                if (window.location.pathname === '/industries') {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
-              className={`font-bold flex items-center ${isActive('/industries') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
-            >
-              Industries
-              <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
-            </Link>
-            <Link
-              to="/services"
-              onClick={(e) => {
-                if (window.location.pathname === '/services') {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
-              className={`font-bold flex items-center ${isActive('/services') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
-            >
-              Services
-              <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
-            </Link>
+            
+            {/* Industries Dropdown */}
+            <div className="relative group">
+              <Link
+                to="/industries"
+                onClick={(e) => {
+                  if (window.location.pathname === '/industries') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+                className={`font-bold flex items-center ${isActive('/industries') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+              >
+                Industries
+                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1 transition-transform duration-300 group-hover:rotate-180" />
+              </Link>
+              {/* Dropdown menu */}
+              <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
+                <div className="py-2">
+                  <Link to="/industries/finance" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Finance & Banking</Link>
+                  <Link to="/industries/healthcare" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Healthcare</Link>
+                  <Link to="/industries/education" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Education</Link>
+                  <Link to="/industries/retail" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Retail & E-commerce</Link>
+                  <Link to="/industries/technology" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Technology</Link>
+                </div>
+              </div>
+            </div>
+            
+            {/* Services Dropdown */}
+            <div className="relative group">
+              <Link
+                to="/services"
+                onClick={(e) => {
+                  if (window.location.pathname === '/services') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+                className={`font-bold flex items-center ${isActive('/services') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+              >
+                Services
+                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1 transition-transform duration-300 group-hover:rotate-180" />
+              </Link>
+              {/* Dropdown menu */}
+              <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
+                <div className="py-2">
+                  <Link to="/services/consulting" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Business Consulting</Link>
+                  <Link to="/services/development" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Software Development</Link>
+                  <Link to="/services/support" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Technical Support</Link>
+                  <Link to="/services/marketing" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Digital Marketing</Link>
+                </div>
+              </div>
+            </div>
+              {/* Teams (no dropdown) */}
             <Link
               to="/teams"
               onClick={(e) => {
@@ -109,32 +146,59 @@ const navigate = useNavigate();
             >
               Teams
             </Link>
-            <Link
-              to="/calculations"
-              onClick={(e) => {
-                if (window.location.pathname === '/calculations') {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
-              className={`font-bold flex items-center ${isActive('/calculations') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
-            >
-              Calculations
-              <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
-            </Link>
-            <Link
-              to="/insights"
-              onClick={(e) => {
-                if (window.location.pathname === '/insights') {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
-              className={`font-bold flex items-center ${isActive('/insights') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
-            >
-              Insights
-              <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1" />
-            </Link>
+            
+            {/* Calculations Dropdown */}
+            <div className="relative group">
+              <Link
+                to="/calculations"
+                onClick={(e) => {
+                  if (window.location.pathname === '/calculations') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+                className={`font-bold flex items-center ${isActive('/calculations') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+              >
+                Calculations
+                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1 transition-transform duration-300 group-hover:rotate-180" />
+              </Link>
+              {/* Dropdown menu */}
+              <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
+                <div className="py-2">
+                  <Link to="/calculations/tax" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Tax Calculator</Link>
+                  <Link to="/calculations/roi" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">ROI Calculator</Link>
+                  <Link to="/calculations/pricing" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Pricing Models</Link>
+                </div>
+              </div>
+            </div>
+            
+            {/* Insights Dropdown */}
+            <div className="relative group">
+              <Link
+                to="/insights"
+                onClick={(e) => {
+                  if (window.location.pathname === '/insights') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+                className={`font-bold flex items-center ${isActive('/insights') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+              >
+                Insights
+                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6 ml-1 transition-transform duration-300 group-hover:rotate-180" />
+              </Link>
+              {/* Dropdown menu */}
+              <div className="absolute top-full left-0 w-60 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 z-50">
+                <div className="py-2">
+                  <Link to="/insights/blog" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Blog</Link>
+                  <Link to="/insights/case-studies" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Case Studies</Link>
+                  <Link to="/insights/resources" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Resources</Link>
+                  <Link to="/insights/events" className="block px-4 py-2 text-sm text-[#071e45] hover:bg-blue-50 hover:text-[#22a8ff] transition-colors">Events</Link>
+                </div>
+              </div>
+            </div>
+            
+            {/* About (no dropdown) */}
             <Link
               to="/about"
               onClick={(e) => {
@@ -173,59 +237,224 @@ const navigate = useNavigate();
           </div>
         </div>
       </div>
-      
-      {/* Mobile menu */}
+        {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-lg py-4">
           <div className="container mx-auto px-4">
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-4">              {/* Home (no dropdown) */}
               <Link
                 to="/"
-                className={`font-bold flex items-center justify-between ${isActive('/') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+                className={`font-bold border-b border-gray-100 pb-2 block ${isActive('/') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 Home
-                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6" />
               </Link>
-              <Link
-                to="/industries"
-                className={`font-bold flex items-center justify-between ${isActive('/industries') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
-              >
-                Industries
-                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6" />
-              </Link>
-              <Link
-                to="/services"
-                className={`font-bold flex items-center justify-between ${isActive('/services') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
-              >
-                Services
-                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6" />
-              </Link>
-              <Link
-                to="/teams"
-                className={`font-bold ${isActive('/teams') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+
+              {/* Industries Dropdown */}
+              <div className="border-b border-gray-100 pb-2">
+                <div 
+                  className="flex justify-between items-center"
+                  onClick={() => toggleMobileDropdown('industries')}
+                >
+                  <span className={`font-bold ${isActive('/industries') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}>Industries</span>
+                  <img 
+                    src="/images/img_expanddown.svg" 
+                    alt="Expand" 
+                    className={`w-6 h-6 transition-transform duration-300 ${mobileDropdowns.industries ? 'rotate-180' : ''}`} 
+                  />
+                </div>
+                <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
+                  mobileDropdowns.industries ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
+                  <Link 
+                    to="/industries/finance" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Finance & Banking
+                  </Link>
+                  <Link 
+                    to="/industries/healthcare" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Healthcare
+                  </Link>
+                  <Link 
+                    to="/industries/education" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Education
+                  </Link>
+                  <Link 
+                    to="/industries/retail" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Retail & E-commerce
+                  </Link>
+                  <Link 
+                    to="/industries/technology" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Technology
+                  </Link>
+                </div>
+              </div>
+              
+              {/* Services Dropdown */}
+              <div className="border-b border-gray-100 pb-2">
+                <div 
+                  className="flex justify-between items-center"
+                  onClick={() => toggleMobileDropdown('services')}
+                >
+                  <span className={`font-bold ${isActive('/services') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}>Services</span>
+                  <img 
+                    src="/images/img_expanddown.svg" 
+                    alt="Expand" 
+                    className={`w-6 h-6 transition-transform duration-300 ${mobileDropdowns.services ? 'rotate-180' : ''}`} 
+                  />
+                </div>
+                <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
+                  mobileDropdowns.services ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
+                  <Link 
+                    to="/services/consulting" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Business Consulting
+                  </Link>
+                  <Link 
+                    to="/services/development" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Software Development
+                  </Link>
+                  <Link 
+                    to="/services/support" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Technical Support
+                  </Link>
+                  <Link 
+                    to="/services/marketing" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Digital Marketing
+                  </Link>
+                </div>
+              </div>
+                {/* Teams (no dropdown) */}
+              <Link 
+                to="/teams" 
+                className={`font-bold border-b border-gray-100 pb-2 ${isActive('/teams') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 Teams
               </Link>
-              <Link
-                to="/calculations"
-                className={`font-bold flex items-center justify-between ${isActive('/calculations') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
-              >
-                Calculations
-                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6" />
-              </Link>
-              <Link
-                to="/insights"
-                className={`font-bold flex items-center justify-between ${isActive('/insights') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
-              >
-                Insights
-                <img src="/images/img_expanddown.svg" alt="Expand" className="w-6 h-6" />
-              </Link>
+              
+              {/* Calculations Dropdown */}
+              <div className="border-b border-gray-100 pb-2">
+                <div 
+                  className="flex justify-between items-center"
+                  onClick={() => toggleMobileDropdown('calculations')}
+                >
+                  <span className={`font-bold ${isActive('/calculations') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}>Calculations</span>
+                  <img 
+                    src="/images/img_expanddown.svg" 
+                    alt="Expand" 
+                    className={`w-6 h-6 transition-transform duration-300 ${mobileDropdowns.calculations ? 'rotate-180' : ''}`} 
+                  />
+                </div>
+                <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
+                  mobileDropdowns.calculations ? 'max-h-36 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
+                  <Link 
+                    to="/calculations/tax" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Tax Calculator
+                  </Link>
+                  <Link 
+                    to="/calculations/roi" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    ROI Calculator
+                  </Link>
+                  <Link 
+                    to="/calculations/pricing" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Pricing Models
+                  </Link>
+                </div>
+              </div>
+              
+              {/* Insights Dropdown */}
+              <div className="border-b border-gray-100 pb-2">
+                <div 
+                  className="flex justify-between items-center"
+                  onClick={() => toggleMobileDropdown('insights')}
+                >
+                  <span className={`font-bold ${isActive('/insights') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}>Insights</span>
+                  <img 
+                    src="/images/img_expanddown.svg" 
+                    alt="Expand" 
+                    className={`w-6 h-6 transition-transform duration-300 ${mobileDropdowns.insights ? 'rotate-180' : ''}`} 
+                  />
+                </div>
+                <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
+                  mobileDropdowns.insights ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
+                  <Link 
+                    to="/insights/blog" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Blog
+                  </Link>
+                  <Link 
+                    to="/insights/case-studies" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Case Studies
+                  </Link>
+                  <Link 
+                    to="/insights/resources" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Resources
+                  </Link>
+                  <Link 
+                    to="/insights/events" 
+                    className="block py-2 text-sm text-[#071e45] hover:text-[#22a8ff]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Events
+                  </Link>
+                </div>
+              </div>
+              
+              {/* About (no dropdown) */}
               <Link
                 to="/about"
-                className={`font-bold ${isActive('/about') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+                className={`font-bold border-b border-gray-100 pb-2 ${isActive('/about') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
+              
               <div className="pt-2">
                 <Button variant="primary" className="w-full" onClick={handleContactClick}>
                   Let's Talk
