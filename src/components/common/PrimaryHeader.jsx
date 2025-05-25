@@ -330,7 +330,7 @@ const PrimaryHeader = () => {
                               className="flex justify-between items-center"
                               onClick={() => toggleMobileDropdown('services')}
                             >
-                              <span className="text-base font-bold text-blue-800">Services</span>
+                             <span className={`font-bold ${isActive('/services') ? 'text-[#22a8ff]' : 'text-[#071e45]'}`}>Services</span>
                               <img 
                                 src="/images/img_expanddown_24x24.svg" 
                                 alt="Expand" 
