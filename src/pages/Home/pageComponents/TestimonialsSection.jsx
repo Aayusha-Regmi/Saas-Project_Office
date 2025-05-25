@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'; // <-- Added Framer Motion
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useInView, useAnimation } from 'framer-motion'; // <-- Enhanced Framer Motion imports
 import Card from '../../../components/common/AboutCard';
 import RatingBar from '../../../components/ui/AboutRatingBar';
 import Button from '../../../components/ui/AboutButton';
@@ -8,7 +8,11 @@ import { useNavigate } from 'react-router-dom';
 const TestimonialsSection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const navigate = useNavigate();
-const path = '/about';
+  const path = '/about';
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: false, threshold: 0.2 });
+  const controls = useAnimation();
+  
   const handleNavigation = (path) => {
     navigate(path);
     window.scrollTo({
@@ -16,6 +20,12 @@ const path = '/about';
       behavior: 'smooth'
     });
   };
+  
+  useEffect(() => {
+    if (isInView) {
+      controls.start('visible');
+    }
+  }, [isInView, controls]);
 
   const testimonials = [
     {

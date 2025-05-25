@@ -285,9 +285,8 @@ const Header = () => {
             </Link>
             
             {/* Mobile Industries Dropdown */}
-            <div className="border-b border-gray-100 pb-2">
-              <div 
-                className="flex justify-between items-center"
+            <div className="border-b border-gray-100 pb-2">              <div 
+                className="flex justify-between items-center py-2 cursor-pointer hover:bg-blue-50/50 rounded-md px-2 transition-colors"
                 onClick={() => toggleMobileDropdown('industries')}
               >
                 <span className="text-base font-bold text-blue-800">Industries</span>
