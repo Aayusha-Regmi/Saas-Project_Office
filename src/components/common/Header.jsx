@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import '../../styles/header.css';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);  const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
+  // Detect if we're on the home page with hero section
+  const [isOnHeroPage, setIsOnHeroPage] = useState(false);
   // Add state for mobile dropdowns
   const [mobileDropdowns, setMobileDropdowns] = useState({
     industries: false,
@@ -81,6 +82,30 @@ const Header = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+    // Detect if we're on the home page with hero section
+  useEffect(() => {
+    const checkHeroPage = () => {
+      setIsOnHeroPage(document.body.classList.contains('has-hero-section'));
+    };
+    
+    // Check initially
+    checkHeroPage();
+    
+    // Fallback for browsers that don't support MutationObserver
+    if (typeof MutationObserver === 'undefined') {
+      // Use a timer as fallback
+      const interval = setInterval(checkHeroPage, 500);
+      return () => clearInterval(interval);
+    }
+    
+    // Set up a mutation observer to detect when body classes change
+    const observer = new MutationObserver(checkHeroPage);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -103,20 +128,22 @@ const Header = () => {
   };
   
   return (    <header 
-      className={`sticky top-0 z-50 py-1 sm:py-2 md:py-3 bg-white transition-all duration-300 ${
-        scrolled ? 'shadow-md' : ''
+      className={`sticky top-0 z-50 py-1 sm:py-2 md:py-3 transition-all duration-300 ${
+        isOnHeroPage ? '' : 'bg-white'
+      } ${
+        scrolled ? (isOnHeroPage ? 'scrolled' : 'shadow-md') : ''
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="container mx-auto px-3 sm:px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <Link to="/">
+          <Link to="/" className="flex items-center" aria-label="Go to homepage">
             <img 
               src="/images/img_saas_logo_101_1.png" 
               alt="SAAS Logo" 
-              className="h-[60px] sm:h-[70px] md:h-[90px] w-auto transition-all duration-300" 
+              className="h-[50px] sm:h-[60px] md:h-[70px] lg:h-[90px] w-auto transition-all duration-300" 
             />
           </Link>
-        </div>        {/* Desktop Navigation */}
+        </div>{/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-2 xl:space-x-5">
           <Link to="/" className="text-sm xl:text-base font-bold text-blue-500 hover:text-blue-600 transition-colors">
             Home
@@ -263,8 +290,22 @@ const Header = () => {
             </div>
           </div>
         </div>        {/* Mobile Controls with Toggle Button */}
-        <div className="flex items-center space-x-2 lg:hidden">          <button 
-            className="p-2 rounded-md hover:bg-gray-100 active:bg-gray-200 focus:outline-none mobile-toggle-button" 
+        <div className="flex items-center space-x-4 lg:hidden">
+          {/* Call button on mobile - make it compact */}
+          <a 
+            href="tel:+9779802374215" 
+            className="flex items-center justify-center bg-blue-50 rounded-full p-2"
+            aria-label="Call us"
+          >
+            <img 
+              src="/images/img_group_1171275967.svg" 
+              alt="Call" 
+              className="w-6 h-6" 
+            />
+          </a>
+          
+          <button 
+            className="p-3 rounded-lg hover:bg-gray-100 active:bg-gray-200 focus:outline-none mobile-toggle-button touch-manipulation" 
             onClick={toggleMenu}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
@@ -288,18 +329,42 @@ const Header = () => {
         </div>
       </div>      {/* Mobile Navigation - Full Screen Overlay */}      <div 
         ref={menuRef}
-        className={`fixed inset-0 bg-white z-40 transition-transform duration-300 lg:hidden mobile-menu ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed inset-0 bg-white z-40 transition-all duration-300 lg:hidden mobile-menu ${
+          isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+        } ${isOnHeroPage ? 'home-mobile-menu' : ''}`}
         style={{ 
-          top: scrolled ? '60px' : '70px', 
+          top: scrolled ? '57px' : '65px', 
           overscrollBehavior: 'contain',
-          touchAction: 'pan-y' 
+          touchAction: 'pan-y', 
+          boxShadow: isMenuOpen ? '0 4px 6px -1px rgba(0, 0, 0, 0.1)' : 'none'
         }}
-      ><div className="container mx-auto px-4 py-4 h-full overflow-y-auto">
-          <nav className="flex flex-col space-y-4"><Link 
+      ><div className="container mx-auto px-4 sm:px-6 py-2 h-full overflow-y-auto">
+          <div className="flex justify-between items-center mb-2 sticky top-0 bg-white z-10 pb-2">
+            <h2 className="text-xl font-bold text-blue-800">Menu</h2>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="Close menu"
+              className="p-2 rounded-full hover:bg-gray-100 focus:outline-none touch-manipulation"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-6 w-6 text-blue-800" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth="2" 
+                  d="M6 18L18 6M6 6l12 12" 
+                />
+              </svg>
+            </button>
+          </div>          <nav className="flex flex-col space-y-2">
+            <Link 
               to="/" 
-              className="text-base font-bold text-blue-500 hover:text-blue-600 border-b border-gray-100 pb-2"
+              className="text-lg font-bold text-blue-500 hover:text-blue-600 border-b border-gray-100 py-3 px-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
@@ -310,7 +375,7 @@ const Header = () => {
               >
                 <Link 
                   to="/industries" 
-                  className="text-base font-bold text-blue-800"
+                  className="text-lg font-bold text-blue-800 flex-grow"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Industries
@@ -321,70 +386,68 @@ const Header = () => {
                     toggleMobileDropdown('industries');
                   }}
                   aria-label="Toggle Industries dropdown"
-                  className="focus:outline-none"
+                  className="focus:outline-none p-2 -mr-2 touch-manipulation"
                 >
                   <img 
                     src="/images/img_expanddown.svg" 
                     alt="Expand" 
-                    className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.industries ? 'rotate-180' : ''}`} 
+                    className={`w-6 h-6 transition-transform duration-300 ${mobileDropdowns.industries ? 'rotate-180' : ''}`} 
                   />
                 </button>
-              </div>
-              <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
-                mobileDropdowns.industries ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
-              }`}>                
-                <Link 
+              </div>              <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
+                mobileDropdowns.industries ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+              }`}>                  <Link 
                   to="/industries/banking" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Banking & Financial Service
                 </Link>
                 <Link 
                   to="/industries/manufacturing" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Manufacturing
                 </Link>
                 <Link 
                   to="/industries/ngo-ingo" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   NGO/INGO
                 </Link>
                 <Link 
                   to="/industries/electronics" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Electronics & Communication Industry
                 </Link>
                 <Link 
                   to="/industries/trading" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Trading & Retail
                 </Link>
                 <Link 
                   to="/industries/travel" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Travel, Tourism & Hotel
                 </Link>
                 <Link 
                   to="/industries/hospital" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Hospital and Education Industry
                 </Link>
                 <Link 
                   to="/industries/hydropower" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Hydropower & Construction
@@ -392,12 +455,13 @@ const Header = () => {
               </div>
             </div>
               {/* Mobile Services Dropdown */}
-            <div className="border-b border-gray-100 pb-2">              <div 
+            <div className="border-b border-gray-100 pb-2">
+              <div 
                 className="flex justify-between items-center py-3 cursor-pointer hover:bg-blue-50/50 active:bg-blue-50/70 rounded-md px-3 transition-colors"
               >
                 <Link 
                   to="/services" 
-                  className="text-base font-bold text-blue-800"
+                  className="text-lg font-bold text-blue-800 flex-grow"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Services
@@ -408,55 +472,56 @@ const Header = () => {
                     toggleMobileDropdown('services');
                   }}
                   aria-label="Toggle Services dropdown"
-                  className="focus:outline-none"
+                  className="focus:outline-none p-2 -mr-2 touch-manipulation"
                 >
                   <img 
                     src="/images/img_expanddown_24x24.svg" 
                     alt="Expand" 
-                    className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.services ? 'rotate-180' : ''}`} 
+                    className={`w-6 h-6 transition-transform duration-300 ${mobileDropdowns.services ? 'rotate-180' : ''}`} 
                   />
                 </button>
-              </div><div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
-                mobileDropdowns.services ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+              </div>
+              <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
+                mobileDropdowns.services ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
               }`}>                
                 <Link 
                   to="/caseStudy/personal-tax" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Personal Tax
                 </Link>
                 <Link 
                   to="/caseStudy/tax-audit-support" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Tax Audit Support
                 </Link>
                 <Link 
                   to="/caseStudy/international-tax" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   International Tax
                 </Link>
                 <Link 
                   to="/caseStudy/tax-advisory" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Tax Advisory
                 </Link>
                 <Link 
                   to="/caseStudy/investment-advisor" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Investment Advisor
                 </Link>
                 <Link 
                   to="/caseStudy/insurance-tax" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Insurance Tax
@@ -466,18 +531,19 @@ const Header = () => {
             
             <Link 
               to="/teams" 
-              className="text-base font-bold text-blue-800 hover:text-blue-600 border-b border-gray-100 pb-2"
+              className="text-lg font-bold text-blue-800 hover:text-blue-600 border-b border-gray-100 py-3 px-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Teams
             </Link>
               {/* Mobile Calculations Dropdown */}
-            <div className="border-b border-gray-100 pb-2">              <div 
+            <div className="border-b border-gray-100 pb-2">
+              <div 
                 className="flex justify-between items-center py-3 cursor-pointer hover:bg-blue-50/50 active:bg-blue-50/70 rounded-md px-3 transition-colors"
               >
                 <Link 
                   to="/calculations" 
-                  className="text-base font-bold text-blue-800"
+                  className="text-lg font-bold text-blue-800 flex-grow"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Calculations
@@ -488,35 +554,35 @@ const Header = () => {
                     toggleMobileDropdown('calculations');
                   }}
                   aria-label="Toggle Calculations dropdown"
-                  className="focus:outline-none"
+                  className="focus:outline-none p-2 -mr-2 touch-manipulation"
                 >
                   <img 
                     src="/images/img_expanddown_24x24.svg" 
                     alt="Expand" 
-                    className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.calculations ? 'rotate-180' : ''}`} 
+                    className={`w-6 h-6 transition-transform duration-300 ${mobileDropdowns.calculations ? 'rotate-180' : ''}`} 
                   />
                 </button>
               </div>
               <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
-                mobileDropdowns.calculations ? 'max-h-36 opacity-100' : 'max-h-0 opacity-0'
+                mobileDropdowns.calculations ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
               }`}>                
                 <Link 
                   to="#" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Tax Calculator
                 </Link>
                 <Link 
                   to="#" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   ROI Calculator
                 </Link>
                 <Link 
                   to="#" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Pricing Models
@@ -524,12 +590,13 @@ const Header = () => {
               </div>
             </div>
               {/* Mobile Insights Dropdown */}
-            <div className="border-b border-gray-100 pb-2">              <div 
+            <div className="border-b border-gray-100 pb-2">
+              <div 
                 className="flex justify-between items-center py-3 cursor-pointer hover:bg-blue-50/50 active:bg-blue-50/70 rounded-md px-3 transition-colors"
               >
                 <Link 
                   to="/insights" 
-                  className="text-base font-bold text-blue-800"
+                  className="text-lg font-bold text-blue-800 flex-grow"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Insights
@@ -540,42 +607,42 @@ const Header = () => {
                     toggleMobileDropdown('insights');
                   }}
                   aria-label="Toggle Insights dropdown"
-                  className="focus:outline-none"
+                  className="focus:outline-none p-2 -mr-2 touch-manipulation"
                 >
                   <img 
                     src="/images/img_expanddown_24x24.svg" 
                     alt="Expand" 
-                    className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.insights ? 'rotate-180' : ''}`} 
+                    className={`w-6 h-6 transition-transform duration-300 ${mobileDropdowns.insights ? 'rotate-180' : ''}`} 
                   />
                 </button>
               </div>
               <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
-                mobileDropdowns.insights ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+                mobileDropdowns.insights ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
               }`}>                
                 <Link 
                   to="#" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Blog
                 </Link>
                 <Link 
                   to="#" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Case Studies
                 </Link>
                 <Link 
                   to="#" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Resources
                 </Link>
                 <Link 
                   to="#" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Events
@@ -583,12 +650,13 @@ const Header = () => {
               </div>
             </div>
               {/* Mobile About Dropdown */}
-            <div className="border-b border-gray-100 pb-2">              <div 
+            <div className="border-b border-gray-100 pb-2">
+              <div 
                 className="flex justify-between items-center py-3 cursor-pointer hover:bg-blue-50/50 active:bg-blue-50/70 rounded-md px-3 transition-colors"
               >
                 <Link 
                   to="/about" 
-                  className="text-base font-bold text-blue-800"
+                  className="text-lg font-bold text-blue-800 flex-grow"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About
@@ -599,41 +667,42 @@ const Header = () => {
                     toggleMobileDropdown('about');
                   }}
                   aria-label="Toggle About dropdown"
-                  className="focus:outline-none"
+                  className="focus:outline-none p-2 -mr-2 touch-manipulation"
                 >
                   <img 
                     src="/images/img_expanddown_24x24.svg" 
                     alt="Expand" 
-                    className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.about ? 'rotate-180' : ''}`} 
+                    className={`w-6 h-6 transition-transform duration-300 ${mobileDropdowns.about ? 'rotate-180' : ''}`} 
                   />
                 </button>
               </div>
               <div className={`mt-2 ml-4 overflow-hidden transition-all duration-300 ${
-                mobileDropdowns.about ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
-              }`}>                <Link 
+                mobileDropdowns.about ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+              }`}>                
+                <Link 
                   to="/about/company" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Our Company
                 </Link>
                 <Link 
                   to="/about/team" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Leadership Team
                 </Link>
                 <Link 
                   to="/about/careers" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Careers
                 </Link>
                 <Link 
                   to="/about/contact" 
-                  className="block py-2 text-sm text-blue-800 hover:text-blue-600 mobile-menu-item px-2 rounded-md"
+                  className="block py-3 text-base text-blue-800 hover:text-blue-600 mobile-menu-item px-3 rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact Us
@@ -642,11 +711,11 @@ const Header = () => {
             </div>
             
             {/* Call Info */}
-            <div className="flex items-center pt-3 mt-3 border-t border-gray-200">
+            <div className="flex items-center pt-4 mt-2 border-t border-gray-200">
               <img src="/images/img_group_1171275967.svg" alt="Call" className="w-8 h-8" />
-              <div className="ml-2">
-                <p className="text-xs font-bold text-blue-500">Call 24/7</p>
-                <p className="text-xs font-bold text-blue-800">+977 9802374215</p>
+              <div className="ml-3">
+                <p className="text-sm font-bold text-blue-500">Call 24/7</p>
+                <a href="tel:+9779802374215" className="text-sm font-bold text-blue-800 hover:underline">+977 9802374215</a>
               </div>
             </div>
           </nav>

@@ -18,6 +18,17 @@ import TestimonialsSection from './pageComponents/TestimonialsSection';
 import ContactForm from '../Contact/LetsTalkComponent.jsx/ContactForm';
 
 const HomePage = () => { 
+  // Add useEffect to add 'has-hero-section' class to body when on home page
+  React.useEffect(() => {
+    // Add class to body when component mounts
+    document.body.classList.add('has-hero-section');
+    
+    // Remove class when component unmounts
+    return () => {
+      document.body.classList.remove('has-hero-section');
+    };
+  }, []);
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Header />

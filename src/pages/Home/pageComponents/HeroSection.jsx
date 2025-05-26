@@ -18,7 +18,7 @@ const HomeHeroSection = () => {
     <section className="relative overflow-hidden py-8 md:py-12 lg:py-16">
       {/* Background elements - hidden on small screens, visible and responsive on larger screens */}
       <div className="hidden md:block absolute right-0 top-[20%] lg:top-[25%]">
-        <div className="w-[200px] h-[210px] lg:w-[408px] lg:h-[427px] rounded-full bg-green-300 opacity-60"></div>
+        <div className="w-[200px] h-[210px] lg:w-[408px] lg:h-[420px] rounded-full bg-green-300 opacity-60"></div>
         <div className="absolute top-[15%] left-[15%] w-[60px] h-[60px] lg:top-[73px] lg:left-[56px] lg:w-[115px] lg:h-[115px] rounded-full bg-red-600/30"></div>
         <div className="absolute top-[70%] left-[30%] w-[60px] h-[60px] lg:top-[395px] lg:left-[180px] lg:w-[115px] lg:h-[115px] rounded-full bg-red-600/30"></div>
       </div>
