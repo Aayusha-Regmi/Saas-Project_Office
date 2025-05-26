@@ -1,0 +1,108 @@
+/* Header dropdown specific styles */
+.nav-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-group:hover .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Mobile menu animations */
+.mobile-dropdown-enter {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.mobile-dropdown-enter-active {
+  max-height: 500px;
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+
+.mobile-dropdown-exit {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.mobile-dropdown-exit-active {
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s ease-in;
+  overflow: hidden;
+}
+
+/* Mobile menu item hover effects */
+.mobile-menu-item {
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-item:hover,
+.mobile-menu-item:active {
+  background-color: rgba(59, 130, 246, 0.05);
+  transform: translateX(5px);
+}
+
+/* Mobile button styles */
+.mobile-close-button, .mobile-toggle-button {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.2s ease;
+}
+
+.mobile-close-button:active,
+.mobile-toggle-button:active {
+  transform: scale(0.95);
+}
+
+/* Toggle button animation */
+.mobile-toggle-button svg path {
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1023px) {
+  .mobile-menu {
+    height: calc(100vh - 60px);
+  }
+  
+  /* Improve touch targets for mobile */
+  .mobile-menu-item {
+    padding: 10px 12px;
+  }
+  
+  .mobile-toggle-button {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Further adjustments for tablets */
+  .mobile-menu {
+    height: calc(100vh - 55px);
+  }
+}
+
+@media (max-width: 640px) {
+  .header-logo {
+    max-width: 180px;
+  }
+  
+  /* Smaller screens adjustments */
+  .mobile-menu-item {
+    padding: 8px 10px;
+  }
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .mobile-menu {
+    height: -webkit-fill-available;
+  }
+}
