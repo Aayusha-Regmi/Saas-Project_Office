@@ -19,6 +19,14 @@ const Footer = () => {
       }
     }, 100);
   };
+  //  Handle footer logo click
+  const handleFooterLogoClick = () => {
+    navigate('/home');
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   // Handle navigation to case study pages
   const handleCaseStudyClick = (pagePath) => {
@@ -66,7 +74,9 @@ const Footer = () => {
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1 - Company Info */}
           <div className="text-center md:text-left">
+            <Link to = {handleFooterLogoClick()}>
             <img src="/images/img_saas_logo_101_3.png" alt="SAAS Logo" className="h-16 w-auto mx-auto md:mx-0 mb-6" />
+            </Link>
             <p className="text-base md:text-lg font-semibold leading-relaxed mb-8 max-w-md mx-auto md:mx-0">
               We are many variations of passages available but the majority have suffered alteration in some form by injected humour words believable.
             </p>
