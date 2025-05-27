@@ -74,8 +74,9 @@ const Footer = () => {
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1 - Company Info */}
           <div className="text-center md:text-left">
-            <Link to = {handleFooterLogoClick()}>
-            <img src="/images/img_saas_logo_101_3.png" alt="SAAS Logo" className="h-16 w-auto mx-auto md:mx-0 mb-6" />
+            {/* Fix: don't immediately invoke the function, pass it as a callback */}
+            <Link to="/" onClick={handleFooterLogoClick}>
+              <img src="/images/img_saas_logo_101_3.png" alt="SAAS Logo" className="h-16 w-auto mx-auto md:mx-0 mb-6" />
             </Link>
             <p className="text-base md:text-lg font-semibold leading-relaxed mb-8 max-w-md mx-auto md:mx-0">
               We are many variations of passages available but the majority have suffered alteration in some form by injected humour words believable.
@@ -118,9 +119,9 @@ const Footer = () => {
               <li><Link to="/about" className="hover:text-[#22a8ff] transition-colors">About Us</Link></li>
               <li><Link to="/" className="hover:text-[#22a8ff] transition-colors">Update News</Link></li>
               <li><Link to="/contact" className="hover:text-[#22a8ff] transition-colors">Contact Us</Link></li>
-              <li onClick={handleTestimonialsClick} className="cursor-pointer hover:text-[#22a8ff] transition-colors">Testimonials</li>
-              <li><Link to="/" className="hover:text-[#22a8ff] transition-colors">Terms Of Service</Link></li>
-              <li><Link to="/" className="hover:text-[#22a8ff] transition-colors">Privacy Policy</Link></li>
+              <li><span onClick={handleTestimonialsClick} className="cursor-pointer hover:text-[#22a8ff] transition-colors">Testimonials</span></li>
+              <li><Link to="/terms" className="hover:text-[#22a8ff] transition-colors">Terms Of Service</Link></li>
+              <li><Link to="/privacy" className="hover:text-[#22a8ff] transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
           
