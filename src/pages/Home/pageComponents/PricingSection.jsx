@@ -247,7 +247,7 @@ const PricingSection = () => {
               <div className="pt-6">
                 <h3 className="text-4xl font-bold text-blue-800 text-center mb-1">
                   {plan.price}
-                  <span className="text-base font-medium text-black">/Monthly</span>
+                  
                 </h3>
 
                 {/* Purchase Button */}
